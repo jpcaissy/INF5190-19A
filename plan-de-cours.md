@@ -73,15 +73,15 @@ L'horaire présentée est à titre indicatif et peut changer tout au long de la 
 
   | Semaine |  Date du cours | Cours                                                                      | Laboratoire                                                                                       |
   |---------|----------------|----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
-  | 1       | 4 septembre    | Présentation du coursIntroduction au dévelopement webIntroduction à Python | Introduction à Python, création d'une application web simple                                      |
-  | 2       | 11 septembre   | (Suite) Introduction à PythonFonctionnement d'une application web          | Introduction au cadriciel de développement web Flask                                              |
+  | 1       | 4 septembre    | Présentation du cours, Introduction au dévelopement web, Introduction à Python | Introduction à Python, création d'une application web simple                                      |
+  | 2       | 11 septembre   | (Suite) Introduction à Python, Fonctionnement d'une application web          | Introduction au cadriciel de développement web Flask                                              |
   | 3       | 18 septembre   | Architecture d'une application web                                         | Création d'une application web avec Flask et intégration de tests                                 |
   | 4       | 25 septembre   | Modèle MVC : Controller                                                    | Système de templating, Sérialisation JSON                                                         |
   | 5       | 2 octobre      | (suite) Modèle MVC : Model                                                 | Intégration d'une base de donnée à une application Flask, Système de migration de base de donnée  |
   | 6       | 9 octobre      | (suite) Modèle MVC : View                                                  | Formulaires, Validations et gestion d'erreurs, Localisation (i10n) et internationalisation (i18n) |
   | 7       | 16 octobre     | Révision                                                                   | Aide pour le projet de session                                                                    |
   | 8       | 23 octobre     | Examen intra                                                               |                                                                                                   |
-  | 9       | 30 octobre     | Maintenance d'une application webInteropérabilité d'une application web    | Intégration de métriques d'observabilités, Création d'une API REST                                |
+  | 9       | 30 octobre     | Maintenance d'une application web, Interopérabilité d'une application web    | Intégration de métriques d'observabilités, Création d'une API REST                                |
   | 10      | 6 novembre     | (suite) Micro servicesRésilience d'une application web                     | Création et utilisation d'un service externe, Pagination de l'API REST                            |
   | 11      | 13 novembre    | Performance d'une application web                                          | Systèmes de caching, Intégration de tâches en arrière plan (background jobs)                      |
   | 12      | 20 novembre    | Virtualisation et conteneurs                                               | Création d'une image docker de l'application web                                                  |
