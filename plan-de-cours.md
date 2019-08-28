@@ -69,7 +69,7 @@ Les objectifs du cours sont les suivants :
 
 ## Horaire
 
-L'horaire proposé est donné comme référence et va surement changer et être adapter au cours de la session.
+L'horaire présentée est à titre indicatif et peut changer tout au long de la session.
 
   | Semaine |  Date du cours | Cours                                                                      | Laboratoire                                                                                       |
   |---------|----------------|----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
