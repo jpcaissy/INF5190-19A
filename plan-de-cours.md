@@ -48,7 +48,7 @@ Les objectifs du cours sont les suivants :
 * Connaître les différents formats de sérialisations;
 * Introduire l'étudiant-e aux différents systèmes de base de données;
 * Pouvoir concevoir des micro-services et l'interopérabilité de ceux-ci;
-* Différencier et comprendre l'utilisation des différents types d'authentifications et de d'identifications;
+* Différencier et comprendre l'utilisation des différents types d'authentifications et d'identifications;
 * Pouvoir maintenir et diagnostiquer les problèmes et exceptions d'une application web;
 * Pouvoir effectuer des tests de charges sur une application web;
 * Comprendre et effectuer le déploiement d'application web;
@@ -69,7 +69,7 @@ Les objectifs du cours sont les suivants :
 
 ## Horaire
 
-L'horaire présentée est à titre indicatif et peut changer tout au long de la session.
+L'horaire présenté est à titre indicatif et peut changer tout au long de la session.
 
   | Semaine |  Date du cours | Cours                                                                      | Laboratoire                                                                                       |
   |---------|----------------|----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
@@ -103,10 +103,10 @@ Le projet de session consiste à développer et déployer une application web co
 
 Un projet de session remis en retard reçoit la note zéro à moins d'avoir fait l'objet d'une entente préalable avec le professeur.
 
-Le détail des conditions de réalisation du travail de session est précisé avec la description de celuic-i.
+Le détail des conditions de réalisation du travail de session est précisé avec la description de celui-ci.
 
 La qualité du français fait partie intégrante des critères d'évaluation des travaux et des examens jusqu'à un maximum de 25%.
 
 La note de passage du cours est de 60% pour l'ensemble de l'évaluation et de 50% pour les deux examens combinés.
 
-Le projet projet de session peut se faire individuel ou en équipe de deux.
+Le projet projet de session peut se faire individuellement ou en équipe de deux.
