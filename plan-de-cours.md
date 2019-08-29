@@ -48,19 +48,19 @@ Les objectifs du cours sont les suivants :
 * Connaître les différents formats de sérialisations;
 * Introduire l'étudiant-e aux différents systèmes de base de données;
 * Pouvoir concevoir des micro-services et l'interopérabilité de ceux-ci;
-* Différencier et comprendre l'utilisation des différents types d'authentifications et de d'identifications;
+* Différencier et comprendre l'utilisation des différents types d'authentifications et d'identifications;
 * Pouvoir maintenir et diagnostiquer les problèmes et exceptions d'une application web;
 * Pouvoir effectuer des tests de charges sur une application web;
 * Comprendre et effectuer le déploiement d'application web;
 
 # Contenu du cours
 
-* Introduction et historique du développement web : évolution des protocoles (Gopher, HTTP, HTTP2), sites statiques, langage script côté client et côté serveur, plugins de navigateurs (Flash, Java applets, Silverlight), Ajax, HTML5;
-* Le fonctionnement d'une application Web : Requête HTTP, Balanceur de charge, Cookie/Local storage, cache locale (CDN, HTTP Caching), cache applicative (Memcached, Redis)
-* L'architecture d'une application web : MVC, middleware, différents types de tests (unitaires, fonctionnels et d’intégrations, de navigateurs, end-to-end), websockets;
-    * *Model* : Intégration d'une base de donnée : différents types de base de données (NoSQL, relationnel, distribué, key-value store), ORM, modélisation du modèle, migrations);
-    * *View* : Engins de templating HTML, formats de sérialisations (JSON, XML, Protocol Buffers), localisation (l10n) et internationalisation (i18n);
-    * *Controller*: Gestion de contrôle : Authentification (API, JWT, HTTP, authentification basée sur des certificats), validation de l'entrée et gestion d'erreurs;
+* Introduction et historique du développement web : évolution des protocoles (Gopher, HTTP, HTTP2), sites statiques, langages de script côtés client et côtés serveur, plugins de navigateurs (Flash, Java applets, Silverlight), Ajax, HTML5;
+* Fonctionnement d'une application Web : requêtes HTTP, balanceurs de charge, Cookie/Local storages, caches locales (CDN, HTTP Caching), caches applicatives (Memcached, Redis)
+* Architecture d'une application web : MVC, middlewares, différents types de tests (unitaires, fonctionnels et d’intégrations, de navigateurs, end-to-end), websockets;
+    * *Model* : Intégration d'une base de données : différents types de bases de données (NoSQL, relationnel, distribué, key-value store), ORM, modélisation du modèle, migrations;
+    * *View* : Engins de templating HTML, formats de sérialisation (JSON, XML, Protocol Buffers), localisation (l10n) et internationalisation (i18n);
+    * *Controller*: Gestion de contrôle : authentification (API, JWT, HTTP, authentification basée sur des certificats), validation de l'entrée et gestion d'erreurs;
 * Maintenance d'une application web : gestion des logs d'erreurs, observabilité, métriques opérationnelles, métriques d’acceptabilité (SLA, SLO), modèle SRE (Site Reliability Engineer);
 * Interopérabilité d'une application web et micro services : RPC (gRPC, HTTP), REST, découvertes de services;
 * Résilience et performances d'une application web : tests de charge, requêtes n+1, pagination, disjoncteurs et contrôles de flux, tâches en arrière plan et récurrentes (background jobs, cron jobs);
@@ -69,21 +69,21 @@ Les objectifs du cours sont les suivants :
 
 ## Horaire
 
-L'horaire présentée est à titre indicatif et peut changer tout au long de la session.
+L'horaire présenté est à titre indicatif et peut changer tout au long de la session.
 
   | Semaine |  Date du cours | Cours                                                                      | Laboratoire                                                                                       |
   |---------|----------------|----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
-  | 1       | 4 septembre    | Présentation du cours, Introduction au dévelopement web, Introduction à Python | Introduction à Python, création d'une application web simple                                      |
-  | 2       | 11 septembre   | (Suite) Introduction à Python, Fonctionnement d'une application web          | Introduction au cadriciel de développement web Flask                                              |
+  | 1       | 4 septembre    | Présentation du cours, introduction au dévelopement web, introduction à Python | Introduction à Python, création d'une application web simple                                      |
+  | 2       | 11 septembre   | (Suite) Introduction à Python, fonctionnement d'une application web          | Introduction au cadriciel de développement web Flask                                              |
   | 3       | 18 septembre   | Architecture d'une application web                                         | Création d'une application web avec Flask et intégration de tests                                 |
   | 4       | 25 septembre   | Modèle MVC : Controller                                                    | Système de templating, Sérialisation JSON                                                         |
-  | 5       | 2 octobre      | (suite) Modèle MVC : Model                                                 | Intégration d'une base de donnée à une application Flask, Système de migration de base de donnée  |
-  | 6       | 9 octobre      | (suite) Modèle MVC : View                                                  | Formulaires, Validations et gestion d'erreurs, Localisation (i10n) et internationalisation (i18n) |
+  | 5       | 2 octobre      | (suite) Modèle MVC : Model                                                 | Intégration d'une base de données à une application Flask, systèmes de migration de base de données |
+  | 6       | 9 octobre      | (suite) Modèle MVC : View                                                  | Formulaires, validation et gestion d'erreurs, localisation (i10n) et internationalisation (i18n) |
   | 7       | 16 octobre     | Révision                                                                   | Aide pour le projet de session                                                                    |
   | 8       | 23 octobre     | Examen intra                                                               |                                                                                                   |
-  | 9       | 30 octobre     | Maintenance d'une application web, Interopérabilité d'une application web    | Intégration de métriques d'observabilités, Création d'une API REST                                |
-  | 10      | 6 novembre     | (suite) Micro servicesRésilience d'une application web                     | Création et utilisation d'un service externe, Pagination de l'API REST                            |
-  | 11      | 13 novembre    | Performance d'une application web                                          | Systèmes de caching, Intégration de tâches en arrière plan (background jobs)                      |
+  | 9       | 30 octobre     | Maintenance d'une application web, interopérabilité d'une application web    | Intégration de métriques d'observabilité, création d'une API REST                                |
+  | 10      | 6 novembre     | (suite) Micro services, résilience d'une application web                     | Création et utilisation d'un service externe, pagination de l'API REST                            |
+  | 11      | 13 novembre    | Performance d'une application web                                          | Systèmes de caching, intégration de tâches en arrière plan (background jobs)                      |
   | 12      | 20 novembre    | Virtualisation et conteneurs                                               | Création d'une image docker de l'application web                                                  |
   | 13      | 27 novembre    | Déploiement d'une application web                                          | Déploiement de l'application web sur Google Cloud Platform                                        |
   | 14      | 4 décembre     | Révision                                                                   | Aide pour le projet de session                                                                    |
@@ -103,10 +103,10 @@ Le projet de session consiste à développer et déployer une application web co
 
 Un projet de session remis en retard reçoit la note zéro à moins d'avoir fait l'objet d'une entente préalable avec le professeur.
 
-Le détail des conditions de réalisation du travail de session est précisé avec la description de celuic-i.
+Le détail des conditions de réalisation du travail de session est précisé avec la description de celui-ci.
 
 La qualité du français fait partie intégrante des critères d'évaluation des travaux et des examens jusqu'à un maximum de 25%.
 
 La note de passage du cours est de 60% pour l'ensemble de l'évaluation et de 50% pour les deux examens combinés.
 
-Le projet projet de session peut se faire individuel ou en équipe de deux.
+Le projet projet de session peut se faire individuellement ou en équipe de deux.
