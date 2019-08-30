@@ -36,36 +36,19 @@ Ce cours comporte une séance obligatoire de laboratoire (2 heures par semaine).
 * INF3080 - Bases de données
 * INF3190 - Introduction à la programmation Web
 
-# Objectif du cours
-
-Ce cours vise à initier les étudiant-e-s aux méthodes avancées et aux bonnes pratiques de l'industrie pour la conception, le développement, la maintenance et le déploiement d'applications Web modernes.
-
-Les objectifs du cours sont les suivants :
-
-* Comprendre les fondements du développement logiciel d'applications Web;
-* Familiariser l'étudiant au cadre de développement web MVC (Model-View-Controller);
-* Comprendre les différents composants d'une application web;
-* Connaître les différents formats de sérialisations;
-* Introduire l'étudiant-e aux différents systèmes de base de données;
-* Pouvoir concevoir des micro-services et l'interopérabilité de ceux-ci;
-* Différencier et comprendre l'utilisation des différents types d'authentifications et d'identifications;
-* Pouvoir maintenir et diagnostiquer les problèmes et exceptions d'une application web;
-* Pouvoir effectuer des tests de charges sur une application web;
-* Comprendre et effectuer le déploiement d'application web;
-
 # Contenu du cours
 
-* Introduction et historique du développement web : évolution des protocoles (Gopher, HTTP, HTTP2), sites statiques, langages de script côtés client et côtés serveur, plugins de navigateurs (Flash, Java applets, Silverlight), Ajax, HTML5;
-* Fonctionnement d'une application Web : requêtes HTTP, balanceurs de charge, Cookie/Local storages, caches locales (CDN, HTTP Caching), caches applicatives (Memcached, Redis)
-* Architecture d'une application web : MVC, middlewares, différents types de tests (unitaires, fonctionnels et d’intégrations, de navigateurs, end-to-end), websockets;
+* Rappel et historique du développement web : évolution des protocoles (Gopher, HTTP, HTTP2), sites statiques, langages de script côtés client et côtés serveur, plugins de navigateurs (Flash, Java applets, Silverlight), Ajax, HTML5;
+* Fonctionnement d'une application Web : requêtes HTTP, ressources, balanceurs de charge, Cookie/Local storages, stratégies d'optimisations (caches locales, caches de protocole HTTP, caches applicatives);
+* Architecture d'une application web : MVC, middlewares, différents types de tests (unitaires, fonctionnels et d’intégrations, de navigateurs, bout en bout), websockets;
     * *Model* : Intégration d'une base de données : différents types de bases de données (NoSQL, relationnel, distribué, key-value store), ORM, modélisation du modèle, migrations;
     * *View* : Engins de templating HTML, formats de sérialisation (JSON, XML, Protocol Buffers), localisation (l10n) et internationalisation (i18n);
     * *Controller*: Gestion de contrôle : authentification (API, JWT, HTTP, authentification basée sur des certificats), validation de l'entrée et gestion d'erreurs;
 * Maintenance d'une application web : gestion des logs d'erreurs, observabilité, métriques opérationnelles, métriques d’acceptabilité (SLA, SLO), modèle SRE (Site Reliability Engineer);
 * Interopérabilité d'une application web et micro services : RPC (gRPC, HTTP), REST, découvertes de services;
-* Résilience et performances d'une application web : tests de charge, requêtes n+1, pagination, disjoncteurs et contrôles de flux, tâches en arrière plan et récurrentes (background jobs, cron jobs);
+* Résilience et performances d'une application web : tests de charge, requêtes n+1, pagination, disjoncteurs et contrôles de flux, tâches en arrière plan et récurrentes, réseau de diffusion de contenu (Content Delivery Network);
 * Virtualisation et conteneurs : virtualisation et émulation de systèmes d'exploitations, isolation, quotas de ressources, conteneurs, orchestration (Kubernetes)
-* Déploiement d'une application web : FTP, Platform as a Service (PaaS: Heroku, Google AppEngine), Infrastructure as a Service (IaaS: AWS, GCP), déploiement continu, déploiements progressifs et de canaries;
+* Déploiement d'une application web : Platform as a Service (PaaS: Heroku, Google AppEngine), Infrastructure as a Service (IaaS: AWS, GCP), déploiement continu, déploiements progressifs et de canaries;
 
 ## Horaire
 
@@ -73,7 +56,7 @@ L'horaire présenté est à titre indicatif et peut changer tout au long de la s
 
   | Semaine |  Date du cours | Cours                                                                      | Laboratoire                                                                                       |
   |---------|----------------|----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
-  | 1       | 4 septembre    | Présentation du cours, introduction au dévelopement web, introduction à Python | Introduction à Python, création d'une application web simple                                      |
+  | 1       | 4 septembre    | Présentation du cours, rappel au dévelopement web, introduction à Python | Introduction à Python, création d'une application web simple                                      |
   | 2       | 11 septembre   | (Suite) Introduction à Python, fonctionnement d'une application web          | Introduction au cadriciel de développement web Flask                                              |
   | 3       | 18 septembre   | Architecture d'une application web                                         | Création d'une application web avec Flask et intégration de tests                                 |
   | 4       | 25 septembre   | Modèle MVC : Controller                                                    | Système de templating, Sérialisation JSON                                                         |
@@ -110,3 +93,9 @@ La qualité du français fait partie intégrante des critères d'évaluation des
 La note de passage du cours est de 60% pour l'ensemble de l'évaluation et de 50% pour les deux examens combinés.
 
 Le projet projet de session peut se faire individuellement ou en équipe de deux.
+
+# Médiagrahie
+
+* Matt Makai. Full Stack Python Supporter's Edition. [Disponible gratuitement](https://www.fullstackpython.com/table-of-contents.html)
+* Betsy Beyer, Chris Jones, Jennifer Petoff et Niall Richard Murphy. Site Reliability Engineering: How Google Runs Production Systems. O'Reilly Media (2016). [Disponible gratuitement](https://landing.google.com/sre/books/)
+* Michael T. Nygard. Release It!: Design and Deploy Production-Ready Software. Pragmatic Bookshelf (2007)
