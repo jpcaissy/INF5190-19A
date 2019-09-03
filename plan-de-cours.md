@@ -1,21 +1,21 @@
 ---
+wip: true
 sigle: INF5190
 title: Programmation Web avancée
 session: Automne 2019
 resp:
   nom: Beaudry
-  prenom:  Eric
+  prenom:  Éric
   local: PK-4635
   tel: poste 4005
   email: beaudry.eric@uqam.ca
   web: http://ericbeaudry.ca/
+ens:
+  nom: Caissy
+  prenom: Jean-Philippe
+  email: caissy.jean-philippe@uqam.ca
+  web: https://caissy.dev/inf5190
 ---
-
-Chargé de cours : Jean-Philippe Caissy
-Horaire :
-  * Cours magistral : Mercredi 18h à 21h - Local à venir
-  * Laboratoire: Vendredi 18h à 20h - PKS1530 et PK-S1575
-Démonstrateurs : À venir
 
 # Description du cours
 
