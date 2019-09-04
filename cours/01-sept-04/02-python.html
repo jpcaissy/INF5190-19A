@@ -56,6 +56,20 @@
                     </p>
                     <p>Démonstration rapide!</p>
                 </section>
+               <section>
+                    <h3>Exécution d'un script</h3>
+                    <pre><code data-trim class="python">
+$ cat hello.py
+text = "Hello World!"
+print(text)
+
+                    </code></pre>
+                    <pre><code data-trim>
+$ python3 hello.py
+Hello World!
+                    </code></pre>
+                </section>
+
 
                 <section>
                     <h3>Syntaxe</h3>
@@ -63,13 +77,45 @@
                         <li>Aucun <em>curly-braces { ou }</em>!</li>
                         <li>L'indentation sert à délimiter les blocs de code, comme en CoffeeScript.</li>
                     <ul>
-                    <pre><code data-trim contenteditable class="python">
+                    <pre><code data-trim class="python">
 if taille > 50:
     print("Plus grand que 50")
 else:
     while taille <= 50:
-        print(taille)
+        if taille % 2 == 0:
+            print(taille)
+
         taille -= 1
+                    </code></pre>
+                    <pre><code data-trim class="java">
+if(taille > 50) {
+    System.out.println("Plus grand que 50");
+} else {
+    while(taille <= 50) {
+        if(taille % 2 == 0) { System.out.println(taille); }
+        taille -= 1
+    }
+}
+                    </code></pre>
+
+                </section>
+
+                <section>
+                    <h3>Indendation</h3>
+                    <p>Il faut faire attention avec l'identation! On ne peut pas mélanger des tabluations et des espaces.</p>
+                    <pre><code data-trim contenteditable class="python">
+$ cat indendation.py 
+if True:
+	print("Cette ligne est indentée avec un tab")
+        print("Cette ligne est indentée avec des espaces")
+                    </code></pre>
+
+                    <pre><code data-trim contenteditable>
+$ python3 indendation.py
+  File "indendation.py", line 3
+    print("Cette ligne est indentée avec des espaces")
+                                                      ^
+TabError: inconsistent use of tabs and spaces in indentation
                     </code></pre>
                 </section>
 
@@ -84,7 +130,7 @@ else:
 
                     </section>
                     <section><h3>if/elif/else</h3>
-                    <pre><code data-trim contenteditable class="python">
+                    <pre><code data-trim class="python">
 if condition1:
     #faire quelquechose
 elif condition2:
@@ -98,7 +144,7 @@ else:
                     <section>
                     <h3>while</h3>
 
-                    <pre><code data-trim contenteditable class="python">
+                    <pre><code data-trim class="python">
 i = 0
 while i < 10:
     i += 1
@@ -113,10 +159,11 @@ print(i) #affiche 10
                     Il n'y pas de boucle for comme en C ou java avec déclaration d'entier et incrément (<code>for i = 0; i < 10; ++i</code>)<br />
                     On utilise <code>for</code> pour naviguer dans des listes.<br />
                     Avec la méthode <code>range</code>, on peut créer une liste de 0 à x éléments :
-                    <pre><code data-trim contenteditable class="python">
-for i in range(10):
+                    <pre><code data-trim class="python">
+for i in [0, 1, 2, 3, 4]:
     print(i)
-    #va afficher les chiffres de 0 à 9
+    #va afficher les chiffres de 0 à 4
+
 for i in range(10, 20):
     print(i)
     #va afficher les chiffres de 10 à 19
@@ -125,12 +172,21 @@ for i in range(10, 20):
                     </section>
                     <section>
                     <p>Depuis Python 3, plusieurs valeurs de retour sont devenus des itérateurs au lieu de listes.</p>
-                    <pre><code data-trim contenteditable class="python">
+                    <p>Python 3</p>
+                    <pre><code data-trim class="python">
 >>> range(10)
 range(0, 10)
 </code></pre>
+
+                    <p>Python 2</p>
+                    <pre><code data-trim class="python">
+>>> range(10)
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+</code></pre>
+
+
                     <p>Pour forcer le retour d'une liste, on doit convertir l'objet</p>
-                    <pre><code data-trim contenteditable class="python">
+                    <pre><code data-trim class="python">
 >>> list(range(0, 10))
 [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 </code></pre>
@@ -163,7 +219,7 @@ range(0, 10)
               <h3>String</h3>
                   <p>Depuis Python 3, les strings sont des strings encodés avec unicode.</p>
                   <p>Une chaîne de caractère est en fait un tableau de caractère.</p>
-                  <pre><code data-trim contenteditable class="python">
+                  <pre><code data-trim class="python">
 chaine = "INF5190-30"
 print(chaine[2]) #Affiche la lettre 'F'
 print(chaine[-1]) #Affiche le chiffre '0'
@@ -176,7 +232,7 @@ print("foobar".upper()) #affiche "FOOBAR"
               <section>
               <h3>String</h3>
                 La concaténation de chaîne peut se faire de plusieurs manière. Depuis Pyhton 3.7, il existe un interpolation litérale.
-                  <pre><code data-trim contenteditable class="python">
+                  <pre><code data-trim class="python">
 prenom = "Jean-Philippe"
 print(f"Bonjour {prenom}")
 
@@ -187,7 +243,7 @@ print(f"Re bonjour {prenom} {nom}")
               <section>
                 <h3>String</h3>
                 On peut aussi utiliser la méthode <code>format</code>
-                  <pre><code data-trim contenteditable class="python">
+                  <pre><code data-trim class="python">
 prenom = "Jean-Philippe"
 print("Bonjour {0}".format(prenom))
 
@@ -198,7 +254,7 @@ print("Re bonjour {0} {1}".format(prenom, nom))
               </section>
               <section>
                   <h3>List</h3>
-                  <pre><code data-trim contenteditable class="python">
+                  <pre><code data-trim class="python">
 ma_liste = [1, 'b', 'c']
 if 'b' in ma_liste:
   print("'b' se trouve dans ma_liste")
@@ -219,7 +275,7 @@ print(ma_liste[:2]) #Affiche les éléments du début à l'index 1
               </section>
               <section>
                   <h3>Dictionnaires</h3>
-                  <pre><code data-trim contenteditable class="python">
+                  <pre><code data-trim class="python">
 cle = 567
 mon_dict = {
   'abc': True,
@@ -237,7 +293,7 @@ del mon_dict['abc'] #supprime la clé 'abc'
               <section>
                   <h3>Tuple</h3>
                   <p>Un tuple est une liste immuable : une fois défini on ne peut pas rajouter ou supprimer d'éléments.</p>
-                  <pre><code data-trim contenteditable class="python">
+                  <pre><code data-trim class="python">
 valeurs = ('patate', 'foobar', 123)
 print(valeurs[1]) #affiche 'foobar'
 
@@ -248,7 +304,7 @@ valeurs[2] = 'abc' #Erreur, impossible de modifier un élément d'un tuple
                 <section>
                     <section>
                         <h3>Méthodes</h3>
-                        <pre><code data-trim contenteditable class="python">
+                        <pre><code data-trim class="python">
 def ma_methode(param_1):
     if param_1:
         print("param_1 est défini")
@@ -260,7 +316,7 @@ def autre_methode():
                     </section>
                     <section>
                         <p>Une méthode peut avoir un nombre indéfini de paramètres</p>
-                        <pre><code data-trim contenteditable class="python">
+                        <pre><code data-trim class="python">
 def faire_qqchose(param1, *args):
     print(param1, args)
 
@@ -271,7 +327,7 @@ faire_qqchose('foobar', 'patate', 123)
                     </section>
                     <section>
                         <p>Une méthode peut avoir un nombre indéfini de paramètres nommés !</p>
-                        <pre><code data-trim contenteditable class="python">
+                        <pre><code data-trim class="python">
 def faire_qqchose(param1, **kwargs):
     print(param1, kwargs)
 
@@ -282,7 +338,7 @@ faire_qqchose('foobar', cours='INF4375', groupe='20')
                     </section>
                     <section>
                     <p>On peut mélanger les deux !</p>
-                        <pre><code data-trim contenteditable class="python">
+                        <pre><code data-trim class="python">
 def faire_qqchose(param1, *args, **kwargs):
     print(param1, args, kwargs)
 
@@ -295,74 +351,221 @@ faire_qqchose('foobar', 42, 'hello', cours='INF4375', groupe='20')
                       <h3>Les classes/objets</h3>
                   </section>
                   <section>
-                      <pre><code data-trim contenteditable class="python">
+                      <pre><code data-trim class="python">
 class Personne(object):
-  nom = "Jean-Philippe"
-  courriel = "caissy.jean-philippe@uqam.ca"
-
-  def afficher_nom(self):
-      print("{0} <{1}>".format(self.nom, self.courriel))
+    nom = "Jean-Philippe"
+    courriel = "caissy.jean-philippe@uqam.ca"
+  
+    def afficher_nom(self):
+        print("{0} <{1}>".format(self.nom, self.courriel))
 </code></pre>
                   <p>Vous remarquerez qu'on passe l'instance de la classe comme premier paramètre (self).
                   La norme est d'utilisé <code>self</code> mais ça peut être n'importe quel nom de paramètre.</p>
-                  <pre><code data-trim contenteditable class="python">
+                      <pre><code data-trim class="python">
+class Personne(object):
+    nom = "Jean-Philippe"
+    courriel = "caissy.jean-philippe@uqam.ca"
+  
+    def afficher_nom(moi_meme):
+        print("{0} <{1}>".format(moi_meme.nom, moi_meme.courriel))
+</code></pre>
+                  </section>
+                  <section>
+                      <pre><code data-trim class="python">
+class Personne(object):
+    nom = "Jean-Philippe"
+    courriel = "caissy.jean-philippe@uqam.ca"
+  
+    def afficher_nom(self):
+        print("{0} <{1}>".format(self.nom, self.courriel))
+</code></pre>
+
+
+                  <pre><code data-trim class="python">
 moi = Personne()
 moi.afficher_nom() #Affiche Jean-Philippe &ltcaissy.jean-philippe@uqam.ca&gt;
 </code></pre>
-                  <pre><code data-trim contenteditable class="python">
+                  <pre><code data-trim class="python">
 moi.nom = "Éric Beaudry"
 moi.courriel = "beaudry.eric@uqam.ca"
 moi.afficher_nom()
 </code></pre>
               </section>
               <section>
-              <h3>Héritage de classe</h3>
-                  <pre><code data-trim contenteditable class="python">
+                  <pre><code data-trim class="python">
+class Personne(object):
+#                ^------ héritage explicite de la classe object
+    nom = "Jean-Philippe"
+    courriel = "caissy.jean-philippe@uqam.ca"
+  
+    def afficher_nom(self):
+        print("{0} <{1}>".format(self.nom, self.courriel))
+                </code></pre>
+                  <pre><code data-trim class="python">
+class Personne:
+#             ^------ héritage implicite de la classe object
+    nom = "Jean-Philippe"
+    courriel = "caissy.jean-philippe@uqam.ca"
+
+    def afficher_nom(self):
+        print("{0} <{1}>".format(self.nom, self.courriel))
+                </code></pre>
+
+              </section>
+
+              <section>
+                  <h3>Héritage de classe</h3>
+                  <pre><code data-trim class="python">
+class Personne(object):
+    def afficher_nom(self):
+        print(self.nom)
+
 class Employe(Personne):
-  def afficher_employe(self):
-      print(self.nom)
+    def afficher_status(self):
+        print("Employé")
+                  </code></pre>
+                  <img src="img/heritage-1.svg" style="border:0" />
+              </section>
+
+
+              <section>
+                  <pre><code data-trim class="python">
+class Personne(object):
+    def afficher_nom(self):
+        print(self.nom)
+
+class Employe(Personne):
+    def afficher_status(self):
+        print("Employé")
 
 emp = Employe()
-emp.afficher_employe()
+emp.nom = "Jean-Philippe"
 emp.afficher_nom()
+emp.afficher_status()
 </code></pre>
-              <p>Python supporte l'héritage multiple!</p>
               </section>
               <section>
+                  <h3>Héritage multiple</h3>
+                  <pre><code data-trim class="python">
+class Personne(object):
+    def afficher_nom(self):
+        print(self.nom)
+
+class Employe(object):
+    def afficher_poste(self):
+        print("Employé")
+
+class ChargeDeCours(Personne, Employe):
+    def afficher_cours(self):
+        print(self.cours)
+                  </code></pre>
+                  <img src="img/heritage-2.svg" style="border:0" />
+              </section>
+              <section>
+                  <pre><code data-trim class="python">
+class Personne(object):
+    def afficher_nom(self):
+        print(self.nom)
+
+class Employe(object):
+    def afficher_poste(self):
+        print("Employé")
+
+class ChargeDeCours(Personne, Employe):
+    def afficher_cours(self):
+        print(self.cours)
+                </code></pre>
+                  <pre><code data-trim class="python">
+emp = ChargeDeCours()
+emp.nom = "Jean-Philippe"
+emp.cours = "INF5190"
+emp.afficher_nom()
+emp.afficher_poste()
+emp.afficher_cours()
+                </code></pre>
+              </section>
+
+              <section>
                   <h3>Méthodes magiques</h3>
-                  <pre><code data-trim contenteditable class="python">
+                  <p>Méthodes spéciales d'une classe. utilisés comme constructeurs de classe, surcharge d'opérateurs.<br />
+                      Le format des méthodes est toujours entourées de deux <em>underscores</em>.</p>
+                  <p>
+                      <table>
+                          <thead>
+                              <tr>
+                                  <th>Nom</th>
+                                  <th>Description</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td><code class="python">__init__(self, autre)</code></td>
+                                  <td>Constructeur de classe</td>
+                              </tr>
+                              <tr>
+                                  <td><code class="python">__del__(self)</code></td>
+                                  <td>Destructeur de classe (rarement utilisé)</td>
+                              </tr>
+                              <tr>
+                                  <td><code class="python">__str__(self)</code></td>
+                                  <td>Cast vers un string</td>
+                              </tr>
+                              <tr>
+                                  <td><code class="python">__eq__(self, autre)</code>, <code class="python">__ne__(self, autre)</code></td>
+                                  <td>Surcharge d'opérateurs <code>==</code> et <code>!=</code></td>
+                              </tr>
+                              <tr>
+                                  <td><code class="python">__ge__(self, autre)</code>, <code class="python">__le__(self, autre)</code>, <code class="python">__lt__(self, autre)</code></td>
+                                  <td>Surcharge d'opérateurs <code>&gt;=<code>, <code>&lt;=</code> et <code>&t;</code></td>
+                              </tr>
+                              <tr>
+                                  <td><code class="python">__add__(self, autre)</code>, <code class="python">__sub__(self, autre)</code>, <code class="python">__mul__(self, autre)</code>, <code class="python">__div__(self, autre)</code></td>
+                                  <td>Surcharge d'opérateurs <code>+<code>, <code>-</code>, <code>*</code> et <code>/</code></td>
+                              </tr>
+
+
+                          </tbody>
+                      </table>
+                  </p>
+              </section>
+
+              <section>
+                  <pre><code data-trim class="python">
 class Employe(Personne):
-  def __init__(self, param1):
-      #Constructeur
-  def __str__(self):
-      #Cast vers un string
-  def __eq__(self, other)
-      #surcharge opérateur égalité
-  def __lt__(self, other)
-      #surcharge opérateur plus petit que &lt;
-      [...]
-  def __set__(self, instance, value)
-      #Assignation d'attribut de classe
-  def __get__(self, instance, owner)
-      #Récupérer un attribut d'une classe
-</code></pre>
-              <p>Plusieurs objets ont des méthodes particulièrs.</p>
+    def __init__(self, code_ms, nom):
+        self.code_ms = code_ms
+        self.nom = nom
+
+    def __str__(self):
+        return f"Employé {self.nom}"
+
+    def __eq__(self, other)
+        return self.code_ms == other.code_ms
+                  </code></pre>
+                  <pre><code data-trim class="python">
+
+employe_a = Employe("caij", "Jean-Philippe Caissy")
+employe_b = Employe("beae", "Eric Beaudry")
+
+print(employe_a) # retourne "Employé Jean-Philippe Caissy"
+print(employe_a == employe_b) # retourne False
+              </code></pre>
           </section>
           <section>
               <h3>Modules</h3>
               <p>En python, un module est un fichier contenant des attributs.</p>
               <h4>foobar.py</h4>
-              <pre><code data-trim contenteditable class="python">
+              <pre><code data-trim class="python">
 class ObjetFoobar():
   pass
 </code></pre>
 <h4>patate.py<h4>
-              <pre><code data-trim contenteditable class="python">
+              <pre><code data-trim class="python">
 class PatatesFrites():
   pass
 </code></pre>
 <h4>Autre fichier dans le même dossier</h4>
-              <pre><code data-trim contenteditable class="python">
+              <pre><code data-trim class="python">
 import patate
 from foobar import ObjetFoobar
 
@@ -371,13 +574,16 @@ foo = ObjetFoobar()
 </code></pre>
             </section>
             <section>
-                <h3>Packaging</h3>
-                <p>Packaging : un boite de pandore</p>
-                <p>pip, distutils, distutils2</p>
+                <h3>Questions?</h3>
             </section>
             <section>
-                <h3>Envrionnement virtuels</h3>
-                <p>virtualenv : Sert à isoler chacun des projets.</p>
+                <h3>La semaine prochaine :
+                    <p>
+                        <ul>
+                            <li>Suite de l'introduction à Python (packaging, environement de dévelopement, WSGI)</li>
+                            <li>Fonctionnement d'une application Web</li>
+                        </ul>
+                    </p>
             </section>
             </div>
 
