@@ -330,9 +330,8 @@ valeurs[2] = 'abc' #Erreur, impossible de modifier un élément d'un tuple
 </code></pre>
               </section>
                 <section>
-                    <section>
-                        <h3>Méthodes</h3>
-                        <pre><code data-trim class="python">
+                    <h3>Méthodes</h3>
+                    <pre><code data-trim class="python">
 def ma_methode(param_1):
     if param_1:
         print("param_1 est défini")
@@ -341,10 +340,28 @@ def autre_methode():
     ma_methode(true)
     ma_methode(param_1='Patate')
 </code></pre>
-                    </section>
-                    <section>
-                        <p>Une méthode peut avoir un nombre indéfini de paramètres</p>
-                        <pre><code data-trim class="python">
+                </section>
+                <section>
+                    <p>Arguments nommés et arguments indexés par position</p>
+                    <pre><code data-trim class="python">
+def ma_methode(param_1, param_2):
+    print(f"{param_1}, {param_2}")
+                    </code></pre>
+                    <pre><code data-trim class="python">
+ma_method("toto", "tata")
+
+ma_method(param_1="toto", param_2="tata")
+
+ma_method("toto", param_2="tata")
+
+ma_method(param_2="tata", "toto")
+#         ^------ Génère une exception.
+#                 Les arguments nommés doivent être à la fin.
+                    </code></pre>
+                </section>
+                <section>
+                    <p>Une méthode peut avoir un nombre indéfini de paramètres</p>
+                    <pre><code data-trim class="python">
 def faire_qqchose(param1, *args):
     print(param1, args)
 
@@ -352,29 +369,28 @@ faire_qqchose('foobar', 'patate', 123)
 #Affiche 'foobar' ['patate', 123]
 </code></pre>
 <code>args</code> va contenir une liste de tous les paramètres supplémentaires que la méthode reçoit.
-                    </section>
-                    <section>
-                        <p>Une méthode peut avoir un nombre indéfini de paramètres nommés !</p>
-                        <pre><code data-trim class="python">
+                </section>
+                <section>
+                    <p>Une méthode peut avoir un nombre indéfini de paramètres nommés !</p>
+                    <pre><code data-trim class="python">
 def faire_qqchose(param1, **kwargs):
     print(param1, kwargs)
 
-faire_qqchose('foobar', cours='INF4375', groupe='20')
-#Affiche 'foobar' {'cours': 'INF4375', 'groupe'='20'}
+faire_qqchose('foobar', cours='web', groupe='20')
+#Affiche 'foobar' {'cours': 'web', 'groupe'='20'}
 </code></pre>
 <code>kwargs</code> va contenir un dictionnaire de tous les paramètres nommées passé à la méthode.
-                    </section>
-                    <section>
-                    <p>On peut mélanger les deux !</p>
-                        <pre><code data-trim class="python">
+                </section>
+                <section>
+                <p>On peut mélanger les deux !</p>
+                    <pre><code data-trim class="python">
 def faire_qqchose(param1, *args, **kwargs):
     print(param1, args, kwargs)
 
-faire_qqchose('foobar', 42, 'hello', cours='INF4375', groupe='20')
-#Affiche 'foobar' [42, 'hellp'] {'cours': 'INF4375', 'groupe'='20'}
+faire_qqchose('foobar', 42, 'hello', cours='web', groupe='20')
+#Affiche 'foobar' [42, 'hellp'] {'cours': 'web', 'groupe'='20'}
 </code></pre>
-                    </section>
-                </section>
+                  </section>
                   <section>
                       <h3>Les classes/objets</h3>
                   </section>
