@@ -1,3 +1,9 @@
-[submodule "reveal.js"]
-	path = reveal.js
-	url = https://github.com/hakimel/reveal.js.git
+[submodule "vendor/sequence-diagrams"]
+	path = vendor/sequence-diagrams
+	url = git@github.com:denniskniep/reveal.js-plugin-sequence-diagrams.git
+[submodule "vendor/reveal.js"]
+	path = vendor/reveal.js
+	url = git@github.com:hakimel/reveal.js.git
+[submodule "vendor/sequence-diagrams-plugin"]
+	path = vendor/sequence-diagrams-plugin
+	url = git@github.com:denniskniep/reveal.js-plugin-sequence-diagrams.git
