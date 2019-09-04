@@ -1,0 +1,413 @@
+<html >
+    <head>
+        <link rel="stylesheet" href="../../vendor/reveal.js/css/reveal.css" />
+        <link rel="stylesheet" href="../../vendor/reveal.js/css/theme/solarized.css" />
+        <link rel="stylesheet" href="../../vendor/reveal.js/lib/css/monokai.css" />
+        <link rel="stylesheet" href="../../vendor/sequence-diagrams-plugin/dist/sequence-diagram-min.css" />
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <h1>INF5190</h1>
+                    <h3>Programmation web avancé</h3>
+                    <h4>Automne 2019</h4>
+                    <p>
+                        <h4>Jean-Philippe Caissy<h4>
+                        caissy.jean-philippe@uqam.ca<br />
+                        <a href="https://caissy.dev/inf5190" target="_blank">https://caissy.dev/inf5190</a>
+                    </p>
+                </section>
+
+                <section>
+                <h3>Qu'est-ce que Python?</h3>
+                    <ul>
+                        <li>Langage interprété comme Node, Ruby, PHP, etc</li>
+                        <li>C'est une norme, plusieurs implémentations (CPython, Jython, IronPython, PyPy)</li>
+                        <li>Orienté objet</li>
+                        <li>Mature : plus de 25 d'âge</li>
+                        <li>Multiplateforme</li>
+                        <li>Garbage Collector</li>
+                        <li>Console interactive!</li>
+                        <li><em>Batteries-included</em></li>
+                        <li>Utilisé par toute sorte d'industrie</li>
+                    </ul>
+                    <aside class="notes">
+                    Industrie : jeux vidéos pour les engins de script, agences web, la recherche, data mining, etc<br />
+                    Plus grande compagnie qui engagent des développeurs python : Google !
+                    </aside>
+                </section>
+
+                <section>
+                  <h4>Python 2 vs. Python 3</h4>
+                  <ul>
+                    <li>Pas de rétro-compabilité</li>
+                    <li>Support unicode complet</li>
+                    <li>Plusieurs nouvelles fonctionalités</li>
+                    <li>Migration lente, communauté divisée</li>
+                    <li>Même s'il reste de gros projets sous Python 2, en 2019 c'est Python 3!</li>
+                  </ul>
+                </section>
+
+                <section>
+                    <h3>Console</h3>
+                    <p>Python vient avec une console interactive.<br />
+                    </p>
+                    <p>Démonstration rapide!</p>
+                </section>
+
+                <section>
+                    <h3>Syntaxe</h3>
+                    <ul>
+                        <li>Aucun <em>curly-braces { ou }</em>!</li>
+                        <li>L'indentation sert à délimiter les blocs de code, comme en CoffeeScript.</li>
+                    <ul>
+                    <pre><code data-trim contenteditable class="python">
+if taille > 50:
+    print("Plus grand que 50")
+else:
+    while taille <= 50:
+        print(taille)
+        taille -= 1
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h3>Flot de contôle</h3>
+                    <ul>
+                        <li>if/elif/else</li>
+                        <li>for</li>
+                        <li>while</li>
+                    <ul>
+                    Une déclaration se termine avec un deux-point <strong>:</strong>
+
+                    </section>
+                    <section><h3>if/elif/else</h3>
+                    <pre><code data-trim contenteditable class="python">
+if condition1:
+    #faire quelquechose
+elif condition2:
+    #faire autre chose
+elif condition3:
+    #faire 3e chose
+else:
+    #sinon ...
+</code></pre>
+                    </section>
+                    <section>
+                    <h3>while</h3>
+
+                    <pre><code data-trim contenteditable class="python">
+i = 0
+while i < 10:
+    i += 1
+
+print(i) #affiche 10
+</code></pre>
+                    </section>
+
+                    <section>
+                    <h3>for</h3>
+                    <p>
+                    Il n'y pas de boucle for comme en C ou java avec déclaration d'entier et incrément (<code>for i = 0; i < 10; ++i</code>)<br />
+                    On utilise <code>for</code> pour naviguer dans des listes.<br />
+                    Avec la méthode <code>range</code>, on peut créer une liste de 0 à x éléments :
+                    <pre><code data-trim contenteditable class="python">
+for i in range(10):
+    print(i)
+    #va afficher les chiffres de 0 à 9
+for i in range(10, 20):
+    print(i)
+    #va afficher les chiffres de 10 à 19
+</code></pre>
+                    </p>
+                    </section>
+                    <section>
+                    <p>Depuis Python 3, plusieurs valeurs de retour sont devenus des itérateurs au lieu de listes.</p>
+                    <pre><code data-trim contenteditable class="python">
+>>> range(10)
+range(0, 10)
+</code></pre>
+                    <p>Pour forcer le retour d'une liste, on doit convertir l'objet</p>
+                    <pre><code data-trim contenteditable class="python">
+>>> list(range(0, 10))
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+</code></pre>
+
+
+            </section>
+              <section>
+                  <h3>Types de données</h3>
+                  <p>En Python, tout est objet. <br />Chaque type de donnée est en fait un objet.</p>
+
+                  <ul>
+                      <li>Bool: True/False</li>
+                      <li>Integer: 1, 2, 3, etc<br />
+                      Aucune limite sur les entiers.</li>
+                      <li>Float (IEEE 754)</li>
+                      <li>Decimal: nombre flottants à valeurs fixes</li>
+                      <li>String : chaîne de caractère unicode</li>
+                      <li>Bytes: un tablea d'octets</li>
+                  </ul>
+              </section>
+              <section>
+                  <h3>Types de données</h3>
+                  <ul>
+                      <li>Liste/Tableau : <code>[1, True, "123"]</code></li>
+                      <li>Dictionnaire : <code>{'cle 1': 123, 123: 'valeur 2'}</code>
+                      <li>Tuples : <code>('A', 'B', 'C', 12)</code>
+                  </ul>
+              </section>
+              <section>
+              <h3>String</h3>
+                  <p>Depuis Python 3, les strings sont des strings encodés avec unicode.</p>
+                  <p>Une chaîne de caractère est en fait un tableau de caractère.</p>
+                  <pre><code data-trim contenteditable class="python">
+chaine = "INF5190-30"
+print(chaine[2]) #Affiche la lettre 'F'
+print(chaine[-1]) #Affiche le chiffre '0'
+
+print(chaine.lower()) #affiche "inf5190-30"
+print("foobar".upper()) #affiche "FOOBAR"
+</code></pre>
+
+              </section>
+              <section>
+              <h3>String</h3>
+                La concaténation de chaîne peut se faire de plusieurs manière. Depuis Pyhton 3.7, il existe un interpolation litérale.
+                  <pre><code data-trim contenteditable class="python">
+prenom = "Jean-Philippe"
+print(f"Bonjour {prenom}")
+
+nom = "Caissy"
+print(f"Re bonjour {prenom} {nom}")
+</code></pre>
+              </section>
+              <section>
+                <h3>String</h3>
+                On peut aussi utiliser la méthode <code>format</code>
+                  <pre><code data-trim contenteditable class="python">
+prenom = "Jean-Philippe"
+print("Bonjour {0}".format(prenom))
+
+nom = "Caissy"
+print("Re bonjour {0} {1}".format(prenom, nom))
+</code></pre>
+
+              </section>
+              <section>
+                  <h3>List</h3>
+                  <pre><code data-trim contenteditable class="python">
+ma_liste = [1, 'b', 'c']
+if 'b' in ma_liste:
+  print("'b' se trouve dans ma_liste")
+
+ma_liste.append('2')
+print(ma_liste) #[1, 'b', 'c', '2']
+
+ma_liste.pop()
+print(ma_liste) #[1, 'b', 'c', '2']
+print(ma_liste[1]) #Affiche 'b'
+
+new_liste =  ma_liste[0:3] #Retourne les éléments de l'index 0 à 2!
+print(new_liste) #[1, 'b', 'c']
+
+print(ma_liste[2:]) #Affiche les éléments de l'index 2 à la fin
+print(ma_liste[:2]) #Affiche les éléments du début à l'index 1
+</code></pre>
+              </section>
+              <section>
+                  <h3>Dictionnaires</h3>
+                  <pre><code data-trim contenteditable class="python">
+cle = 567
+mon_dict = {
+  'abc': True,
+  123: 'def',
+  cle: ['1', '2', '3']
+}
+
+print(mon_dict['abc']) #retourne True
+mon_dict[123] = 'fed'
+
+del mon_dict['abc'] #supprime la clé 'abc'
+
+</code></pre>
+              </section>
+              <section>
+                  <h3>Tuple</h3>
+                  <p>Un tuple est une liste immuable : une fois défini on ne peut pas rajouter ou supprimer d'éléments.</p>
+                  <pre><code data-trim contenteditable class="python">
+valeurs = ('patate', 'foobar', 123)
+print(valeurs[1]) #affiche 'foobar'
+
+valeurs[3] = 'abc' #Erreur
+valeurs[2] = 'abc' #Erreur, impossible de modifier un élément d'un tuple
+</code></pre>
+              </section>
+                <section>
+                    <section>
+                        <h3>Méthodes</h3>
+                        <pre><code data-trim contenteditable class="python">
+def ma_methode(param_1):
+    if param_1:
+        print("param_1 est défini")
+
+def autre_methode():
+    ma_methode(true)
+    ma_methode(param_1='Patate')
+</code></pre>
+                    </section>
+                    <section>
+                        <p>Une méthode peut avoir un nombre indéfini de paramètres</p>
+                        <pre><code data-trim contenteditable class="python">
+def faire_qqchose(param1, *args):
+    print(param1, args)
+
+faire_qqchose('foobar', 'patate', 123)
+#Affiche 'foobar' ['patate', 123]
+</code></pre>
+<code>args</code> va contenir une liste de tous les paramètres supplémentaires que la méthode reçoit.
+                    </section>
+                    <section>
+                        <p>Une méthode peut avoir un nombre indéfini de paramètres nommés !</p>
+                        <pre><code data-trim contenteditable class="python">
+def faire_qqchose(param1, **kwargs):
+    print(param1, kwargs)
+
+faire_qqchose('foobar', cours='INF4375', groupe='20')
+#Affiche 'foobar' {'cours': 'INF4375', 'groupe'='20'}
+</code></pre>
+<code>kwargs</code> va contenir un dictionnaire de tous les paramètres nommées passé à la méthode.
+                    </section>
+                    <section>
+                    <p>On peut mélanger les deux !</p>
+                        <pre><code data-trim contenteditable class="python">
+def faire_qqchose(param1, *args, **kwargs):
+    print(param1, args, kwargs)
+
+faire_qqchose('foobar', 42, 'hello', cours='INF4375', groupe='20')
+#Affiche 'foobar' [42, 'hellp'] {'cours': 'INF4375', 'groupe'='20'}
+</code></pre>
+                    </section>
+                </section>
+                  <section>
+                      <h3>Les classes/objets</h3>
+                  </section>
+                  <section>
+                      <pre><code data-trim contenteditable class="python">
+class Personne(object):
+  nom = "Jean-Philippe"
+  courriel = "caissy.jean-philippe@uqam.ca"
+
+  def afficher_nom(self):
+      print("{0} <{1}>".format(self.nom, self.courriel))
+</code></pre>
+                  <p>Vous remarquerez qu'on passe l'instance de la classe comme premier paramètre (self).
+                  La norme est d'utilisé <code>self</code> mais ça peut être n'importe quel nom de paramètre.</p>
+                  <pre><code data-trim contenteditable class="python">
+moi = Personne()
+moi.afficher_nom() #Affiche Jean-Philippe &ltcaissy.jean-philippe@uqam.ca&gt;
+</code></pre>
+                  <pre><code data-trim contenteditable class="python">
+moi.nom = "Éric Beaudry"
+moi.courriel = "beaudry.eric@uqam.ca"
+moi.afficher_nom()
+</code></pre>
+              </section>
+              <section>
+              <h3>Héritage de classe</h3>
+                  <pre><code data-trim contenteditable class="python">
+class Employe(Personne):
+  def afficher_employe(self):
+      print(self.nom)
+
+emp = Employe()
+emp.afficher_employe()
+emp.afficher_nom()
+</code></pre>
+              <p>Python supporte l'héritage multiple!</p>
+              </section>
+              <section>
+                  <h3>Méthodes magiques</h3>
+                  <pre><code data-trim contenteditable class="python">
+class Employe(Personne):
+  def __init__(self, param1):
+      #Constructeur
+  def __str__(self):
+      #Cast vers un string
+  def __eq__(self, other)
+      #surcharge opérateur égalité
+  def __lt__(self, other)
+      #surcharge opérateur plus petit que &lt;
+      [...]
+  def __set__(self, instance, value)
+      #Assignation d'attribut de classe
+  def __get__(self, instance, owner)
+      #Récupérer un attribut d'une classe
+</code></pre>
+              <p>Plusieurs objets ont des méthodes particulièrs.</p>
+          </section>
+          <section>
+              <h3>Modules</h3>
+              <p>En python, un module est un fichier contenant des attributs.</p>
+              <h4>foobar.py</h4>
+              <pre><code data-trim contenteditable class="python">
+class ObjetFoobar():
+  pass
+</code></pre>
+<h4>patate.py<h4>
+              <pre><code data-trim contenteditable class="python">
+class PatatesFrites():
+  pass
+</code></pre>
+<h4>Autre fichier dans le même dossier</h4>
+              <pre><code data-trim contenteditable class="python">
+import patate
+from foobar import ObjetFoobar
+
+frites = patate.PatatesFrites()
+foo = ObjetFoobar()
+</code></pre>
+            </section>
+            <section>
+                <h3>Packaging</h3>
+                <p>Packaging : un boite de pandore</p>
+                <p>pip, distutils, distutils2</p>
+            </section>
+            <section>
+                <h3>Envrionnement virtuels</h3>
+                <p>virtualenv : Sert à isoler chacun des projets.</p>
+            </section>
+            </div>
+
+        </div>
+        </div>
+        <script src="../../vendor/reveal.js/js/reveal.js"></script>
+        <script>
+            Reveal.initialize({
+                hash: true,
+                slideNumber: true,
+                transition: 'none',
+                sequencediagrams: {
+                    theme: "simple",
+                    useFragments: false,
+                    initialize: (function(diagramContainer){
+                        console.log("Diagram rendered!");
+                    })
+                },
+
+                dependencies: [
+                    { src: '../../vendor/sequence-diagrams-plugin/dist/webfont.js' },
+                    { src: '../../vendor/sequence-diagrams-plugin/dist/snap.svg-min.js' },
+                    { src: '../../vendor/sequence-diagrams-plugin/dist/underscore-min.js' },
+                    { src: '../../vendor/sequence-diagrams-plugin/dist/sequence-diagram-min.js' },
+                    { src: '../../vendor/sequence-diagrams-plugin/dist/sequence-diagrams-plugin.js' },
+                    { src: '../../vendor/reveal.js/plugin/highlight/highlight.js', async: true },
+                    { src: '../../vendor/reveal.js/plugin/markdown/marked.js', async: true },
+                    { src: '../../vendor/reveal.js/plugin/markdown/markdown.js', async: true }
+                ]
+            });
+        </script>
+    </body>
+</html>

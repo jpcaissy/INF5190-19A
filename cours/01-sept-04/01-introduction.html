@@ -1,0 +1,530 @@
+<html >
+    <head>
+        <link rel="stylesheet" href="../../vendor/reveal.js/css/reveal.css" />
+        <link rel="stylesheet" href="../../vendor/reveal.js/css/theme/solarized.css" />
+        <link rel="stylesheet" href="../../vendor/reveal.js/lib/css/monokai.css" />
+        <link rel="stylesheet" href="../../vendor/sequence-diagrams-plugin/dist/sequence-diagram-min.css" />
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <h1>INF5190</h1>
+                    <h2>Programmation web avancé</h2>
+                    <h4>Automne 2019</h4>
+                    <p>
+                        <h4>Jean-Philippe Caissy<h4>
+                        caissy.jean-philippe@uqam.ca<br />
+                        <a href="https://caissy.dev/inf5190" target="_blank">https://caissy.dev/inf5190</a>
+                    </p>
+                </section>
+
+                <section>
+                    <h4>Description du cours</h4>
+                    <p>Initier les étudiant-e-s aux <strong><em>méthodes avancées et aux bonnes pratiques</em></strong> de l'industrie pour la conception, le développement, la maintenance et le déploiement d'applications Web modernes.
+                </section>
+
+                <section>
+                    <h4>Préalables</h4>
+                    <p>
+                        INF3080 - Bases de données<br />
+                        INF3190 - Introduction à la programmation Web
+                    </p>
+                </section>
+
+                <section>
+                    <h4>Objectifs du cours</h3>
+                    <p>
+                        <ul>
+                            <li>Comprendre les fondements du développement logiciel d'applications Web</li>
+                            <li>Familiariser l'étudiant au cadre de développement web MVC (Model-View-Controller)</li>
+                            <li>Comprendre les différents composants d'une application web</li>
+                         </ul>
+                    </p>
+                </section>
+
+                <section>
+                    <h4>Objectifs du cours</h3>
+                    <p>
+                        <ul>
+                            <li>Connaître les différents formats de sérialisations</li>
+                            <li>Introduire l'étudiant-e aux différents systèmes de base de données</li>
+                            <li>Pouvoir concevoir des micro-services et l'interopérabilité de ceux-ci</li>
+                          </ul>
+                    </p>
+                </section>
+
+                <section>
+                    <h4>Objectifs du cours</h3>
+                    <p>
+                        <ul>
+                            <li>Différencier et comprendre l'utilisation des différents types d'authentifications et d'identifications</li>
+                            <li>Pouvoir maintenir et diagnostiquer les problèmes et exceptions d'une application web</li>
+                            <li>Pouvoir effectuer des tests de charges sur une application web</li>
+                            <li>Comprendre et effectuer le déploiement d'application web</li>
+                        </ul>
+                    </p>
+                </section>
+
+                <section>
+                    <h4>Technologies vues en cours</h4>
+                    <p>
+                        <ul>
+                            <li>Langage : Python, Django ou Flask (à confirmer)</li>
+                            <li>Stockage : MySQL, Redis, Memcached</li>
+                            <li>Environment de déploiement : Docker, Kubernetes, Google Cloud Platform (GCP)</li>
+                            <li>... ?</li>
+                        </ul>
+                    </p>
+                </section>
+
+                <section>
+                    <h4>Contenu du cours</h4>
+                    <p>
+                    <ol>
+                        <li>Développement d'applications web avec Python</li>
+                        <li>Examen intra</li>
+                        <li>Interopérabilité, déploiement et maintenance</li>
+                        <li>Examen final</li>
+                        <li>Remise du travail de session</li>
+                    </ol>
+                </section>
+
+                <section>
+                    <h4>Calendrier</h4>
+                    <p><a href="https://github.com/jpcaissy/INF5190/blob/master/plan-de-cours.md#horaire" target="_blank">https://github.com/jpcaissy/INF5190/blob/master/plan-de-cours.md#horaire</a></p>
+                </section>
+
+                <section>
+                    <h4>Enseignement</h3>
+                    <p>
+                        <ul>
+                            <li>Cours magistraux (11 cours, 2 révisions et 2 examens)</li>
+                            <li>Laboratoires</li>
+                            <li>Travail de session</li>
+                        </ul>
+                    </p>
+                </section>
+
+                <section>
+                    <h4>Modalités d'évaluations</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Type</th>
+                                <th>Pondération</th>
+                                <th># cours</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>Examen intra</td>
+                                <td>35%</td>
+                                <td>8e</td>
+                                <td>23 octobre</td>
+                            </tr>
+                            <tr>
+                                <td>Examen final</td>
+                                <td>35%</td>
+                                <td>15e</td>
+                                <td>11 décembre</td>
+                            </tr>
+                            <tr>
+                                <td>Projet de session</td>
+                                <td>30%</td>
+                                <td>15e</td>
+                                <td>13 décembre 21h</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>Seuil de réussite :<br />60% pour l'ensemble des évaluations<br />50% pour les examens</p>
+                </section>
+
+                <section>
+                    <h4>Examen</h4>
+                    <p>
+                        <ul>
+                            <li>Aucune documentation permise</li>
+                            <li>Compréhension générale de la matière</li>
+                            <li>Majorité réponse courte/choix de réponse</li>
+                        </ul>
+                    </p>
+                </section>
+
+                <section>
+                    <h4>Travail de session</h4>
+                    <p>
+                        <ul>
+                            <li>Développement et déploiement d'une application web</li>
+                            <li>Se rapproche le plus possible d'une situation réelle en industrie</li>
+                            <li>Seul, ou en équipe de deux</li>
+                            <li>Aucun retard permis<ul><li>Je prends la version disponible lors de l'échéancier</li></ul></li>
+                        </ul>
+                    </p>
+                </section>
+
+                <section>
+                    <h4>Questions?</h4>
+                </section>
+
+                <section>
+                    <h3>Développement d'applications web</h3>
+                    <h4>Rappels de base</h4>
+                </section>
+
+                <section>
+                    <h4>Architecture client-serveur</h4>
+                    <a target="_blank" title="Gnome-fs-client.svg: David Vignoni
+Gnome-fs-server.svg: David Vignoni
+derivative work: Calimo [LGPL (http://www.gnu.org/licenses/lgpl.html)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Client-server-model.svg"><img alt="Client-server-model" src="img/client-serveur.png"></a>
+                </section>
+
+
+                <section>
+                    <h3>Historique</h3>
+                    <p>
+                        <ul>
+                            <li>Besoin de distribuer et de chercher de l'informations et de documents sur IP</li>
+                            <li>Évolution des protocles de niveau 7 (couche applicative sur le modèle OSI)
+                                <ul>
+                                    <li>Gopher (mi-1991)</li>
+                                    <li>HTTP 0.9 (1991)</li>
+                                    <li>HTTP 1.0 (1996)</li>
+                                    <li>HTTP 1.1 (1997)</li>
+                                    <li>HTTP 2 (2015)</li>
+                                    <li>HTTP 3 (2018)</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </p>
+                </section>
+
+                <section>
+                    <h4>Gopher</h4>
+                    <a title="The original uploader was Kbolino at English Wikipedia. [GPL (http://www.gnu.org/licenses/gpl.html) or LGPL (http://www.gnu.org/licenses/lgpl.html)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Gopher_in_Firefox_1.5.png"><img alt="Gopher in Firefox 1.5" src="img/gopher.png"></a>
+                </section>
+
+                <section>
+                    <h4>Gopher</h4>
+                    <p>
+                        <ul>
+                            <li>Forte hiérarchie des documents</li>
+                            <li>Interface textuelle avec menus</li>
+                            <li>Protocle texte simple</li>
+                            <li>Facile à utiliser et mettre en place</li>
+                        </ul>
+                    </p>
+                </section>
+
+                <section>
+                    <h4>Gopher</h4>
+                    <p>
+                        <ul>
+                            <li>Forte hiérarchie des documents</li>
+                            <li>Interface textuelle avec menus</li>
+                            <li>Protocle texte simple</li>
+                            <li>Facile à utiliser et mettre en place</li>
+                        </ul>
+                    </p>
+                </section>
+
+                <section>
+                    <h4>HTTP 0.9/1.0</h4>
+                    <p>
+                        <ul>
+                            <li>Première version du protocole HTTP</li>
+                            <li>Connexions <strong>non</strong> persistentes</li>
+                            <li>États non persistés (protocole <em>stateless</em>)</li>
+                            <li>Aucune compression</li>
+                            <li>Ne peux pas diviser la réponse du serveur (<em>chunk transfer</em>)</li>
+                            <li>Une seule adresse IP par hôte</li>
+                            <li>Protocole en format texte</li>
+                        </ul>
+                    </p>
+                </section>
+
+                <section>
+                    <h4>HTTP 0.9/1.0</h4>
+                    <pre><code data-trim data-noescape>
+$ nc caissy.dev 80
+GET / HTTP/1.0
+                    </code></pre>
+
+                    <pre class="fragment" class="http"><code data-trim data-noescape>
+HTTP/1.1 301 Moved Permanently
+Server: nginx/1.14.2
+Content-Type: text/html
+Content-Length: 185
+Connection: close
+Location: https://caissy.dev/
+
+&#x3C;html&#x3E;
+&#x3C;head&#x3E;&#x3C;title&#x3E;301 Moved Permanently&#x3C;/title&#x3E;&#x3C;/head&#x3E;
+&#x3C;body bgcolor=&#x22;white&#x22;&#x3E;
+&#x3C;center&#x3E;&#x3C;h1&#x3E;301 Moved Permanently&#x3C;/h1&#x3E;&#x3C;/center&#x3E;
+&#x3C;hr&#x3E;&#x3C;center&#x3E;nginx/1.14.2&#x3C;/center&#x3E;
+&#x3C;/body&#x3E;
+&#x3C;/html&#x3E;
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h4>HTTP 1.1</h4>
+                    <p>
+                        <ul>
+                            <li>Formalise plusieurs extensions de 1.0</li>
+                            <li>Ré-utilisation des connexions (<em>keep-alive</em>)</li>
+                            <li>Compressions supportés</li>
+                            <li>Permet de diviser la réponse du serveur (<em>chunk transfer</em>)</li>
+                            <li>Permet de reprendre le transfert (<em>byte range  transfer</em>)
+                            <li>Support multi-hôte (plusieurs domaines sur même IP)</em>
+                            <li>Rétro-compatible avec HTTP 1.0</li>
+                        </ul>
+                    </p>
+                </section>
+
+                <section>
+                    <h4>HTTP 1.1</h4>
+
+                    <pre><code data-trim data-noescape>
+$ nc caissy.dev 80
+GET /file.data HTTP/1.1
+Host: caissy.dev
+Range: bytes=125-165
+                    </code></pre>
+
+                    <pre class="fragment"><code class="http" data-trim data-noescape>
+HTTP/1.1 206 Partial Content
+Server: nginx/1.14.2
+Content-Type: application/octet-stream
+Content-Length: 41
+Connection: keep-alive
+Content-Range: bytes 125-165/8199
+[...]
+
+data        &#x3C;------- début tronqué au 125e octet sur 8199 octets
+Test data
+Test data
+Test data
+Test d
+^C          &#x3C;------- besoin de fermer la connexion
+                    </code></pre>
+                </section>
+                <section>
+                    <h4>HTTP 2.0</h4>
+                    <p>
+                        <ul>
+                            <li>Changements majeurs au protocole</li>
+                            <li>Développé initiallement par Google, sous le nom SPDY (Speedy)</li>
+                            <li>Objectif principal : augmenter la performance et la rapidité d'échange du protocole HTTP</li>
+                            <li>Compression des entêtes</li>
+                            <li>Multiplexage des requêtes sur la même connexion TCP</li>
+                            <li>Permet au serveur d'envoyer des ressources avant que le client le demande (<em>server push</em>)</li>
+                        </ul>
+                    </p>
+                </section>
+
+                <section>
+                    <script class="sequence-diagram" type="text/template">
+                        Title: HTTP/1.0
+                        Note over Navigateur,Serveur Web: Connexion ouverte
+                        Navigateur->Serveur Web: Requête HTTP 1
+                        Serveur Web->Navigateur: Réponse 1
+                        Note over Navigateur,Serveur Web: Connexion fermée
+                        Note right of Serveur Web: Une seule requête par connexion
+                        Note over Navigateur,Serveur Web: Connexion ouverte
+                        Navigateur->Serveur Web: Requête HTTP 2
+                        Serveur Web->Navigateur: Réponse 2
+                        Note over Navigateur,Serveur Web: Connexion fermée
+                    </script>
+
+               </section>
+
+                <section>
+                    <script class="sequence-diagram" type="text/template">
+                        Title: HTTP/1.1
+                        Note over Navigateur,Serveur Web: Connexion ouverte
+                        Navigateur->Serveur Web: Requête HTTP 1
+                        Serveur Web->Navigateur: Réponse 1
+                        Note right of Serveur Web: Une seule réponse \n par requête
+                        Navigateur->Serveur Web: Requête HTTP 2
+                        Serveur Web->Navigateur: Réponse 2
+                        Note over Navigateur,Serveur Web: Connexion fermée
+                    </script>
+                </section>
+                <section>
+                    <script class="sequence-diagram" type="text/template">
+                        Title: HTTP/2.0
+                        Note over Navigateur,Serveur Web: Connexion ouverte
+                        Navigateur->Serveur Web: Requête HTTP 1
+                        Navigateur->Serveur Web: Requête HTTP 2
+                        Note right of Serveur Web: Plusieurs requêtes possible par connexion
+                        Serveur Web->Navigateur: Réponse 1
+                        Navigateur->Serveur Web: Requête HTTP 3
+                        Serveur Web->Navigateur: Réponse 2
+                        Serveur Web->Navigateur: Réponse 3
+                        Note right of Serveur Web: Le serveur peut envoyer des ressources \n non demandées
+                        Serveur Web->Navigateur: Réponse 4
+                        Serveur Web->Navigateur: Réponse 5
+                        Note over Navigateur,Serveur Web: Connexion fermée
+                    </script>
+
+                </section>
+
+
+                <section>
+                    <h4>Ressource d'une requête HTTP</h4>
+                    <pre style="border:0;box-shadow:none;">
+             userinfo        host     port
+        ┌───────┴───────┐ ┌───┴─────┐ ┌┴┐
+ http://john.doe:password@example.com:123/f/questions/?tag=net&sort=old#top
+ └─┬─┘ └───────────┬────────────────────┘└───┬───────┘└────────┬──────┘└┬─┘
+ scheme         authority                   path             query   fragment
+                    </pre>
+                </section>
+
+                <section>
+                    <h4>Requête HTTP</h4>
+                    <h5>Méthode de requête</h5>
+                    <p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Nom</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>GET</td>
+                                    <td>Obtenir une ressource. Ne devrait pas modifier une ressource.</td>
+                                </tr>
+                                <tr>
+                                    <td>HEAD</td>
+                                    <td>Similaire à GET, mais sans la réponse du serveur. Sert à récupérer les en-têtes (<em>headers</em>).</td>
+                                </tr>
+                                <tr>
+                                    <td>POST</td>
+                                    <td>Soumettre une entité à une ressource (ex: envoi de formulaire). Changement d'état possible.</td>
+                                </tr>
+                                <tr>
+                                    <td>PUT</td>
+                                    <td>Remplace la ressource existante avec le <em>payload</em> envoyé.</td>
+                                </tr>
+                                <tr>
+                                    <td>DELETE</td>
+                                    <td>Supprime une ressource spécifique.</td>
+                                </tr>
+                             </tbody>
+                        </table>
+                        </p>D'autres méthodes existes : OPTIONS, TRACE, PATCH, CONNECT</p>
+                    </p>
+                </section>
+
+                <section>
+                    <h4>Sites statiques</h4>
+                    <ul>
+                        <li>Contenu d'une page web qui ne varie pas selon la requête</li>
+                        <li>Même contenu pour tous les visiteurs</li>
+                        <li>Souvent de simples fichiers exposés à travers un serveur Web</li>
+                        <li>Rapide, performant et plus sécuritaire que les sites non statiques</li>
+                        <li>Génération automatisé de contenu : Jekyll, Hugo, etc</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h4>Personalisation de site statique</h4>
+                    <ul>
+                        <li>Plugins de navigateurs (Flash, Java applets, Silverlight, ActiveX)
+                            <ul>
+                                <li>Avantages : exécuté sur le navigateur</li>
+                                <li>Désavantages : obsolète, non standardisé, vecteur d'attaque, peu de flexibilité</li>
+                            </ul>
+                        </li>
+                        <li>Javascript côté client
+                            <ul>
+                                <li>Avantages : standardisé, simple, rapide, accessible sur les navigateurs majeurs</li>
+                                <li>Désavantages : consomme beaucoup de ressources, vecteur d'attque</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h4>AJAX</h4>
+                    <ul>
+                        <li>Envoie et réception de requêtes web asynchrone par le client (navigateur)</li>
+                        <li>Pas besoin de recharger la page Web</li>
+                        <li>Popularisé par Google dans les années 2005-2006</li>
+                        <li>Permet la création d'applications Web riche (Gmail, Slack, Google Docs, etc)</li>
+                        <li>API Javascript disponible dans le navigateur (XMLHttpRequest)</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h4>HTML5</h4>
+                    <ul>
+                        <li>Version actuelle de HTML</li>
+                        <li>Étend, améliore et standardise le langage</li>
+                        <li>Nouveaux APIs: Canvas, Drag & Drop, WebRTC, WebStorage, etc</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <script class="sequence-diagram" type="text/template">
+                        Title: Page Web avec AJAX
+                        Utilisateur->Navigateur: Ouvre une page Internet
+                        Navigateur->Serveur Web: GET /index.html
+                        Serveur Web->Navigateur: Réponse /index.html
+                        Note over Utilisateur,Serveur Web: L'utilisateur reste sur la même page
+                        Utilisateur->Navigateur: Clique sur un bouton de la page
+                        Navigateur->Serveur Web: Appel AJAX 1
+                        Navigateur->Serveur Web: Appel AJAX 2
+                        Serveur Web->Navigateur: Réponse AJAX 1
+                        Serveur Web->Navigateur: Réponse AJAX 2
+                    </script>
+                </section>
+
+                <section>
+                    <h3>Bibliographie</h3>
+                    <small>
+                    <ul>
+                        <li>Gnome-fs-client.svg: David VignoniGnome-fs-server.svg: David Vignoniderivative work: Calimo [LGPL (http://www.gnu.org/licenses/lgpl.html)]
+                        <li>Wikimedia Commons contributors, "File:Gopher in Firefox 1.5.png," Wikimedia Commons, the free media repository, https://commons.wikimedia.org/w/index.php?title=File:Gopher_in_Firefox_1.5.png&oldid=311582805 (accessed September 3, 2019). </li>
+                    </ul>
+                    </small>
+                </section>
+
+            </div>
+        </div>
+        <script src="../../vendor/reveal.js/js/reveal.js"></script>
+        <script>
+            Reveal.initialize({
+                hash: true,
+                slideNumber: true,
+                transition: 'none',
+                sequencediagrams: {
+                    theme: "simple",
+                    useFragments: false,
+                    initialize: (function(diagramContainer){
+                        console.log("Diagram rendered!");
+                    })
+                },
+
+                dependencies: [
+                    { src: '../../vendor/sequence-diagrams-plugin/dist/webfont.js' },
+                    { src: '../../vendor/sequence-diagrams-plugin/dist/snap.svg-min.js' },
+                    { src: '../../vendor/sequence-diagrams-plugin/dist/underscore-min.js' },
+                    { src: '../../vendor/sequence-diagrams-plugin/dist/sequence-diagram-min.js' },
+                    { src: '../../vendor/sequence-diagrams-plugin/dist/sequence-diagrams-plugin.js' },
+                    { src: '../../vendor/reveal.js/plugin/highlight/highlight.js', async: true },
+                    { src: '../../vendor/reveal.js/plugin/markdown/marked.js', async: true },
+                    { src: '../../vendor/reveal.js/plugin/markdown/markdown.js', async: true }
+                ]
+            });
+        </script>
+    </body>
+</html>
