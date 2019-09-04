@@ -595,28 +595,6 @@ print(employe_a) # retourne "Employé Jean-Philippe Caissy"
 print(employe_a == employe_b) # retourne False
               </code></pre>
           </section>
-          <section>
-              <h3>Modules</h3>
-              <p>En python, un module est un fichier contenant des attributs.</p>
-              <h4>foobar.py</h4>
-              <pre><code data-trim class="python">
-class ObjetFoobar():
-  pass
-</code></pre>
-<h4>patate.py<h4>
-              <pre><code data-trim class="python">
-class PatatesFrites():
-  pass
-</code></pre>
-<h4>Autre fichier dans le même dossier</h4>
-              <pre><code data-trim class="python">
-import patate
-from foobar import ObjetFoobar
-
-frites = patate.PatatesFrites()
-foo = ObjetFoobar()
-</code></pre>
-            </section>
             <section>
                 <h3>Questions?</h3>
             </section>
@@ -624,7 +602,7 @@ foo = ObjetFoobar()
                 <h3>La semaine prochaine :
                     <p>
                         <ul>
-                            <li>Suite de l'introduction à Python (packaging, environement de dévelopement, WSGI)</li>
+                            <li>Suite de l'introduction à Python (modules, packaging, environement de dévelopement, WSGI)</li>
                             <li>Fonctionnement d'une application Web</li>
                         </ul>
                     </p>
