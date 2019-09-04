@@ -1,9 +1,8 @@
 <html >
     <head>
         <link rel="stylesheet" href="../../vendor/reveal.js/css/reveal.css" />
-        <link rel="stylesheet" href="../../vendor/reveal.js/css/theme/solarized.css" />
+        <link rel="stylesheet" href="../../vendor/reveal.js/css/theme/white.css" />
         <link rel="stylesheet" href="../../vendor/reveal.js/lib/css/monokai.css" />
-        <link rel="stylesheet" href="../../vendor/sequence-diagrams-plugin/dist/sequence-diagram-min.css" />
         <meta charset="UTF-8">
     </head>
     <body>
@@ -331,7 +330,7 @@ Test d
                 </section>
 
                 <section>
-                    <script class="sequence-diagram" type="text/template">
+                    <!--
                         Title: HTTP/1.0
                         Note over Navigateur,Serveur Web: Connexion ouverte
                         Navigateur->Serveur Web: Requête HTTP 1
@@ -342,12 +341,13 @@ Test d
                         Navigateur->Serveur Web: Requête HTTP 2
                         Serveur Web->Navigateur: Réponse 2
                         Note over Navigateur,Serveur Web: Connexion fermée
-                    </script>
+                    -->
+                    <img src="img/diagrame-1.svg" style="border:0;box-shadow:none" />
 
                </section>
 
                 <section>
-                    <script class="sequence-diagram" type="text/template">
+                    <!--
                         Title: HTTP/1.1
                         Note over Navigateur,Serveur Web: Connexion ouverte
                         Navigateur->Serveur Web: Requête HTTP 1
@@ -356,10 +356,11 @@ Test d
                         Navigateur->Serveur Web: Requête HTTP 2
                         Serveur Web->Navigateur: Réponse 2
                         Note over Navigateur,Serveur Web: Connexion fermée
-                    </script>
+                    -->
+                    <img src="img/diagrame-2.svg" style="border:0;box-shadow:none" />
                 </section>
                 <section>
-                    <script class="sequence-diagram" type="text/template">
+                    <!--
                         Title: HTTP/2.0
                         Note over Navigateur,Serveur Web: Connexion ouverte
                         Navigateur->Serveur Web: Requête HTTP 1
@@ -373,8 +374,8 @@ Test d
                         Serveur Web->Navigateur: Réponse 4
                         Serveur Web->Navigateur: Réponse 5
                         Note over Navigateur,Serveur Web: Connexion fermée
-                    </script>
-
+                    -->
+                    <img src="img/diagrame-3.svg" style="border:0;box-shadow:none" />
                 </section>
 
 
@@ -478,7 +479,7 @@ Test d
                 </section>
 
                 <section>
-                    <script class="sequence-diagram" type="text/template">
+                    <!--
                         Title: Page Web avec AJAX
                         Utilisateur->Navigateur: Ouvre une page Internet
                         Navigateur->Serveur Web: GET /index.html
@@ -489,7 +490,8 @@ Test d
                         Navigateur->Serveur Web: Appel AJAX 2
                         Serveur Web->Navigateur: Réponse AJAX 1
                         Serveur Web->Navigateur: Réponse AJAX 2
-                    </script>
+                    -->
+                    <img src="img/diagrame-4.svg" style="border:0;box-shadow:none" />
                 </section>
             </div>
         </div>
@@ -508,11 +510,6 @@ Test d
                 },
 
                 dependencies: [
-                    { src: '../../vendor/sequence-diagrams-plugin/dist/webfont.js' },
-                    { src: '../../vendor/sequence-diagrams-plugin/dist/snap.svg-min.js' },
-                    { src: '../../vendor/sequence-diagrams-plugin/dist/underscore-min.js' },
-                    { src: '../../vendor/sequence-diagrams-plugin/dist/sequence-diagram-min.js' },
-                    { src: '../../vendor/sequence-diagrams-plugin/dist/sequence-diagrams-plugin.js' },
                     { src: '../../vendor/reveal.js/plugin/highlight/highlight.js', async: true },
                     { src: '../../vendor/reveal.js/plugin/markdown/marked.js', async: true },
                     { src: '../../vendor/reveal.js/plugin/markdown/markdown.js', async: true }
