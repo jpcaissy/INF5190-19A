@@ -1,0 +1,53 @@
+<html >
+    <head>
+        <link rel="stylesheet" href="../../vendor/reveal.js/css/reveal.css" />
+        <link rel="stylesheet" href="../../vendor/reveal.js/css/theme/solarized.css" />
+        <link rel="stylesheet" href="../../vendor/sequence-diagrams-plugin/dist/sequence-diagram-min.css" />
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <h1>INF5190</h1>
+                    <h2>Programmation web avancé</h2>
+                    <h4>Automne 2019</h4>
+                    <p>
+                        <h4>Jean-Philippe Caissy<h4>
+                        caissy.jean-philippe@uqam.ca<br />
+                        <a href="https://caissy.dev/inf5190" target="_blank">https://caissy.dev/inf5190</a>
+                    </p>
+                </section>
+
+                <section>
+                    <h4>Python</h4>
+                </section>
+        </div>
+        <script src="../../vendor/reveal.js/js/reveal.js"></script>
+        <script>
+            Reveal.initialize({
+                hash: true,
+                slideNumber: true,
+                transition: 'none',
+                sequencediagrams: {
+                    theme: "simple",
+                    useFragments: false,
+                    initialize: (function(diagramContainer){
+                        console.log("Diagram rendered!");
+                    })
+                },
+
+                dependencies: [
+                    { src: '../../vendor/sequence-diagrams-plugin/dist/webfont.js' },
+                    { src: '../../vendor/sequence-diagrams-plugin/dist/snap.svg-min.js' },
+                    { src: '../../vendor/sequence-diagrams-plugin/dist/underscore-min.js' },
+                    { src: '../../vendor/sequence-diagrams-plugin/dist/sequence-diagram-min.js' },
+                    { src: '../../vendor/sequence-diagrams-plugin/dist/sequence-diagrams-plugin.js' },
+                    { src: '../../vendor/reveal.js/plugin/highlight/highlight.js', async: true },
+                    { src: '../../vendor/reveal.js/plugin/markdown/marked.js', async: true },
+                    { src: '../../vendor/reveal.js/plugin/markdown/markdown.js', async: true }
+                ]
+            });
+        </script>
+    </body>
+</html>
