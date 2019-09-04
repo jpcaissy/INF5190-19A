@@ -265,14 +265,39 @@ print(ma_liste) #[1, 'b', 'c', '2']
 ma_liste.pop()
 print(ma_liste) #[1, 'b', 'c', '2']
 print(ma_liste[1]) #Affiche 'b'
-
-new_liste =  ma_liste[0:3] #Retourne les éléments de l'index 0 à 2!
-print(new_liste) #[1, 'b', 'c']
-
-print(ma_liste[2:]) #Affiche les éléments de l'index 2 à la fin
-print(ma_liste[:2]) #Affiche les éléments du début à l'index 1
-</code></pre>
+                  </code></pre>
               </section>
+
+              <section>
+                  <h3>List</h3>
+                  <pre><code data-trim class="python">
+ma_liste = [0, 2, 4]
+i = ma_liste[-1] + 1 # i = 4 + 1
+while i < 20:
+    if i % 2 == 0:
+        ma_liste.append(i)
+    i += 1
+                  </code></pre>
+                  <pre><code data-trim class="python">
+print(ma_liste) # [0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
+                  </code></pre>
+              </section>
+
+              <section>
+                  <h3>Coupage (<em>slice</em>) de liste</h3>
+                  <pre><code data-trim class="python">
+ma_liste = [0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
+
+print(ma_liste[2:5]) # [4, 6, 8]
+
+print(ma_liste[:5]) # [0, 2, 4, 6, 8]
+
+print(ma_liste[5:]) # [10, 12, 14, 16, 18]
+
+print(ma_liste[:]) # [0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
+                  </code></pre>
+              </section>
+
               <section>
                   <h3>Dictionnaires</h3>
                   <pre><code data-trim class="python">
@@ -288,6 +313,9 @@ mon_dict[123] = 'fed'
 
 del mon_dict['abc'] #supprime la clé 'abc'
 
+print('abc' in mon_dict) # True
+print('123' in mon_dict) # False (la clé est un entier)
+print(123 in mon_dict) # True
 </code></pre>
               </section>
               <section>
