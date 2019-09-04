@@ -2,6 +2,7 @@
     <head>
         <link rel="stylesheet" href="../../vendor/reveal.js/css/reveal.css" />
         <link rel="stylesheet" href="../../vendor/reveal.js/css/theme/solarized.css" />
+        <link rel="stylesheet" href="../../vendor/reveal.js/lib/css/monokai.css" />
         <link rel="stylesheet" href="../../vendor/sequence-diagrams-plugin/dist/sequence-diagram-min.css" />
         <meta charset="UTF-8">
     </head>
@@ -252,7 +253,7 @@ $ nc caissy.dev 80
 GET / HTTP/1.0
                     </code></pre>
 
-                    <pre class="fragment"><code data-trim data-noescape>
+                    <pre class="fragment" class="http"><code data-trim data-noescape>
 HTTP/1.1 301 Moved Permanently
 Server: nginx/1.14.2
 Content-Type: text/html
@@ -295,7 +296,7 @@ Host: caissy.dev
 Range: bytes=125-165
                     </code></pre>
 
-                    <pre class="fragment"><code data-trim data-noescape>
+                    <pre class="fragment"><code class="http" data-trim data-noescape>
 HTTP/1.1 206 Partial Content
 Server: nginx/1.14.2
 Content-Type: application/octet-stream
