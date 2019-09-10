@@ -709,7 +709,7 @@ def application(env, start_response):
 ```
 
 ```
-$ gunicorn3 -b 127.0.0.1:8080 app-wsgi:mon_application
+$ gunicorn3 -b :8080 app-wsgi:mon_application
 Starting gunicorn 19.7.1
 Listening at: http://127.0.0.1:8080 (17387)
 Using worker: sync
@@ -722,8 +722,170 @@ $ curl localhost:8080
 <html><body><h1>Hello World</h1></body></html>
 ```
 
+#Cache applicative
+
+Un concept clé du développement d'applications performantes est l'utilisation de cache.
+
+Une cache mémoire permet de récupérer **rapidement** de l'information qui est souvent demandée et change rarement.
+
+Exemples d'utilisations :
+
+* Les informations de profil (nom, prénom, avatar) d'une personne connectée
+    * Sur chaque page de l'application Web, ces informations sont affichées
+* Le contenu d'un panier d'achat sur un site de commerce en ligne
+    * Le nombre d'item d'un panier d'achat est affiché sur chaque page
+
+#Cache applicative
+
+Une cache applicative peut être globale ou par session :
+
+* Globale : le contenu d'une page qui ne change pas en fonction du visiteur
+* Session : les informations de la cache sont dépendants de la session actuelle
+
+#Cache applicative
+## Session
+
+On peut associer chaque nouvelle session à un cookie.
+
+Lors d'une première visite, on génère un identifiant unique. Cet identifiant est retourné dans un cookie :
+
+```
+HTTP/1/ 200 OK
+[...]
+Set-Cookie: session=0d20cc49117; HttpOnly; Secure;
+```
+
+De cette manière, nous lions une session HTTP avec un cookie. Le navigateur va toujours transmettre la valeur de
+ce cookie aux requêtes HTTP subséquentes.
+
+#Cache applicative
+## Session
+
+[Exemple de code disponible dans `exemples/cookie-session.py`](exemples/cookie-session.py)
+
+```
+$ gunicorn3 -b :8080 cookie-session:mon_application
+Starting gunicorn 19.7.1
+Listening at: http://127.0.0.1:8080 (22277)
+Using worker: sync
+Booting worker with pid: 22280
+```
+
+```
+$ curl -H "Cookie: session=123456;" localhost:8080
+Hello World!
+Session : 123456
+Nombre de visite(s) : 1
+
+$ curl -H "Cookie: session=123456;" localhost:8080
+Hello World!
+Session : 123456
+Nombre de visite(s) : 2
+```
+
+#Cache applicative
+## Session
+
+[Exemple de code disponible dans `exemples/cookie-session.py`](exemples/cookie-session.py)
+```
+$ gunicorn3 -b 0.0.1:8080 cookie-session:mon_application
+[...]
+```
+
+```
+$ curl -H "Cookie: session=987654;" localhost:8080
+Hello World!
+Session : 987654
+Nombre de visite(s) : 1
+```
+
+```
+$ curl -H "Cookie: session=123456;" localhost:8080
+Hello World!
+Session : 987654
+Nombre de visite(s) : 3
+```
+
+#Cache applicative
+## Session
+
+### Cookie inexistant (première visite)
+
+1. Générer un identifiant de session aléatoire
+2. Initialiser la cache pour cette session
+3. Retourner l'identifiant de session avec un cookie
+
+### Cookie existant (visite subséquante)
+
+1. Récupérer la session dans la cache grâce à l'identifiant de session
+2. Modifier la cache au besoin
+3. Retourner l'identifiant de session avec un cookie
+
+#Cache applicative
+## Session
+
+Deux problèmes :
+
+1. La cache n'est pas persisté : si on relance l'application web on perd la cache
+2. La cache n'est pas partagée entre les différents applications web
+
+#Cache applicative
+## Session
+### Cache persisté
+
+* Cache qui est persisté à chaque requête
+* Peut être fait par l'application web elle même
+
+#Cache applicative
+## Session
+### Cache distribuée
+
+![Requête HTTP avec des caches distincts](./img/diagrame-internet-cache.png){width=50%}
+
+#Cache applicative
+## Session
+### Cache distribuée
+
+Une cache qui est partagée entre toutes les applications web
+
+![Requête HTTP avec des caches distribuées](./img/diagrame-internet-cache-shared.png){width=50%}
+
+#Cache applicative
+## Session
+### Cache distribuée
+
+* Une cache distribuée est un système à part de l'application web qui s'occupe de stocker des informations.
+* Peut être une base de donnée relationnelle
+* Mieux si c'est un engin de stockage clé-valeur car plus performant :
+    * Ex : Redis, Memcached
+
+#Cache locale
+
+Le protocole HTTP permet au navigateur de cacher des pages entières.
+
+* La cache HTTP est optionnelle
+* Réutiliser une ressource HTTP déjà reçu est mieux (plus rapide)
+* Souvent limiter aux requêtes `GET` : les autres ont souvent des effets de bords (changement de la ressource)
+* Utilisé majoritairement pour les pages qui changent rarement et les ressources statiques (CSS, JS, images)
+
+#Cache locale
+## Contrôle de la cache
+
+L'entête HTTP `Cache-Control` donne les directives de caching au navigateur.
+
+### Ne pas cacher la page
+
+`Cache-Control: no-store`
+
+Indique qu'on ne veut jamais que la page soit caché par le navigateur
+
+### Expiration
+
+`Cache-Control: max-age=86400`
+
+Permet à la ressource d'être caché pour un nombre de secondes. Indique que la page peut être caché pour une journée (86,400 secondes)
+
 
 # Bibliographie
 
 * Figure \ref{http-structure} : [_Requests and responses share a common structure in HTTP_](https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages$revision/1555323) par [_Teoli_](https://developer.mozilla.org/en-US/profiles/teoli) sous licence [CC-BY-SA 2.5](https://creativecommons.org/licenses/by/2.5/)
-
