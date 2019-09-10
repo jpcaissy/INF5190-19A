@@ -886,6 +886,24 @@ Indique qu'on ne veut jamais que la page soit caché par le navigateur
 Permet à la ressource d'être caché pour un nombre de secondes. Indique que la page peut être caché pour une journée (86,400 secondes)
 
 
-# Bibliographie
+# La semaine prochaine
+
+## Apportez votre ordinateur portable !
+
+Nous allons voir des exemples de codes dans le cours.
+
+* Architecture d'une application web
+* Introduction à Flask
+
+#
+
+## Liens utiles :
+
+* [Exemples de code](https://github.com/jpcaissy/INF5190/cours/02-sept-11/exemples)
+* [HTTP Messages](https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages)
+* [HTTP Cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies)
+* [HTTP Caching](https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching)
+
+## Bibliographie
 
 * Figure \ref{http-structure} : [_Requests and responses share a common structure in HTTP_](https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages$revision/1555323) par [_Teoli_](https://developer.mozilla.org/en-US/profiles/teoli) sous licence [CC-BY-SA 2.5](https://creativecommons.org/licenses/by/2.5/)
