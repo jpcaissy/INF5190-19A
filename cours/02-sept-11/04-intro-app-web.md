@@ -624,17 +624,103 @@ Il s'agit communément d'une application à 3 tiers :
 ![Schéma des protocoles d'une application Web](./img/diagrame-internet-protcole-LB-app.png){width=50%}
 
 # Application web
-
 ## Protocole de communication entre le serveur web et l'application web
 
 Il existe deux méthodes pour un serveur web de communiquer avec l'application web :
 
-* Utiliser le protocole HTTP
-    * Dans ce cas-ci, le balanceur de charge agit en tant que proxy HTTP également
+* Utiliser le protocole HTTP directement
 * Utiliser un protocole ou une interface distincte
     * CGI/FastCGI
     * Python : WSGI
     * Ruby : Rack
+
+#Application web
+## Protocole de communication entre le serveur web et l'application web
+### CGI/FastCGI
+
+* Interface de base
+* Une requête web = une exécution complète de l'application
+* Les entêtes HTTP sont passés par des variables d'environnements
+* Peu performant : pour chaque requête web, il faut exécuter l'application au complet
+    * Aucune réutilisation possible, car l'application est terminée après la requête
+* Chaque requête web est indépendante car l'application est terminée après l'exécution
+* FastCGI est une extension où le processus de l'application web est réutilisée
+
+#Application web
+## Protocole de communication entre le serveur web et l'application web
+### HTTP
+
+L'application web intègre un serveur web et elle communique directement avec le protocole HTTP.
+
+[Exemple de code disponible dans `exemples/serveur-web-simple.py`](exemples/serveur-web-simple.py)
+
+```
+$ python3 exemples/serveur-web-simple.py
+Démarage du serveur HTTP sur le port 8080 (http://localhost:8080)
+```
+
+```
+$ curl -i localhost:8080
+HTTP/1.0 200 OK
+Server: BaseHTTP/0.6 Python/3.6.8
+Date: Tue, 10 Sep 2019 18:11:17 GMT
+Content-Type: text/html; charset=utf-8
+
+<html><body><h1>Hello World!</h1></body></html>
+```
+
+#Application web
+## Protocole de communication entre le serveur web et l'application web
+### HTTP
+
+Souvent **non recommandé** comme porte d'entrée.
+
+* Pas optimisé pour un grand trafique.
+    * Les serveurs et balanceurs de charge HTTP peuvent facilement gérer des dizaines de milliers de connections à la seconde
+* Possible de mettre derrière un balanceur de charge par contre
+* Serveur HTTP populaire :
+    * Gunicorn
+    * Tornardo
+    * Waitress
+    * uWSGI
+
+#Application web
+## Protocole de communication entre le serveur web et l'application web
+### WSGI
+
+Historiquement, il n'existait aucune interface standard entre un serveur web et une application web.
+
+* WSGI est une interface simple et universelle définie par une spécification Python (PEP 333)
+* Une application web qui respecte l'interface WSGI peut utilisé n'importe quel serveur HTTP
+* L'application est exposée comme objet respectant l'interface de WSGI
+    * Le serveur invoque cet objet à chaque requête HTTP
+
+N.B. : WSGI à lui seule ne fait rien. Ce n'est qu'une interface standardisée
+
+#Application web
+## Protocole de communication entre le serveur web et l'application web
+### WSGI
+
+```python
+# exemples/app-wsgi.py
+def application(env, start_response):
+    start_response('200 OK', [('Content-Type','text/html')])
+    return [b"<html><body><h1>Hello World</h1></body></html>"]
+```
+
+```
+$ gunicorn3 -b 127.0.0.1:8080 app-wsgi:mon_application
+Starting gunicorn 19.7.1
+Listening at: http://127.0.0.1:8080 (17387)
+Using worker: sync
+Booting worker with pid: 17390
+
+```
+
+```
+$ curl localhost:8080
+<html><body><h1>Hello World</h1></body></html>
+```
 
 
 # Bibliographie
