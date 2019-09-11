@@ -1,6 +1,6 @@
 % INF5190 - Introduction à Python (suite)
 % Jean-Philippe Caissy
-% 11 septembre 2011
+% 11 septembre 2019
 
 # Erreurs et exceptions
 
@@ -237,7 +237,67 @@ f.close()
 
 Le gestionnaire de contexte de la méthode `open` s'assure du nettoyage des ressources après l'exécution du bloc.
 
+# Environnement de développement
+
+Afin de simplifier et aider le développement d'applications en Python, il existe plusieurs outils.
+
+## Packages
+
+`pip` est le gestionnaire de package le plus utilisé sous Python. Les packages sont publiés sur [https://pypi.org](https://pypi.org)
+
+# Environnement de développement
+## Installer un package
+
+```
+$ pip3 install flask
+Collecting flask
+  Downloading https://files.pythonhosted.org/packages/9b/93/628509b8d5dc749656a9641f4caf13540e2cdec85276964ff8f43bbb1d3b/Flask-1.1.1-py2.py3-none-any.whl (94kB)
+[...]
+
+Installing collected packages: click, itsdangerous, MarkupSafe, Jinja2, Werkzeug, flask
+Successfully installed Jinja2-2.10.1 MarkupSafe-1.1.1 Werkzeug-0.15.6 click-7.0 flask-1.1.1 itsdangerous-1.1.0
+```
+
+```python
+>>> import flask
+>>> flask.__file__
+'/home/jpcaissy/.local/lib/python3.6/site-packages/flask/__init__.py'
+```
+
+# Environnement de développement
+## Environnement de développement virtuel
+
+Chaque projets Python peut avoir des dépendances différentes.
+
+Par exemple un projet pourrait avoir besoin de Flask `1.1.1`, et un autre `1.0.5`.
+
+`virtualenv` est un outils qui permet d'isoler les dépendances d'un projet Python.
+
+# Environnement de développement
+## Environnement de développement virtuel
+
+1. Installer `virtualenv` avec `sudo pip3 install virtualenv` pour qu'il soit accessible globalement
+2. Créer un environnement virtuel avec la commande
+    ```
+        virtualenv -p python3 env/
+    ```
+    où `env/` est le dossier qui va contenir l'environnement virtuel
+3. Pour chaque session de terminal, on active la session avec
+    ```
+        source env/bin/activate
+    ```
+4. Par la suite pour le terminal en cours, `python3` et `pip3` seront isoler au projet actuel.
+    ```
+        $ which pip
+        ./env/bin/pip
+        $ which python
+        ./env/bin/python3
+    ```
+
+
+
 # Liens utiles
 
 * [Erreurs et exceptions](https://docs.python.org/3/tutorial/errors.html)
 * [Modules](https://docs.python.org/3/tutorial/modules.html)
+* [A non-magical introduction to Pip and Virtualenv for Python beginners ](https://www.dabapps.com/blog/introduction-to-pip-and-virtualenv-python/)

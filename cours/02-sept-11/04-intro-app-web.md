@@ -1,6 +1,6 @@
 % INF5190 - Introduction aux applications webs
 % Jean-Philippe Caissy
-% 11 septembre 2011
+% 11 septembre 2019
 
 # Requête HTTP
 
