@@ -136,8 +136,8 @@ Examen final
   ----------------------|----------|----------:
   Examen intra          | 23 octobre 2019 |35%
   Examen final          |11 décembre 2019 |35%
-  Projet de session première remise |4 novembre 21h |30%
-  Projet de session remise finale |16 décembre 21h |30%
+  Projet de session première remise |4 novembre 21h |15%
+  Projet de session remise finale |16 décembre 21h |15%
 
 Un projet de session remis en retard reçoit la note zéro à moins d'avoir fait l'objet d'une entente préalable avec le professeur.
 
