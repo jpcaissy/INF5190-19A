@@ -217,6 +217,26 @@ Voici le même fichier `fibonacci.py` à l'intérieur d'un dossier `modules`.
 0 1 1 2 3 5 8 13 21 34 55 89 
 ```
 
+# `with`
+
+L'expression `with` en python permet de couvrir un bloc d'exécution avec un gestionnaire de contexte.
+
+```python
+with open("file", "r") as f:
+    print(f.readlines())
+
+```
+
+est équivalent à 
+
+```python
+f = open("file", "r")
+print(f.readlines())
+f.close()
+```
+
+Le gestionnaire de contexte de la méthode `open` s'assure du nettoyage des ressources après l'exécution du bloc.
+
 # Liens utiles
 
 * [Erreurs et exceptions](https://docs.python.org/3/tutorial/errors.html)
