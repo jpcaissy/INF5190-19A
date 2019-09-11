@@ -20,6 +20,6 @@ Les instructions pour installer Python sont disponible ici : [cours/01-sept-04/i
 
 #### Cours
 
-* 03 Suite introduction à Python
+* [03 Suite introduction à Python](cours/02-sept-11/03-intro-python-suite.pdf)
 * [04 Introduction au fonctionnement d'une application web](cours/02-sept-11/04-intro-app-web.pdf)
 
