@@ -1,6 +1,8 @@
 # INF5190
 Cours de programmation Web avancée
 
+[Plan de cours](plan-de-cours.pdf)
+
 ## Horaire
 
 ### 01 - 4 septembre
