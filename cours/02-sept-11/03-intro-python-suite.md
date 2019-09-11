@@ -144,3 +144,80 @@ Il est possible de récupérer l'instance de l'exception.
 ...
 Erreur : [Errno 2] No such file or directory: 'fichier'
 ```
+
+# Modules
+
+Un module est un fichier contenant des définitions de classes, de méthodes et d'objets Python. Le nom du fichier sans 
+l'extension `.py` représente le nom du module.
+
+## Modules standards
+
+Python vient avec plusieurs modules dans la librairie standards. Pour les utiliser, il suffit de les importer.
+
+```python
+>>> from datetime import date
+>>> import os
+>>> today = date.today()
+>>> today
+datetime.date(2019, 9, 10)
+>>> os.path.isfile("/home/jpcaissy/src/vimrc/vimrc")
+True
+>>> os.curdir
+'.'
+```
+
+# Modules
+
+Avec un fichier nommé [`fibonacci.py`](cours/02-sept-11/exemples/modules/fibonacci.py) qui contient le code suivant :
+
+```python
+def fib(n):
+    a, b = 0, 1
+    while a < n:
+        print(a, end=" ")
+        a, b = b, a+b
+    print()
+```
+
+Il est possible d'importer le module et d'accéder aux méthodes :
+
+```python
+>>> import fibonacci
+>>> fibonacci.fib(10)
+0 1 1 2 3 5 8 
+>>> fibonacci.fib(15)
+0 1 1 2 3 5 8 13 
+>>> fibonacci.fib(100)
+0 1 1 2 3 5 8 13 21 34 55 89 
+>>> 
+```
+
+# Modules
+## Dossiers
+
+Un dossier peut également être représenté comme un module avec la présente du fichier spécial `__init__.py`
+
+Voici le même fichier `fibonacci.py` à l'intérieur d'un dossier `modules`.
+
+```
+      modules_python/
+          __init__.py
+          fibonacci.py
+```
+
+```python
+>>> from modules_python import fibonacci
+>>> fibonacci.fib(15)
+0 1 1 2 3 5 8 13 
+```
+
+```python
+>>> from modules_python.fibonacci import fib
+>>> fib(100)
+0 1 1 2 3 5 8 13 21 34 55 89 
+```
+
+# Liens utiles
+
+* [Erreurs et exceptions](https://docs.python.org/3/tutorial/errors.html)
+* [Modules](https://docs.python.org/3/tutorial/modules.html)
