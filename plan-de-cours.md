@@ -1,5 +1,5 @@
 ---
-wip: true
+wip: false
 sigle: INF5190
 title: Programmation Web avancée
 session: Automne 2019
@@ -50,31 +50,85 @@ Ce cours comporte une séance obligatoire de laboratoire (2 heures par semaine).
 * Virtualisation et conteneurs : virtualisation et émulation de systèmes d'exploitations, isolation, quotas de ressources, conteneurs, orchestration (Kubernetes)
 * Déploiement d'une application web : Platform as a Service (PaaS: Heroku, Google AppEngine), Infrastructure as a Service (IaaS: AWS, GCP), déploiement continu, déploiements progressifs et de canaries;
 
-## Horaire
+# Horaire
 
 L'horaire présenté est à titre indicatif et peut changer tout au long de la session.
 
-  | Semaine |  Date du cours | Cours                                                                      | Laboratoire                                                                                       |
-  |---------|----------------|----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
-  | 1       | 4 septembre    | Présentation du cours, rappel au dévelopement web, introduction à Python | Introduction à Python, création d'une application web simple                                      |
-  | 2       | 11 septembre   | (Suite) Introduction à Python, fonctionnement d'une application web          | Introduction au cadriciel de développement web Flask                                              |
-  | 3       | 18 septembre   | Architecture d'une application web                                         | Création d'une application web avec Flask et intégration de tests                                 |
-  | 4       | 25 septembre   | Modèle MVC : Controller                                                    | Système de templating, Sérialisation JSON                                                         |
-  | 5       | 2 octobre      | (suite) Modèle MVC : Model                                                 | Intégration d'une base de données à une application Flask, systèmes de migration de base de données |
-  | 6       | 9 octobre      | (suite) Modèle MVC : View                                                  | Formulaires, validation et gestion d'erreurs, localisation (i10n) et internationalisation (i18n) |
-  | 7       | 16 octobre     | Révision                                                                   | Aide pour le projet de session                                                                    |
-  | 8       | 23 octobre     | Examen intra                                                               |                                                                                                   |
-  | 9       | 30 octobre     | Maintenance d'une application web, interopérabilité d'une application web    | Intégration de métriques d'observabilité, création d'une API REST                                |
-  | 10      | 6 novembre     | (suite) Micro services, résilience d'une application web                     | Création et utilisation d'un service externe, pagination de l'API REST                            |
-  | 11      | 13 novembre    | Performance d'une application web                                          | Systèmes de caching, intégration de tâches en arrière plan (background jobs)                      |
-  | 12      | 20 novembre    | Virtualisation et conteneurs                                               | Création d'une image docker de l'application web                                                  |
-  | 13      | 27 novembre    | Déploiement d'une application web                                          | Déploiement de l'application web sur Google Cloud Platform                                        |
-  | 14      | 4 décembre     | Révision                                                                   | Aide pour le projet de session                                                                    |
-  | 15      | 11 décembre    | Examen final                                                               |                                                                                                   |
 
-## Projet de session
+## Semaine 1 - 4 septembre
 
-Le projet de session consiste à développer et déployer une application web complète. Cette application sera développée avec le langage de programmation Python et le cadriciel de développement Flask.
+* Cours: Présentation du cours, rappel au dévelopement web, introduction à Python
+* Laboratoire: Introduction à Python, création d'une application web simple
+
+
+## Semaine 2 - 11 septembre
+* Cours:       (Suite) Introduction à Python, fonctionnement d'une application web
+* Laboratoire: Introduction au cadriciel de développement web Flask
+
+
+## Semaine 3 - 18 septembre
+ * Cours:      Architecture d'une application web
+ * Laboratoire: Création d'une application web avec Flask et intégration de tests
+
+
+## Semaine 4 - 25 septembre
+ * Cours:      Modèle MVC : Controller
+ * Laboratoire: Système de templating, Sérialisation JSON
+
+
+## Semaine  5 - 2 octobre
+ * Cours:      (suite) Modèle MVC : Model
+ * Laboratoire: Intégration d'une base de données à une application Flask, systèmes de migration de base de données
+
+
+## Semaine 6 - 9 octobre
+ * Cours:      (suite) Modèle MVC : View
+ * Laboratoire: Formulaires, validation et gestion d'erreurs, localisation (i10n) et internationalisation (i18n)
+
+
+## Semaine  7 - 16 octobre
+ * Cours:      Révision
+ * Laboratoire: Aide pour le projet de session
+
+
+## Semaine  8 - 23 octobre
+ Examen intra
+
+
+## Semaine  9 - 30 octobre
+ * Cours:      Maintenance d'une application web, interopérabilité d'une application web
+ * Laboratoire: Intégration de métriques d'observabilité, création d'une API REST
+
+
+## Semaine 10 - 6 novembre
+ * Cours:      (suite) Micro services, résilience d'une application web
+ * Laboratoire: Création et utilisation d'un service externe, pagination de l'API REST
+
+
+## Semaine 11 - 13 novembre
+ * Cours:      Performance d'une application web
+ * Laboratoire: Systèmes de caching, intégration de tâches en arrière plan (background jobs)
+
+
+## Semaine 12 - 20 novembre
+ * Cours:      Virtualisation et conteneurs
+ * Laboratoire: Création d'une image docker de l'application web
+
+
+## Semaine 13 - 27 novembre
+ * Cours:      Déploiement d'une application web
+ * Laboratoire: Déploiement de l'application web sur Google Cloud Platform
+
+
+## Semaine 14 - 4 décembre
+ * Cours:      Révision
+ * Laboratoire: Aide pour le projet de session
+
+
+## Semaine 15 - 11 décembre
+
+Examen final
+
 
 # Modalités d'évaluation
 
@@ -93,6 +147,10 @@ La qualité du français fait partie intégrante des critères d'évaluation des
 La note de passage du cours est de 60% pour l'ensemble de l'évaluation et de 50% pour les deux examens combinés.
 
 Le projet projet de session peut se faire individuellement ou en équipe de deux.
+
+## Projet de session
+
+Le projet de session consiste à développer et déployer une application web complète. Cette application sera développée avec le langage de programmation Python et le cadriciel de développement Flask.
 
 # Médiagrahie
 
