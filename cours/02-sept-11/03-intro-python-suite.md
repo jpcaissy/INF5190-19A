@@ -125,7 +125,7 @@ Ou chainer des exceptions
 
 ```python
 ....     except TypeError:
-....        print("La veleur n'est pas un chiffre")
+....        print("La valeur n'est pas un chiffre")
 ....     except ZeroDivisionError:
 ....        print("Impossible de diviser par zéro")
 ```
