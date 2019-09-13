@@ -82,9 +82,22 @@ cours['INF4170'] = {
 print(cours)
 ```
 
+7. Itérer sur les cours, et afficher le sigle et le groupe du cours
+
+```python
+>>> for sigle, info in cours.items():
+...     groupe = info['groupe']
+...     print("Sigle : {0}, groupe : {1}".format(sigle, groupe))
+... 
+Sigle : INF5190, groupe : 030
+Sigle : INF3190, groupe : 020
+Sigle : INF4170, groupe : 040
+```
+
+
 ----
 
-7. Créer un fichier texte et mettez y quelques lignes. Créer un script python qui va ouvrir le fichier avec la
+8. Créer un fichier texte et mettez y quelques lignes. Créer un script python qui va ouvrir le fichier avec la
     méthode `open` et lire puis afficher chacune des lignes du fichier.
 
     Indice : utilisez la méthode `readline` avec a syntaxe `with`.
@@ -96,7 +109,7 @@ print(cours)
             ligne = f.readline()
     ```
 
-8. Rajouter une gestion d'exception qui gère un fichier qui n'existe pas `try/except`
+9. Rajouter une gestion d'exception qui gère un fichier qui n'existe pas `try/except`
     ```python
     try:
         with open("mon_fichier.txt", "r") as f:
@@ -111,7 +124,7 @@ print(cours)
 
 ----
 
-9. Créer un module nommé operations qui contien la méthode `lire_toutes_les_lignes`. Cette méthode prend en argument
+10. Créer un module nommé operations qui contien la méthode `lire_toutes_les_lignes`. Cette méthode prend en argument
     un nom de fichier et va retourner une liste de toutes les lignes du fichiers.
 
     ```python

@@ -29,22 +29,47 @@ cours = {
 }
 ```
 
+Les méthodes `keys()`, `values()` d'un dictionnaire retournent respectivement la liste des clés et la liste des
+valeurs du dictionnaire :
+
+La méthode `items()` retourne une liste liste de tuple clé-valeur du dictionnaire.
+
+```python
+>>> print(list(cours.keys()))
+['INF5190', 'INF3190']
+>>> print(list(cours.values()))
+[{'nom': 'Programmation Web avancé', 'groupe': '030'}, {'nom': 'Introduction à la programmation Web', 'groupe': '020'}]
+>>> print(list(cours.items()))
+[('INF5190', {'nom': 'Programmation Web avancé', 'groupe': '030'}), ('INF3190', {'nom': 'Introduction à la programmation Web', 'groupe': '020'})]
+```
+
+Comme toutes les listes, on peut donc itérer sur les clés, les valeurs ou les items d'un dictionnaire.
+
+```python
+>>> for cle, valeur in cours.items():
+...   print("Sigle: {0} - {1}".format(cle, valeur['nom']))
+...
+Sigle: INF5190 - Programmation Web avancé
+Sigle: INF3190 - Introduction à la programmation Web
+```
+
 3. À partir du dictionnaire `cours`, afficher le nom du cours de INF5190 et INF3190
 4. Modifier le groupe de INF3190 pour `030`
 5. Pour chacun des cours, rajouter l'horaire à la structure de donnée (INF5190: mercredi soir, INF3190: mardi soir)
 6. Rajouter le cours INF4170 - Architecture des ordinateurs pour le groupe 040 avec un horaire le jeudi soir
+7. Itérer sur les cours, et afficher le sigle et le groupe du cours
 
 ----
 
-7. Créer un fichier texte et mettez y quelques lignes. Créer un script python qui va ouvrir le fichier avec la
+8. Créer un fichier texte et mettez y quelques lignes. Créer un script python qui va ouvrir le fichier avec la
     méthode `open` et lire puis afficher chacune des lignes du fichier.
 
     Indice : utilisez la méthode `readline` avec a syntaxe `with`.
-8. Rajouter une gestion d'exception qui gère un fichier qui n'existe pas `try/except`
+9. Rajouter une gestion d'exception qui gère un fichier qui n'existe pas `try/except`
 
 ----
 
-9. Créer un module nommé operations qui contien la méthode `lire_toutes_les_lignes`. Cette méthode prend en argument
+10. Créer un module nommé operations qui contien la méthode `lire_toutes_les_lignes`. Cette méthode prend en argument
     un nom de fichier et va retourner une liste de toutes les lignes du fichiers.
 
     ```python
@@ -121,7 +146,86 @@ $ which pip3
 
 ## Exercice
 
-1. Installer le serveur WSGI `waitress`:
+1. Le premier exercice revient sur les retours d'envoies (_callbacks_).
+
+Dans l'exemple montré en classe avec WSGI :
+
+```python
+def mon_application(env, start_response):
+    start_response('200 OK', [('Content-Type','text/html')])
+    return [b"<html><body><h1>Hello World</h1></body></html>"]
+```
+
+Il est important de comprendre que le deuxième argument `start_response` est en fait un pointeur de fonction.
+
+En Python, tout est une méthode. Voici un exemple:
+
+```python
+>>> def ma_methode(input, autre_methode):
+        return autre_methode(input)
+
+>>> ma_methode
+<function ma_methode at 0x7f842d583bf8>
+>>> print
+<built-in function print>
+>>> print("test")
+test
+>>> ma_methode("test", print)
+test
+```
+
+Dans cet exemple on peut voir que `ma_methode` sans paranthèses est une syntaxe valide. Cela ne fait
+que pointer vers la méthode. On peut passer cette méthode en argument.
+
+C'est la même chose avec `print`. `print` seul pointe vers la référence de la méthode, et `print("test")` appelle
+la méthode avec l'argument passé en paramètre.
+
+Voici un autre exemple :
+
+```python
+>>> def addition(a, b):
+...     return a + b
+>>> def multiplication(a, b):
+...     return a * b
+```
+
+J'ai deux méthodes `addition` et multiplication` que je peux appeler moi-même :
+```python
+>>> addition
+<function addition at 0x7f842d583c80>
+>>> addition(2, 5)
+7
+```
+
+Je peux également les passer en paramètre à ma méthode operation :
+
+```python
+>>> def operation(a, b, operation):
+        return operation(a, b)
+
+>>> operation(2, 5, addition)
+7
+>>> operation(2, 5, multiplication)
+10
+```
+
+Si on revient à notre exemple avec WSGI : 
+
+```python
+def mon_application(env, start_response):
+    start_response('200 OK', [('Content-Type','text/html')])
+    return [b"<html><body><h1>Hello World</h1></body></html>"]
+```
+
+C'est le même principe. `start_response` est un argument qui point vers une méthode du serveur WSGI, tel que 
+définit par la spécification [PEP 3333](https://www.python.org/dev/peps/pep-0333/#the-start-response-callable) :
+
+> The second parameter passed to the application object is a callable of the form start_response(status, response_headers, exc_info=None). 
+> The start_response callable is used to begin the HTTP response, and it must return a write(body_data) callable (see the Buffering and Streaming section, below).
+
+Donc lorsque la méthode `start_response` est appelé, le début de la réponse HTTP est envoyé au client.
+
+2. Installer le serveur WSGI `waitress`:
     ```
     (env) $ pip install waitress
     ```
@@ -143,5 +247,13 @@ $ which pip3
     [.....]
     ```
 
-2. **À Venir** : Compléter le fichier [`app-web.py](./app-web.py)
+3. Compléter le fichier [`app-web.py](./app-web.py)
 
+Vous pouvez lancer l'application avec la commande suivante :
+
+```
+$ python3 app_web.py
+Serving on http://0.0.0.0:8080
+```
+
+Et l'application web sera disponible à l'adresse [http://127.0.0.1:8080/](http://127.0.0.1:8080)
