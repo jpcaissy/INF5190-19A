@@ -26,23 +26,6 @@ def index(environ, start_response):
     return [str.encode("<html><body><h1>Hello world!</h1></body></html>")]
 
 def echo(environ, start_response):
-    # TODO: Retourner un 200 OK et afficher dans le template la valeur des paramètres de l'URI :
-    #
-    # /echo?key_1=value_1&key_2=value_2&key_1=autre_value_1
-    #
-    # devrait afficher une page Web avec un tableau correspondant à
-    # <table>
-    #     <tbody>
-    #         <tr>
-    #             <td>cle_1</td>
-    #             <td>value_1, autre_valeur,</td>
-    #         </tr>
-    #             <td>cle_2</td>
-    #             <td>value_2,</td>
-    #         </tr>
-    #     </tbody>
-    # </table>
-
     query_string = parse_qs(environ['QUERY_STRING'])
 
     body = """

@@ -27,17 +27,17 @@ def index(environ, start_response):
 def echo(environ, start_response):
     # TODO: Retourner un 200 OK et afficher dans le template la valeur des paramètres de l'URI :
     #
-    # /echo?cle_1=valeur_1&cle_2=valeur_2
+    # /echo?key_1=value_1&key_2=value_2&key_1=autre_value_1
     #
     # devrait afficher une page Web avec un tableau correspondant à
     # <table>
     #     <tbody>
     #         <tr>
     #             <td>cle_1</td>
-    #             <td>valeur_1</td>
+    #             <td>value_1, autre_valeur,</td>
     #         </tr>
     #             <td>cle_2</td>
-    #             <td>valeur_2</td>
+    #             <td>value_2,</td>
     #         </tr>
     #     </tbody>
     # </table>
