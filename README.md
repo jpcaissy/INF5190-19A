@@ -27,9 +27,7 @@ Les instructions pour installer Python sont disponible ici : [cours/01-sept-04/i
 
 #### Labo
 
-**Local**
-
-Le laboratoire aura lieu au **PK-S1560**
+**IMPORTANT**: Le laboratoire aura lieu au **PK-S1560**
 
 Il n'y a qu'un seul démonstrateur pour l'instant, alors une plus grosse salle de laboratoire sera utilisée ce soir.
 
