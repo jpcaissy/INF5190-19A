@@ -247,7 +247,7 @@ Donc lorsque la méthode `start_response` est appelé, le début de la réponse 
     [.....]
     ```
 
-3. Compléter le fichier [`app_web.py/`](./app_web.py)
+3. Compléter le fichier [`app_web.py`](./app_web.py)
 
 Vous pouvez lancer l'application avec la commande suivante :
 
