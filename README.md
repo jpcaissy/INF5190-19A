@@ -25,3 +25,10 @@ Les instructions pour installer Python sont disponible ici : [cours/01-sept-04/i
 * [03 Suite introduction à Python](cours/02-sept-11/03-intro-python-suite.pdf)
 * [04 Introduction au fonctionnement d'une application web](cours/02-sept-11/04-intro-app-web.pdf)
 
+#### Labo
+
+Il n'y a qu'un seul démonstrateur pour l'instant, alors une seule salle de laboratoire sera utilisée ce soir.
+
+L'énoncé du labo est disponible ici : [cours/02-sept-11/labo/01-labo.md](cours/02-sept-11/labo/01-labo.md)
+
+Les solutions sont en ligne et disponible à la racine : [cours/02-sept-11/labo](cours/02-sept-11/labo)
