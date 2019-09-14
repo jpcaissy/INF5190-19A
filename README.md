@@ -18,6 +18,8 @@ Le labo du vendredi 6 septembre est annulé.
 
 Les instructions pour installer Python sont disponible ici : [cours/01-sept-04/installer-python.md](cours/01-sept-04/installer-python.md).
 
+Pour rejoindre le démonstrateur: [ider.ismail@courrier.uqam.ca](mailto:ider.ismail@courrier.uqam.ca)
+
 ### 02 - 11 septembre
 
 #### Cours
