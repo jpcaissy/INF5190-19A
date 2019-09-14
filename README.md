@@ -39,8 +39,10 @@ Les solutions sont en ligne et disponible à la racine : [cours/02-sept-11/labo]
 
 ##### Liens utiles:
 
+- [Le tutoriel Python](https://docs.python.org/fr/3/tutorial/index.html)
 - [Exercices pour vous pratiquez en python](https://www.hackerrank.com/domains/python)
 - [Répertoire de liens décrivant la spécification WSGI](https://wsgi.readthedocs.io/en/latest/learn.html)
+- [Environnements virtuels et paquets](https://docs.python.org/fr/3/tutorial/venv.html)
 - [An introduction to HTTP: everything you need to know](https://www.freecodecamp.org/news/http-and-everything-you-need-to-know-about-it/)
 - [Modern applications at AWS](https://www.allthingsdistributed.com/2019/08/modern-applications-at-aws.html)
 
