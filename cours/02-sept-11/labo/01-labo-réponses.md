@@ -138,12 +138,11 @@ Sigle : INF4170, groupe : 040
     def lire_toutes_les_lignes(fichier):
         lignes = []
         try:
-            with open("mon_fichier.txt", "r") as f:
+            with open(fichier, "r") as f:
                 ligne = f.readline()
-                lignes.append(line)
                 while ligne:
+                    lignes.append(ligne)
                     ligne = f.readline()
-                    lignes.append(line)
         except FileNotFoundError:
             print("Le fichier n'existe pas")
 
