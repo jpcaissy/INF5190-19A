@@ -3,6 +3,9 @@ Cours de programmation Web avancée
 
 [Plan de cours](plan-de-cours.pdf)
 
+Chargé de cours : Jean-Philippe Caissy - caissy.jean-philippe@courrier.uqam.ca
+Démonstrateur : Ismail Ider - ider.ismail@courrier.uqam.ca
+
 ## Horaire
 
 ### 01 - 4 septembre
