@@ -68,6 +68,24 @@ Une suite de test efficace possède les 4 caractéristiques suivantes :
 * Les tests de modèle sont en grande partie des tests unitaires
 
 # Types de tests
+## Tests unitaires
+
+Un test unitaire sert à tester : 
+
+* La fonctionnalité et la non-fonctionnalité d'une méthode
+* La gestion des erreurs et des exceptions
+* Les cas limites
+
+# Types de tests
+## Tests unitaires
+
+Un test unitaire devrait être rapide, complet, fiable et hermétique :
+
+* Pas de manipulation de fichiers ou de base de donnée
+* Pas de communication réseau
+* Pas d'effets de bords
+
+# Types de tests
 ## Tests fonctionnels
 
 * Tests de 2e niveau
@@ -78,14 +96,46 @@ Une suite de test efficace possède les 4 caractéristiques suivantes :
 * Les tests de contrôleurs et vues sont des tests fonctionnels
 
 # Types de tests
+## Tests fonctionnels
+
+Un test fonctionnel sert à tester :
+
+* La fonctionnalité d'une composante du système
+* Un test fonctionnel va souvent couvrir l'équivalent de plusieurs tests unitaires
+
+# Types de tests
+## Tests fonctionnels
+
+Un test fonctionnel peut :
+
+* Manipuler des fichiers ou une base de donnée
+* Faire des communications réseaux
+* Avoir des effets de bords
+
+**Mais** :
+
+* Les effets de bords doivent être testés
+* Le test fonctionnel doit nettoyer après celui-ci :
+    * Toutes opérations de manipulation de fichiers doit être défaites
+    * La base de donnée doit être remise dans l'état initiale
+
+# Types de tests
 ## Tests d'intégrations
 
 * Tests de 3e nievau
 * Niveau d'abstraction similaire à une requête Web
 * Vérifie que chacune des composantes s'intègre au système complet
-* Nécessite l'instanciation de l'application Web
-* À la différence d'un test fonctionnel : peut toucher à plusieurs contrôleurs
+* Un test d'intégration représente une ou plusieurs requêtes Web à l'application
 * Exemple : Enregistrer un nouvel utilisateur sur l'application Web, et vérifier que celui-ci peut se connecter
+
+# Types de tests
+## Tests d'intégrations
+
+Un test d'intégration va tester :
+
+* L'envoie d'une requête HTTP à l'application Web
+* Va couvrir du code touché par plusieurs composantes (modèle, vue et contrôleur)
+* Peut faire plusieurs requêtes web dans un seul test
 
 # Types de tests
 ## Flask
