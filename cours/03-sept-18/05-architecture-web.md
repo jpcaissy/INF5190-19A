@@ -2,6 +2,16 @@
 % Jean-Philippe Caissy
 % 18 septembre 2019
 
+# Développement _frontend_ et _backend_
+
+En ingénierie logicielle, les termes _frontend_ et _backend_ différencient la séparation de responsabilité d'un
+logiciel par rapport à sa couche de présentation (**front**) et sa couche d'accès de données (**back**).
+
+Dans un modèle client-serveur, tel que les applications web, le client est souvent reconnu comme étant le _frontend_ 
+et le serveur le _backend_.
+
+Dans le cadre de ce cours, nous nous concentrons sur le développement _backend_.
+
 # Fonctionnement interne
 
 1. Requête entrante
@@ -373,16 +383,6 @@ def login():
     else:
         return show_login_form()
 ```
-
-# Développement _frontend_ et _backend_
-
-En ingénierie logicielle, les termes _frontend_ et _backend_ différencient la séparation de responsabilité d'un
-logiciel par rapport à sa couche de présentation (**front**) et sa couche d'accès de données (**back**).
-
-Dans un modèle client-serveur, tel que les applications web, le client est souvent reconnu comme étant le _frontend_ 
-et le serveur le _backend_.
-
-Dans le cadre de ce cours, nous nous concentrons sur le développement _backend_.
 
 # Liens utiles
 

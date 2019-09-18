@@ -137,13 +137,98 @@ Un test d'intégration va tester :
 * Va couvrir du code touché par plusieurs composantes (modèle, vue et contrôleur)
 * Peut faire plusieurs requêtes web dans un seul test
 
+# TODO : exemple de test d'intégration
+
 # Types de tests
-## Flask
+## Tests de navigateurs
 
-Flask (et Python!) possèdent des outils de tests très puissants.
+Un test de navigateur est un navigateur Web contrôlé par une API. C'est le test ultime d'une application Web.
 
-Flask expose un client Web afin de simuler les requêtes Web à l'application et ainsi les tester.
+* Utilisation d'outils qui automatise les actions d'un navigateur (aller à une adresse, cliquer sur un lien, etc)
+    * C'est un vrai navigateur, seulement sasn "fenêtre"
+* L'API fonctionne avec les éléments de la page. Par exemple :
+    * Cliquer sur le lien dont le `id` est `admin`
+    * Remplir les champs d'un formulaire et le soumettre
+* On peut valider que les pages visités sont celles attendues, que les éléments Javascript de la page fonctionne, etc
+* Les engins les plus utilisés sont ceux de Firefox ou Chrome
+
+# TODO : exemple live de browser test
+
+# Types de tests
+
+![Pyramide des tests](./img/test-pyramide.pdf){ width=100% }
+
+# Tests de performances
+
+On utilise les tests de performance pour mesurer et valider la capacité d'une application Web
+
+L'objectif est de répondre à la question suivante : combien d'utilisateurs est-ce que mon application peut servir
+concurrentiellement?
+
+# Tests de performances
+## Théorie des files d'attentes
+
+* Dans une application de type client-serveur, une file d'attente se crée à chaque fois qu'un client envoie une requête.
+* À travers tout le système, plusieurs files d'attentes seront utilisés :
+    * Le tampon (buffer) de la connexion TCP dans la carte réseau et l'OS
+    * Le tampon du balanceur de charge
+
+* Chaque composante d'une application Web a une capacité limite
+
+# Tests de performances
+## Théorie des files d'attentes
+### Requête dans une file d'attente (request queuing)
+
+* Chaque requête Web va passer un certain temps (millisecondes) dans une file d'attente avant d'être traitée par l'application web
+* Ce temps d'attente doit toujours être le plus bas possible
+
+![Requête en attente](./img/request-queuing.pdf)
+
+# Tests de performances
+## Théorie des files d'attentes
+### Requête dans une file d'attente (request queuing)
+
+* Lorsqu'une des files d'attentes du système est plein, il y a une attente de la requête (request queuing)
+
+![Requête en attente 2](./img/request-queuing-2.pdf)
+
+# Tests de performances
+## Théorie des files d'attentes
+### Définitions
+
+* Temps de réponse : Le temps perçu par le client (navigateur)
+* Temps de réponse applicatif : Le temps que prends l'application Web à compléter une réponse
+* Nombre de requête par unité de temps : Le nombre de requête concurrentes dans une intervale de temps
+    * RPS : Requêtes par secondes
+    * RPM : Requêtes par minute (600 RPM = 100 RPS)
+* Temps d'attente d'une requête : La différence entre le temps de réponse et le temps de réponse applicatif
+* Requêtes en attente : Lorsque le nombre de requête concurrente est supérieur à la capacité
+* Capacité : Le nombre de requête concurrente qu'une application Web peut prendre sans avoir de requêtes en attente
+
+# Tests de performances
+## Théorie des files d'attentes
+### Loi de Little
+
+Capacité d'un système est égaleà la fréquence moyenne d'arrivée X temps moyen passé dans le système
+
+$$ C =  \lambda \tau $$
+
+la capacité totale du système : $$C$$
+
+le nombre de requête par unité de temps : $$ \lambda $$
+Le temps moyen passé dans le système : $$ \tau $$
+
+# Tests de performances
+
+* Les tests de performances sont des outils qui simulent plusieurs personnes naviguant sur une application Web
+en même temps.
+* Un test de performance peut durer quelques minutes à quelques heures
+* Les informations suivantes sont capturés tout au long du test:
+    * Nombre de requête concurrente
+    * Temps de réponse moyen
+    * Taux de succès et taux d'erreurs
 
 # Liens utiles
 
 * [Testing Rails](https://books.thoughtbot.com/assets/testing-rails.pdf)
+* [How to apply Little's Law to validate performance test results](https://elitesouls.teachable.com/blog/8751/how-to-apply-little-s-law-to-validate-performance-test-results)
