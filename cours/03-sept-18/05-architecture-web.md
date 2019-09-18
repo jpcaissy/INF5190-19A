@@ -271,6 +271,38 @@ Les objets de services sont utilisés pour alléger le contenu d'un contrôleur.
 Exemple : Un contrôleur est instancié pour enregistrer un nouvel utilisateur. L'enregistrement de l'utilisateur
 (i.e. : écriture dans la base de donnée, envoie du courriel de bienvenue, etc) est géré par un objet de service.
 
+[Exemple sur Github](https://github.com/jpcaissy/INF5190/tree/master/cours/03-sept-18/exemples/poll/services.py)
+
+# Traitement d'une requête POST
+## Problème
+
+![Problèmes de duplications lors de soumissions de formulaire](./img/post-problem.pdf){width=80%}
+
+# Traitement d'une requête POST
+
+Traitement d'une requête Web de type POST:
+
+* Le client envoie la requête Web
+* L'application reçoit la requête et traite la requête
+* S'il y a une erreur : l'exécution est interrompu et l'erreur est retourné par l'application
+* S'il n'y a pas d'erreurs : l'application retourne un code de redirection (`303 See Other`) et le navigateur charge cette nouvelle page
+
+**Post-Redirect-Get**
+
+# Traitement d'une requête POST
+## Post-Redirect-Get
+
+Objectif principal : 
+
+* Empêcher les soumissions multiples de formulaires sur une page Web
+* Aider le fonctionnement de navigation (i.e.: page précédente) du navigateur
+
+# Traitement d'une requête POST
+## Post-Redirect-Get
+
+![Schéma d'un POST-Redirect-Get](./img/post-redirect-get.pdf){height=60%}
+
+
 # Flask
 
 Cadriciel (_framework_) de développement Web
