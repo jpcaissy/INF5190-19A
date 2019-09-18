@@ -360,8 +360,6 @@ Cadriciel (_framework_) de développement Web
 * Facile à utiliser
 * Flexible et n'enforce aucune structure rigide
 
-Exemple d'application : [https://github.com/jpcaissy/INF5190/tree/master/cours/03-sept-18/exemples/station-de-vote](https://github.com/jpcaissy/INF5190/tree/master/cours/03-sept-18/exemples/station-de-vote)
-
 # Flask
 ## Hello World!
 

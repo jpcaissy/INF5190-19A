@@ -58,4 +58,4 @@ Les solutions sont en ligne et disponible à la racine : [cours/02-sept-11/labo]
 
 * [05 Architecture web](cours/03-sept-18/05-architecture-web.pdf)
 * [06 Tests](cours/03-sept-18/06-tests.pdf)
-* [Exemple d'application Flask](cours/03-sept-18/exemples/station-vote/)
+* [Exemple d'application Flask](https://github.com/jpcaissy/INF5190/tree/master/cours/03-sept-18/exemples/station-de-vote)
