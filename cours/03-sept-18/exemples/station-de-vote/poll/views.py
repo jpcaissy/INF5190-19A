@@ -24,7 +24,7 @@ def index(polls):
                     </tr>
             """.format(id=poll.id, name=poll.name)
 
-    return view + """</tbody></table><hr /><a href="/polls/new">Nouveau sondage</a></body></html>"""
+    return view + """</tbody></table><hr /><a id="new-poll" href="/polls/new">Nouveau sondage</a></body></html>"""
 
 def index_empty():
     return """
@@ -33,7 +33,7 @@ def index_empty():
         <h1>Sondages</h1>
         <h2>Aucuns sondages actifs</h2>
 
-        <a href="/polls/new">Nouveau sondage</a>
+        <a id="new-poll" href="/polls/new">Nouveau sondage</a>
     </body>
 </html>
     """
@@ -81,7 +81,7 @@ def view_poll(poll, choices):
     <form method="POST" action="/polls/{poll_id}/choices/new">
         <p>Rajouter un choix au sondage : </p>
         <label for="choice">Choix : </label><input type="text" id="choice" name="choice" /><br />
-        <button type="submit">Rajouter</button>
+        <button type="submit" id="add-choice">Rajouter</button>
     </form>""".format(poll_id=poll.id)
 
     return view + """<hr /><a href="/">Retourner à la liste des sondages</a></body></html>"""

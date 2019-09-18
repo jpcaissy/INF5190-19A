@@ -232,3 +232,4 @@ en même temps.
 
 * [Testing Rails](https://books.thoughtbot.com/assets/testing-rails.pdf)
 * [How to apply Little's Law to validate performance test results](https://elitesouls.teachable.com/blog/8751/how-to-apply-little-s-law-to-validate-performance-test-results)
+* [Modern Web Automation With Python and Selenium](https://realpython.com/modern-web-automation-with-python-and-selenium/)

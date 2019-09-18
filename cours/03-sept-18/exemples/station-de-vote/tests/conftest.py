@@ -24,3 +24,8 @@ def app():
 @pytest.fixture
 def client(app):
     return app.test_client()
+
+@pytest.fixture
+def firefox_options(request, firefox_options):
+    firefox_options.add_argument('--headless')
+    return firefox_options
