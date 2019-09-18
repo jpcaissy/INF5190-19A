@@ -106,7 +106,7 @@ Exemples d'utilisations :
 # Fonctionnement interne
 ## Intergiciel (_middleware_)
 
-![Diagramme d'un middleware](./img/middleware.png)
+![Diagramme d'un middleware](./img/middleware.pdf){height=60%}
 
 # Fonctionnement interne
 ## Intergiciel (_middleware_)
@@ -247,7 +247,7 @@ Objectifs principaux :
 # Fonctionnement interne
 ## MVC
 
-![MVC](./img/mvc.png){ width=50% }
+![MVC](./img/mvc.pdf){ width=50% }
 
 # Fonctionnement interne
 ## MVC
