@@ -24,6 +24,8 @@ Les instructions pour installer Python sont disponible ici : [cours/01-sept-04/i
 
 Pour rejoindre le démonstrateur: [ider.ismail@courrier.uqam.ca](mailto:ider.ismail@courrier.uqam.ca)
 
+---
+
 ### 02 - 11 septembre
 
 #### Cours
@@ -49,6 +51,8 @@ Les solutions sont en ligne et disponible à la racine : [cours/02-sept-11/labo]
 - [Environnements virtuels et paquets](https://docs.python.org/fr/3/tutorial/venv.html)
 - [An introduction to HTTP: everything you need to know](https://www.freecodecamp.org/news/http-and-everything-you-need-to-know-about-it/)
 - [Modern applications at AWS](https://www.allthingsdistributed.com/2019/08/modern-applications-at-aws.html)
+
+---
 
 ### 03 - 18 septembre
 
