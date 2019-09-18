@@ -320,7 +320,7 @@ Les objets de services sont utilisés pour alléger le contenu d'un contrôleur.
 Exemple : Un contrôleur est instancié pour enregistrer un nouvel utilisateur. L'enregistrement de l'utilisateur
 (i.e. : écriture dans la base de donnée, envoie du courriel de bienvenue, etc) est géré par un objet de service.
 
-[Exemple sur Github](https://github.com/jpcaissy/INF5190/tree/master/cours/03-sept-18/exemples/poll/services.py)
+[Exemple sur Github](https://github.com/jpcaissy/INF5190/blob/master/cours/03-sept-18/exemples/station-de-vote/poll/services.py)
 
 # Traitement d'une requête POST
 ## Problème
