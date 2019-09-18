@@ -10,6 +10,12 @@ Les packages suivants sont nécéessaire :
 $ pip install flask pytest pytest-flask selenium pytest-selenium
 ```
 
+Ensuite on crée la base de donnée de développement :
+
+```
+$ FLASK_APP=poll flask init-db
+```
+
 ## Utilisation
 
 Pour rouler l'application :
