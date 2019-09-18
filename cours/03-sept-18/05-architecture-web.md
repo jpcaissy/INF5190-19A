@@ -337,7 +337,7 @@ Lors d'une requête Web, Flask va trouver la route qui correpond à la requête 
 ```python
 @app.route('/')
 def index():
-    return 'Page d'accueil'
+    return "Page d'accueil"
 
 @app.route('/hello')
 def hello():
