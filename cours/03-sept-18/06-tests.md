@@ -137,8 +137,6 @@ Un test d'intégration va tester :
 * Va couvrir du code touché par plusieurs composantes (modèle, vue et contrôleur)
 * Peut faire plusieurs requêtes web dans un seul test
 
-# TODO : exemple de test d'intégration
-
 # Types de tests
 ## Tests de navigateurs
 
@@ -151,8 +149,6 @@ Un test de navigateur est un navigateur Web contrôlé par une API. C'est le tes
     * Remplir les champs d'un formulaire et le soumettre
 * On peut valider que les pages visités sont celles attendues, que les éléments Javascript de la page fonctionne, etc
 * Les engins les plus utilisés sont ceux de Firefox ou Chrome
-
-# TODO : exemple live de browser test
 
 # Types de tests
 
