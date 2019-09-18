@@ -12,6 +12,55 @@ et le serveur le _backend_.
 
 Dans le cadre de ce cours, nous nous concentrons sur le développement _backend_.
 
+# Mécanismes de communications
+## Patrons de communications
+
+* Un patron d'échange de communications définit comment les informations sont échangés pour établir un canal de communication
+* Il existe deux grandes familles :
+    * Patron requête-réponse (_request-response_)
+    * Patron unidirectionnel (_one-way_)
+    * Patron publier-s'abonner (_publish-subscribe_)
+
+* Le protocole HTTP utilise le patron requête-réponse, et le protocole UDP est un patron unidirectionnel
+
+# Mécanismes de communications
+## Patrons de communications
+### Synchrone et asynchrone
+
+* Le patron requête-réposne est un moyen de communication synchrone :
+    * Une requête est envoyé et une réponse est attendue
+* À l'inverse les patrons à unidirectionnel (one-way) ne sont pas synchrone
+    * Lorsqu'un paquet UDP est envoyé, il n'y a aucun accusé de réception
+
+# Mécanismes de communications
+## Patrons de communications
+### Synchrone et asynchrone
+
+![Diagramme comparaison synchrone et asynchrone](./img/sync-async.pdf){width=70%}
+
+# Mécanismes de communications
+## Patrons de communications
+### Synchrone et asynchrone
+
+![Diagramme comparaison synchrone et asynchrone](./img/sync-async-time.pdf){height=90%}
+
+# Mécanismes de communications
+## Patrons de communications
+### Publier-s'abonner (_publish-subscribe_)
+
+* Mécanisme de publication de message
+* Le diffuseur (_publisher_) n'envoie pas à des destinataires (_subscriber_) spécifiques
+* De la même manière, un destinataire (_subscriber_) n'est pas au courant des diffuseurs
+* Les communications sont groupés en catégorie.
+    * Un destinataire peut écouter sur plusieurs catégories
+    * Un diffuseur peut envoyer sur plusieurs catégories
+
+# Mécanismes de communications
+## Patrons de communications
+### Publier-s'abonner (_publish-subscribe_)
+
+![Schéma de publier-s'abonner](./img/pub-sub.pdf){width=70%}
+
 # Fonctionnement interne
 
 1. Requête entrante
@@ -311,10 +360,9 @@ Cadriciel (_framework_) de développement Web
 * Facile à utiliser
 * Flexible et n'enforce aucune structure rigide
 
+Exemple d'application : [https://github.com/jpcaissy/INF5190/tree/master/cours/03-sept-18/exemples/station-de-vote](https://github.com/jpcaissy/INF5190/tree/master/cours/03-sept-18/exemples/station-de-vote)
+
 # Flask
-
-# TODO : Exemple simple d'application Flask représentant MVC
-
 ## Hello World!
 
 ```python
@@ -416,7 +464,13 @@ def login():
         return show_login_form()
 ```
 
+
+# Flask
+
+Exemple d'application : [https://github.com/jpcaissy/INF5190/tree/master/cours/03-sept-18/exemples/station-de-vote](https://github.com/jpcaissy/INF5190/tree/master/cours/03-sept-18/exemples/station-de-vote)
+
 # Liens utiles
 
 * [Flask Quickstart](https://flask.palletsprojects.com/en/1.1.x/quickstart/)
 * [Model-View-Controller (MVC) Explained – With Legos](https://realpython.com/the-model-view-controller-mvc-paradigm-summarized-with-legos/)
+* [Publish-Subscribe with ZeroMQ](https://learning-0mq-with-pyzmq.readthedocs.io/en/latest/pyzmq/patterns/pubsub.html)
