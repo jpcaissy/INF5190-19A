@@ -50,3 +50,8 @@ Les solutions sont en ligne et disponible à la racine : [cours/02-sept-11/labo]
 - [An introduction to HTTP: everything you need to know](https://www.freecodecamp.org/news/http-and-everything-you-need-to-know-about-it/)
 - [Modern applications at AWS](https://www.allthingsdistributed.com/2019/08/modern-applications-at-aws.html)
 
+### 03 - 18 septembre
+
+* [05 Architecture web](cours/03-sept-18/05-architecture-web.pdf)
+* [06 Tests](cours/03-sept-18/06-tests.pdf)
+* [Exemple d'application Flask](cours/03-sept-18/exemples/station-vote/)
