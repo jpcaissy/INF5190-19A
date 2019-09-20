@@ -60,6 +60,9 @@ Si l'objet n'existe pas, la page doit retourner un 404.
 
 Pour rouler les tests, il suffit de rouler la commande `pytest` :
 
+3. Rajouter les fonctionnalités de création d'une nouvelle adresse. Il doit s'agir d'une page avec un formulaire HTML
+et de l'écriture des données dans le fichier JSON.
+
 ```
 $ pytest
 ================================================================================================================================================================================= test session starts ==================================================================================================================================================================================
