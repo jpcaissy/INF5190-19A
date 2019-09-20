@@ -1,5 +1,7 @@
 # Laboratoire 2
 
+**Le laboratoire aura lieu dans le local PK-S1575**
+
 ## Sérialisation
 
 Voici un tableau avec 3 livres. 

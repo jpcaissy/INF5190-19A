@@ -63,6 +63,8 @@ Les solutions sont en ligne et disponible à la racine : [cours/02-sept-11/labo]
 
 #### Labo
 
+**Local: PK-S1575**
+
 Le labo de cette semaine va toucher la sérialisation et Flask.
 
 [cours/03-sept-18/labo/02-labo.md](cours/03-sept-18/labo/02-labo.md)
