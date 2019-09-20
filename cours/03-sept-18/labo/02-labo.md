@@ -56,7 +56,7 @@ La méthode `address` doit retourner une page HTML qui contient les informations
 
 Si l'objet n'existe pas, la page doit retourner un 404.
 
-2. Compléter les tests dans le fichier `[test.p](./test.py)
+2. Compléter les tests dans le fichier [test.py](./flask/test_app.py)
 
 Pour rouler les tests, il suffit de rouler la commande `pytest` :
 
