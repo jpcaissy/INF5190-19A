@@ -60,3 +60,9 @@ Les solutions sont en ligne et disponible à la racine : [cours/02-sept-11/labo]
 * [06 Tests](cours/03-sept-18/06-tests.pdf)
 * [07 MVC - Modèle (partie 1)](cours/03-sept-18/07-mvc-model.pdf)
 * [Exemple d'application Flask](https://github.com/jpcaissy/INF5190/tree/master/cours/03-sept-18/exemples/station-de-vote)
+
+#### Labo
+
+Le labo de cette semaine va toucher la sérialisation et Flask.
+
+[cours/03-sept-18/labo/02-labo.md](cours/03-sept-18/labo/02-labo.md)
