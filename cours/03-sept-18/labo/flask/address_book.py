@@ -1,5 +1,5 @@
 import json
-from flask import Flask
+from flask import Flask, url_for, redirect
 
 app = Flask(__name__)
 
@@ -56,11 +56,39 @@ def index():
                 <a href="/{id}">{name}</a>
             </li>""".format(id=address.id, name=address.name)
 
-    return view + "</ul></body></html?"
+    return view + """
+        </ul>
+    <br /><a href="{0}">Rajouter une adresse</a>
+    </body></html>""".format(url_for("new_address"))
 
 @app.route('/<int:id>')
 def address(id):
     address_book = AddressBook.load_from_file(FILENAME)
     address = address_book.get_address(id)
 
+    #TODO
+
     return ""
+
+@app.route('/new', methods=['GET'])
+def new_address():
+    return """
+    <html>
+    <body>
+        <h1>Carnet d'aresse</h1>
+        <form method="POST">
+            <label for="name">Nom : </label><input type="text" name="name" /><br />
+            <label for="name">Adresse : </label><input type="text" name="address" /><br />
+            <label for="name">Téléphone : </label><input type="text" name="telephone" /><br />
+            <label for="name">Email : </label><input type="text" name="email" /><br />
+            <button type="submit">Créer</button>
+        </form>
+    </body>
+    </html>
+    """
+
+@app.route('/new', methods=['POST'])
+def create_address():
+    # TODO
+
+    return redirect(url_for("index"))
