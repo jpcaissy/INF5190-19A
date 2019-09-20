@@ -26,7 +26,7 @@ L'application lit le contenu d'un fichier JSON. Le fichier JSON est un carnet d'
 Pour rouler l'application, vous devez avoir `flask` et `pytest` d'installé dans votre environnement virtuel :
 
 ```
-$ pip install flask pytest
+$ pip3 install flask pytest
 ```
 
 Ensuite à partir du répertoire qui contient `address_book.py`, vous pouvez lancer l'application Web avec la commande
@@ -44,6 +44,13 @@ $ FLASK_DEBUG=1 FLASK_APP=address_book flask run
  * Restarting with stat
  * Debugger is active!
  * Debugger PIN: 137-450-813
+```
+
+
+**Si la commande `flask` ne fonctionne pas, la commande suivante devrait fonctionner : `python3 -m flask`** :
+
+```
+$ FLASK_DEBUG=1 FLASK_APP=address_book python3 -m flask run
 ```
 
 L'application Web sera disponible à l'adresse suivante : [http://127.0.0.1:5000](http://127.0.0.1:5000)
