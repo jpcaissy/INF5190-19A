@@ -46,3 +46,9 @@ class TestApp(object):
 
         response = client.get("/999")
         assert response.status_code == 404
+
+    def test_new_address(self):
+        client = app.test_client()
+
+        response = client.get("/new")
+        assert response.status_code == 200
