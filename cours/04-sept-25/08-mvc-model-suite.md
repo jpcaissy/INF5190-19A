@@ -279,11 +279,33 @@ class Product(Model):
 ```
 
 # Peewee
+## Création du schéma
+
+* Une fois que le modèle initiale est définit, `Peewee` peut créer les tables définies.
+
+```python
+db = SqliteDatabase('./database.sqlite')
+
+db.connect()
+
+db.create_tables([Poll, Choice])
+```
+
+# Peewee
 ## Migration du schéma
 
-Le schéma d'une base de donnée est portée à évoluer et changer tout au long du développement d'une application Web.
+* Lorsque `.create_tables()` est roulé, `Peewee` rajoute la condition `IF NOT EXISTS`.
+* Donc si une table a déjà été créée et que le modèle a changé, elle ne sera pas écrasée. Les modifications
+ne seront pas appliquées.
+* Le schéma d'une base de donnée est portée à évoluer et changer tout au long du développement d'une application Web.
+* `Peewee` offre une solution de base qui permet d'écrire des scripts Python pour appliquer des changements au schéma de
+la base de donnée.
 
-Il faut une solution rapide, efficace et simple pour migrer le schéma de la base de donnée.
+
+# Peewee
+## Migration du schéma
+
+
 
 # Peewee
 
