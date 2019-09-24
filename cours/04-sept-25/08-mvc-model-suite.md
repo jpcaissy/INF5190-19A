@@ -292,22 +292,6 @@ db.create_tables([Poll, Choice])
 ```
 
 # Peewee
-## Migration du schéma
-
-* Lorsque `.create_tables()` est roulé, `Peewee` rajoute la condition `IF NOT EXISTS`.
-* Donc si une table a déjà été créée et que le modèle a changé, elle ne sera pas écrasée. Les modifications
-ne seront pas appliquées.
-* Le schéma d'une base de donnée est portée à évoluer et changer tout au long du développement d'une application Web.
-* `Peewee` offre une solution de base qui permet d'écrire des scripts Python pour appliquer des changements au schéma de
-la base de donnée.
-
-
-# Peewee
-## Migration du schéma
-
-
-
-# Peewee
 
 La documentation contient beaucoup plus de détails sur l'API de Peewee :
 
