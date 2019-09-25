@@ -104,17 +104,68 @@ On peut appliquer des filtres sur des variables
 ```
 
 # Contrôleur
-## Internationalization
+## Internationalisation et localisation
 
-TODO
+* Internationalisation (i18n) et localisation (l10n)
+    * 18 représente le nombre de lettre en le I et le N
+    * idem pour l10n : 10 lettre entre le L et le N
 
+Moyens pour adapter un logiciel à différentes langues, particuliarités régionales et spécifications techniques d'un
+marché local.
 
 # Contrôleur
-## Localisation
+## Internationalisation et localisation
 
-TODO
+Objectif : adapater le code d'une application pour qu'il puisse être adapté à un marché/région/localisation
+
+* Extraction de contenu :
+    * Chaînes de caratères pour traduction
+    * Nombres
+    * Dates
+    * Valeurs monétaires
+    * Unités de mesure
+* Utiliser le bon contenu en fonction de la locale (langue et région) demandée
 
 # Contrôleur
-# Authentication
+## Internationalisation et localisation
 
-TODO
+Paramètre régionaux : définitions de textes et de formats utiles pour régionaliser une application
+
+* Habituellement composé d'un identificateur de langue et de région :
+    * `en_CA` : Anglais (English), Canadien
+    * `en_US` : Anglais (English), États-Unis
+    * `fr_CA` : Français, Canada
+    * `fr_FR` : Français, France
+    * `fr_BE` : Français, Belgique
+    * `es_AR` : Espagnol, Argentine
+    * etc...
+
+# Contrôleur
+## Internationalisation et localisation
+### Exemples
+
+| Paramètre régional | Valeur |
+|-|-|
+| `en_US` | `123 456,789` |
+| `fr_CA` | `123,456.789` |
+|-|-|
+| `en_US` | `9/25/19` |
+| `fr_FR` | `25/09/2019` |
+|-|-|
+| `en_CA` | `$123,456.79` |
+| `fr_CA` | `123 456,79 $` |
+
+# Contrôleur
+## Internationalisation et localisation
+
+* L'extraction des chaînes de caratères permet de traduire et localiser selon la région demandé
+* La région peut être incluse dans l'URL :
+    * `/fr-ca/ressource/1`
+    * `/en-us/ressource/1`
+* Le navigateur envoie même les langues supportés par le système dans un entête :
+    * `Accept-Language: en-CA,en-US;q=0.7,en;q=0.3`
+
+# Liens
+
+* [Utilisation de i18n et l10n dans flask](https://pythonhosted.org/Flask-Babel/)
+* 
