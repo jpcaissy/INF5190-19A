@@ -59,13 +59,6 @@ Le cadriciel de développement Web recommandé est Flask 1.1.
 Le démonstrateur de laboratoire sera en mesure de vous apporter du support et du soutien technique pour ces deux
 technologies.
 
-Vous êtes libres d'utiliser un autre langage de programmation et un autre cadriciel de développement Web. **Vous devez
-obtenir mon authorisation préalable avant d'utiliser un autre langage de programmation ou un autre cadriciel.
-Aucun support de ma part ou du démonstrateur ne vous sera offert et vous devez fournir les instructions claires pour
-lancer l'application.**
-
-Le reste des exigences (formats de sérialisation, API) devra être respecté tel que présenté dans l'énoncé.
-
 # Le projet
 
 Le projet consiste à développer une application Web responsable de prendre des commandes Internet. Cette application
@@ -85,7 +78,7 @@ L'application web doit répondre aux requêtes Web suivantes :
 GET /
 Content-Type: application/json
 
-200 OK HTTP/1.1
+200 OK
 ```
 
 ```json
@@ -117,22 +110,51 @@ récupérés selon les spécifications de la section [**Récupération des produ
 \newpage
 
 ```
-POST /product/<int:product_id>/buy
+POST /order
 Content-Type: application/json
+```
 
-302 Found HTTP/1.1
+```json
+{ "product": { "id": 123, "quantity": 2 } }
+```
+
+```
+302 Found
 Location: /order/<int:order_id>
 ```
 
-Cet URL permet d'initialiser le processus d'achat. Si l'item représenté par l'identifiant unique `product_id` 
+La création d'une nouvelle commande se fait avec un appel `POST` à `/order`. Si la commande est créé, le code HTTP de
+retour doit être `302` et inclure le lien vers la commande nouvellement créée.
+
+### Exigences
+
+* Pour cette première remise, une commande ne peut recevoir qu'un seul produit.
+* L'objet `product` est obligatoire et doit consister d'un identifiant (`id`) et d'une quantité.
+
+S'il manque l'objet `product`, ou que l'objet `product` ne contient pas le champ `id` ou `quantity`, un message
+d'erreur doit être retourné.
+
+```
+422 Unprocessable Entity
+```
+
+```json
+{
+   "errors" : {
+       "product": {
+           "code": "missing-fields",
+           "name": "La création d'une commande nécessite un produit"
+        }
+   }
+}
+```
+
+Si l'item représenté par l'identifiant unique `product_id` 
 est en inventaire (`in_stock == True`), un processus d'achat commence. Si le produit n'est pas en inventaire, l'API doit retourner une
 erreur avec le code HTTP 422 et le message d'erreur suivant :
 
 ```
-POST /product/<int:product_id>/buy
-Content-Type: application/json
-
-422 Unprocessable Entity HTTP/1.1
+422 Unprocessable Entity
 ```
 
 ```json
@@ -154,7 +176,7 @@ Une fois le processus d'achat initialisé, on peut récupérer la commande compl
 GET /order/<int:order_id>
 Content-Type: application/json
 
-200 OK HTTP/1.1
+200 OK
 ```
 
 
@@ -177,14 +199,17 @@ Content-Type: application/json
 }
 ```
 
-Le champ `shipping_price` représente le prix total pour expédier la commande. Ce champ doit être calculé
+### Exigences
+
+1. Le champ `total_price` correspond au prix du produit multiplié par la quantité. Il n'inclus pas le prix d'
+exépédition (`shipping_price`)
+
+2. Le champ `shipping_price` représente le prix total pour expédier la commande. Ce champ doit être calculé
 automatiquement en fonction du poids total des articles composant la commande :
 
-* Jusqu'à 500 grammes : 5$
-* De 500 grammes à 2kg : 10$
-* À partir de 2kg (2kg et plus) : 25$
-
-Une commande qui n'existe pas doit retourner un code d'erreur 404.
+    * Jusqu'à 500 grammes : 5$
+    * De 500 grammes à 2kg : 10$
+    * À partir de 2kg (2kg et plus) : 25$
 
 \newpage
 
@@ -192,7 +217,7 @@ Par défaut, une commande ne contient aucune information sur le client. On doit 
 d'expédition du client.
 
 ```
-POST /order/<int:order_id>
+PUT /order/<int:order_id>
 Content-Type: application/json
 ```
 
@@ -226,8 +251,10 @@ Content-Type: application/json
          "city" : "Montréal",
          "province" : "QC"
       },
+      "credit_card" : {},
       "email" : "caissy.jean-philippe@uqam.ca",
       "total_price" : 9148,
+      "transaction": {},
       "paid": false,
       "product" : {
          "id" : 123,
@@ -239,13 +266,18 @@ Content-Type: application/json
 }
 ```
 
-\newpage
+### Exigences :
 
-Tous les champs sont obligatoires (courriel, pays, adresse, code postal, ville et province). S'il manque un champ,
-l'API doit retourner un erreur en conséquence.
+1. Une commande qui n'existe pas doit retourner un code d'erreur 404.
+2. Les champs `emails`, `shipping_information` et les informations de l'objet `shipping_information` (`country`, 
+    `address`, `postal_code`, `city`, `province`)
+3. Tous les auters champs ne peuvent pas être changés par cet API (`total_price`, `transaction`,
+    `paid`, `product`, `shipping_price`, `id`).
+
+S'il manque un champ, l'API doit retourner un erreur en conséquence.
 
 ```
-POST /order/<int:order_id>
+PUT /order/<int:order_id>
 Content-Type: application/json
 ```
 
@@ -261,7 +293,7 @@ Content-Type: application/json
 ```
 
 ```
-422 Unprocessable Entity HTTP/1.1
+422 Unprocessable Entity
 Content-Type: application/json
 ```
 
@@ -287,7 +319,7 @@ L'API REST de paiement distant est décrite dans la section
 [**service de paiement distant**](#service-de-paiement-distant).
 
 ```
-POST /order/<int:order_id>/pay
+PUT /order/<int:order_id>
 Content-Type: application/json
 ```
 
@@ -344,6 +376,89 @@ Content-Type: application/json
 }
 ```
 
+### Exigences
+
+1. On ne peut pas fournir `credit_card` avec `shipping_information` et/ou `email`. Ces deux appels doivent être fait
+de manière distincts.
+2. Si on applique `credit_card` à une commande qui n'a pas de courriel et/ou les informations d'expédition, elle
+doit retourner un message d'erreur.
+3. Les informations de transaction et de carte de crédit retournés par le service distant doivent être
+persistés et appliqué à la commande.
+4. Si le service de paiement distant retourne un erreur, celle-ci doit être retourné au client
+
+```
+PUT /order/<int:order_id>
+Content-Type: application/json
+```
+
+```json
+{
+   "credit_card" : {
+      "name" : "John Doe",
+      "number" : "4242 4242 4242 4242",
+      "expiration_year" : 2024,
+      "cvv" : "123",
+      "expiration_month" : 9
+   }
+}
+
+```
+
+```
+422 Unprocessable Entity
+Content-Type: application/json
+```
+
+```json
+{
+   "errors" : {
+       "order": {
+           "code": "missing-fields",
+           "name": "Les informations du client sont nécessaire avant d'appliquer une carte de crédit"
+       }
+   }
+}
+
+```
+
+\newpage
+
+Exemple d'une carte de crédit refusé par le service distant :
+
+```
+PUT /order/<int:order_id>
+Content-Type: application/json
+```
+
+```json
+{
+   "credit_card" : {
+      "name" : "John Doe",
+      "number" : "4000 0000 0000 0002",
+      "expiration_year" : 2024,
+      "cvv" : "123",
+      "expiration_month" : 9
+   }
+}
+
+```
+
+```
+422 Unprocessable Entity
+Content-Type: application/json
+```
+
+```json
+{
+    "credit_card": {
+        "code": "card-declined",
+        "name": "La carte de crédit a été déclinée."
+        }
+    }
+}
+```
+
+
 \newpage
 
 ## Service de paiement distant
@@ -371,7 +486,7 @@ Content-Type: application/json
 ```
 
 ```
-200 OK HTTP/1.1
+200 OK
 ```
 ```json
 {
@@ -417,7 +532,7 @@ Content-Type: application/json
 
 
 ```
-422 Unprocessable Entity HTTP/1.1
+422 Unprocessable Entity
 
 ```
 
@@ -452,7 +567,7 @@ Lorsqu'une commande est payée, l'API doit retourner toutes les informations de 
 GET /order/<int:order_id>
 Content-Type: application/json
 
-200 OK HTTP/1.1
+200 OK
 ```
 
 ```json
