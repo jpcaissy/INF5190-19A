@@ -68,3 +68,15 @@ Les solutions sont en ligne et disponible à la racine : [cours/02-sept-11/labo]
 Le labo de cette semaine va toucher la sérialisation et Flask.
 
 [cours/03-sept-18/labo/02-labo.md](cours/03-sept-18/labo/02-labo.md)
+
+Les solutions sont en ligne et disponible à la racine : [cours/03-sept-18/labo](cours/03-sept-18/labo)
+
+##### Liens utiles:
+
+- [Flask: Templates](http://exploreflask.com/en/latest/templates.html)
+- [Best practices: API Design by Microsoft](https://docs.microsoft.com/en-us/azure/architecture/best-practices/api-design)
+- [Designing a RESTful API with Python and Flask](https://blog.miguelgrinberg.com/post/designing-a-restful-api-with-python-and-flask)
+- [Poor API Design Has Terrible Consequences.](https://freecontent.manning.com/poor-api-design-has-terrible-consequences/)
+- [Facebook Wins “Worst API” in Developer Survey](https://techcrunch.com/2011/08/11/facebook-wins-worst-api-in-developer-survey/)
+- [GraphQL is the better REST](https://www.howtographql.com/basics/1-graphql-is-the-better-rest/)
+- [Difference between scaling horizontally and vertically](https://github.com/vaquarkhan/vaquarkhan/wiki/Difference-between-scaling-horizontally-and-vertically)
