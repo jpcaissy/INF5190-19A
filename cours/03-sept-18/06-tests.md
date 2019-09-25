@@ -154,6 +154,57 @@ Un test de navigateur est un navigateur Web contrôlé par une API. C'est le tes
 
 ![Pyramide des tests](./img/test-pyramide.pdf){ width=100% }
 
+# Couverture de test
+
+Afin de mesurer l'efficacité des tests, on peut analyser et mesurer le code qui n'a pas été testé.
+
+```
+$ pip install pytest-cov
+[...]
+$ python -m pytest --cov=poll 
+[...]
+
+----------- coverage: platform linux, python 3.6.8-final-0 -----------
+Name               Stmts   Miss  Cover
+--------------------------------------
+poll/__init__.py      50     15    70%
+poll/models.py        90     14    84%
+poll/services.py      10      3    70%
+poll/views.py         22      4    82%
+--------------------------------------
+TOTAL                172     36    79%
+
+
+============= 12 passed, 1 skipped in 0.40s ==============
+```
+
+# Couverture de test
+
+On peut avoir plus de détails sous forme d'une page HTML.
+
+```
+$ python -m pytest --cov-report=html --cov=poll
+[...]
+tests/test_integration.py .                        [ 69%]
+tests/test_unit.py ....                            [100%]
+
+----------- coverage: platform linux, python 3.6.8-final-0 -----------
+Coverage HTML written to dir htmlcov
+
+
+============= 12 passed, 1 skipped in 0.26s ==============
+```
+
+Les résultats sont disponible dans `htmlcov/index.html`
+
+# Couverture de test
+
+![Rapport HTML de couverture des tests](./img/coverage-01.png)
+
+# Couverture de test
+
+![Rapport HTML de couverture des tests](./img/coverage-02.png)
+
 # Tests de performances
 
 On utilise les tests de performance pour mesurer et valider la capacité d'une application Web
