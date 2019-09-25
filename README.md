@@ -80,3 +80,11 @@ Les solutions sont en ligne et disponible à la racine : [cours/03-sept-18/labo]
 - [Facebook Wins “Worst API” in Developer Survey](https://techcrunch.com/2011/08/11/facebook-wins-worst-api-in-developer-survey/)
 - [GraphQL is the better REST](https://www.howtographql.com/basics/1-graphql-is-the-better-rest/)
 - [Difference between scaling horizontally and vertically](https://github.com/vaquarkhan/vaquarkhan/wiki/Difference-between-scaling-horizontally-and-vertically)
+
+---
+
+### 04 - 25 septembre
+
+* [08 MVC - Modèle (suite)](cours/04-sept-25/08-mvc-model-suite.pdf)
+* [09 MVC - Vue et Contrôleur](cours/04-sept-25/09-mvc-vue-controleur.pdf)
+* [10 API Web](cours/04-sept-25/10-api-web.pdf)
