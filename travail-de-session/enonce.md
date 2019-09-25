@@ -274,7 +274,7 @@ Content-Type: application/json
 3. Tous les auters champs ne peuvent pas être changés par cet API (`total_price`, `transaction`,
     `paid`, `product`, `shipping_price`, `id`).
 
-S'il manque un champ, l'API doit retourner un erreur en conséquence.
+S'il manque un champ, l'API doit retourner une erreur en conséquence.
 
 ```
 PUT /order/<int:order_id>
@@ -384,7 +384,7 @@ de manière distincts.
 doit retourner un message d'erreur.
 3. Les informations de transaction et de carte de crédit retournés par le service distant doivent être
 persistés et appliqué à la commande.
-4. Si le service de paiement distant retourne un erreur, celle-ci doit être retourné au client
+4. Si le service de paiement distant retourne une erreur, celle-ci doit être retourné au client
 
 ```
 PUT /order/<int:order_id>
@@ -509,7 +509,7 @@ Les informations de la transaction doivent être stockées sur la commande.
 
 \newpage
 
-En cas d'erreur, l'API distant va retourner un erreur de type :
+En cas d'erreur, l'API distant va retourner une erreur de type :
 
 ```
 POST /shops/pay
@@ -680,8 +680,8 @@ d'utiliser tous les modules de la librairie standard de Python
 ## Critères d'évaluations
 
 * 20% : Respect des [**exigences techniques**](#exigences-techniques)
-* 30% : Fonctionnalités de l'Application
-* 10% : Tests (unitaire, fonctionnel et d'intégration) avec couverture à 100%
+* 30% : Fonctionnalités de l'application Web
+* 10% : Tests (unitaire, fonctionnel et d'intégration) : couverture et qualité des tests
 * 20% : Qualité du code
 * 20% : Respect des exigences pour chacun des API
 
