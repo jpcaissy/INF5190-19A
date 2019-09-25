@@ -7,6 +7,10 @@ Chargé de cours : Jean-Philippe Caissy - caissy.jean-philippe@courrier.uqam.ca
 
 Démonstrateur : Ismail Ider - ider.ismail@courrier.uqam.ca
 
+## Travail de session
+
+L'énoncé pour le travail de session est en ligne : [travail-de-session/enonce.pdf](travail-de-session/enonce.pdf)
+
 ## Horaire
 
 ### 01 - 4 septembre
