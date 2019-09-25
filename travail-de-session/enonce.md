@@ -17,7 +17,7 @@ Date | Description
 L'objectif du projet de session est de développer et déployer une application Web responsable du paiement de
 commandes Internet.
 
-Le projet est divisée en deux étapes pour chacune des remises.
+Le projet est divisé en deux étapes pour chacune des remises.
 
 ## Objectifs
 
@@ -42,17 +42,17 @@ Le projet de session représente 30% de la note globale du cours.
 
 ## Évaluation
 
-L'évaluation se fera à distance sans la présence d'un ou des membres de l'équipe.
+L'évaluation se fera à distance sans la présence du ou des membres de l'équipe.
 
-Le code de l'application doit être hébergé sur Github. Les informations sur l'utilisation de Github sera
-fournie ultérieurement.
+Le code de l'application doit être hébergé sur Github. Les informations sur l'utilisation de Github seront
+fournies ultérieurement.
 
 Aux deux dates de la remise, à 21h, le repo sera cloné et c'est ce qui sera utilisé pour l'évaluation.
 
 ## Langage de programmation
 
 Le langage de programmation recommandé pour le projet de session est Python. La version minimale qui sera utilisé est
-3.6. Vous pourrez utiliser la version 3.7 si vous le désirer.
+3.6. Vous pouvez utiliser la version 3.7 si vous le désirez.
 
 Le cadriciel de développement Web recommandé est Flask 1.1.
 
@@ -64,12 +64,12 @@ obtenir mon authorisation préalable avant d'utiliser un autre langage de progra
 Aucun support de ma part ou du démonstrateur ne vous sera offert et vous devez fournir les instructions claires pour
 lancer l'application.**
 
-Le reste des exigences (formats de sérialisation, API) devra être respecté selon les énoncés de problèmes.
+Le reste des exigences (formats de sérialisation, API) devra être respecté tel que présenté dans l'énoncé.
 
 # Le projet
 
 Le projet consiste à développer une application Web responsable de prendre des commandes Internet. Cette application
-devra répondre à une API REST, mais devra également être utilisé à travers des pages HTMLs.
+devra répondre à une API REST, mais devra également être utilisée à travers des pages HTMLs.
 
 \newpage
 
@@ -111,7 +111,7 @@ Content-Type: application/json
 }
 ```
 
-La page d'index doit afficher une liste des produits disponible pour passer une commande. Ces produits sont
+La page d'index doit afficher une liste des produits disponibles pour passer une commande. Ces produits sont
 récupérés selon les spécifications de la section [**Récupération des produits**](#récupération-des-produits).
 
 \newpage
@@ -125,7 +125,7 @@ Location: /order/<int:order_id>
 ```
 
 Cet URL permet d'initialiser le processus d'achat. Si l'item représenté par l'identifiant unique `product_id` 
-est en inventaire (`in_stock == True`), un processus d'achat commence. Si le produit n'est pas en inventaire, l'API doit retourner un
+est en inventaire (`in_stock == True`), un processus d'achat commence. Si le produit n'est pas en inventaire, l'API doit retourner une
 erreur avec le code HTTP 422 et le message d'erreur suivant :
 
 ```
@@ -178,7 +178,7 @@ Content-Type: application/json
 ```
 
 Le champ `shipping_price` représente le prix total pour expédier la commande. Ce champ doit être calculé
-automatiquement en fonction du poids de l'item :
+automatiquement en fonction du poids total des articles composant la commande :
 
 * Jusqu'à 500 grammes : 5$
 * De 500 grammes à 2kg : 10$
@@ -206,7 +206,7 @@ Content-Type: application/json
          "postal_code" : "H2X 3Y7",
          "city" : "Montréal",
          "province" : "QC"
-      },
+      }
    }
 }
 ```
@@ -241,7 +241,7 @@ Content-Type: application/json
 
 \newpage
 
-Tous les champs sont obligatoire (courriel, pays, adresse, code postal, ville et province). S'il manque un champ,
+Tous les champs sont obligatoires (courriel, pays, adresse, code postal, ville et province). S'il manque un champ,
 l'API doit retourner un erreur en conséquence.
 
 ```
@@ -321,7 +321,7 @@ Content-Type: application/json
       },
       "email" : "caissy.jean-philippe@uqam.ca",
       "total_price" : 9148,
-      "paid": true, # <- une commande complète est considéré comme payée
+      "paid": true, # <- une commande complète est considérée comme payée
       "product" : {
          "id" : 123,
          "quantity" : 1
@@ -366,7 +366,7 @@ Content-Type: application/json
       "cvv" : "123",
       "expiration_month" : 9
    },
-   "amount_charged": 10148 # <- montant total incluant les fais d'expédition
+   "amount_charged": 10148 # <- montant total incluant les frais d'expédition
 }
 ```
 
@@ -390,7 +390,7 @@ Content-Type: application/json
 }
 ```
 
-Les informations de la transaction doivent être stockés sur la commande.
+Les informations de la transaction doivent être stockées sur la commande.
 
 \newpage
 
@@ -411,7 +411,7 @@ Content-Type: application/json
       "cvv" : "123",
       "expiration_month" : 9
    },
-   "amount_charged": 10148 # <- montant total incluant les fais d'expédition
+   "amount_charged": 10148 # <- montant total incluant les frais d'expédition
 }
 ```
 
@@ -432,21 +432,21 @@ Content-Type: application/json
 }
 ```
 
-Seul les 2 cartes de crédits de tests vont être acceptés :
+Seuls les 2 cartes de crédits de tests vont être acceptés :
 
 * `4242 4242 4242 4242` : carte de crédit valide
 * `4000 0000 0000 0002` : carte de crédit déclinée
 
-Tous les autres cartes de crédits vont retourner un de code `incorrect-number`
+Tout autre numéro de carte retourne le code `incorrect-number`.
 
-Les champs `expiration_year` et `expiration_month` doivent être des entiers représentant une expiration valide.
-L'API va retourner un erreur si la carte est expirée.
+Les champs `expiration_year` et `expiration_month` doivent être des entiers représentant une date d'expiration valide.
+L'API va retourner une erreur si la carte est expirée.
 
 Le champ `cvv` doit obligatoirement être un string contenant 3 chiffres.
 
 \newpage
 
-Lorsqu'une commande est payé, l'API doit retourné toutes les informations de la commande : 
+Lorsqu'une commande est payée, l'API doit retourner toutes les informations de la commande : 
 
 ```
 GET /order/<int:order_id>
@@ -495,11 +495,11 @@ Content-Type: application/json
 ## Récupération des produits
 
 Lors du lancement de l'application, celle-ci va devoir se connecter à ce service, et récupérer la liste complète
-des produits et des informations applicables. Les informations du produits devront être persistés localement,
+des produits et des informations applicables. Les informations des produits devront être persistées localement,
 c'est-à-dire que l'application Web ne doit pas récupérer les informations à chaque requête. Seulement une
 fois par lancement.
 
-Les produits sont accessible à l'adresse suivante : `https://caissy.dev/shops/products`
+Les produits sont accessibles à l'adresse suivante : `https://caissy.dev/shops/products`
 
 La réponse sera une liste de produits répondant aux caractéristiques suivantes :
 
@@ -535,7 +535,7 @@ Content-Type: application/json
 
 Nom du champ | Définition
 |------------|------------|
-| `id` | Un identifiant numérique unique représentant la resource du produit |
+| `id` | Un identifiant numérique unique représentant la ressource du produit |
 | `name` | Le nom du produit |
 | `description` | La déscription du produit |
 | `price` | Le prix du produit en cents |
@@ -545,11 +545,11 @@ Nom du champ | Définition
 ## Exigences techniques
 
 1. Le projet devra rouler sous Python 3.6+ et Flask 1.11+
-2. Seul les packets `flask`, `pytest`, `pytest-flask`, et `peewee` sont permis. Vous avez droit
+2. Seul les paquets `flask`, `pytest`, `pytest-flask`, et `peewee` sont permis. Vous avez droit
 d'utiliser tous les modules de la librairie standard de Python
 3. L'application Web doit avoir une couverture de test de 100%
-4. La base de donnée utilisé sera un fichier local `sqlite3`
-5. La base de donnée doit être initialisé avec
+4. La base de données utilisée sera un fichier local `sqlite3`
+5. La base de données doit être initialisée avec
     ```
     FLASK_DEBUG=True FLASK_APP=inf5190 flask init-db
     ```
