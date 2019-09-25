@@ -10,7 +10,7 @@ header-includes:
 
 Date | Description
 -----|-----------:
-23 septembre | Version initiale
+25 septembre | Version initiale
 
 ## Informations générale
 
@@ -51,10 +51,10 @@ Aux deux dates de la remise, à 21h, le repo sera cloné et c'est ce qui sera ut
 
 ## Langage de programmation
 
-Le langage de programmation recommandé pour le projet de session est Python. La version minimale qui sera utilisé est
+Le langage de programmation pour le projet de session est Python. La version minimale qui sera utilisé est
 3.6. Vous pouvez utiliser la version 3.7 si vous le désirez.
 
-Le cadriciel de développement Web recommandé est Flask 1.1.
+Le cadriciel de développement Web est Flask 1.1.
 
 Le démonstrateur de laboratoire sera en mesure de vous apporter du support et du soutien technique pour ces deux
 technologies.
@@ -274,7 +274,7 @@ Content-Type: application/json
 3. Tous les auters champs ne peuvent pas être changés par cet API (`total_price`, `transaction`,
     `paid`, `product`, `shipping_price`, `id`).
 
-S'il manque un champ, l'API doit retourner un erreur en conséquence.
+S'il manque un champ, l'API doit retourner une erreur en conséquence.
 
 ```
 PUT /order/<int:order_id>
@@ -384,7 +384,7 @@ de manière distincts.
 doit retourner un message d'erreur.
 3. Les informations de transaction et de carte de crédit retournés par le service distant doivent être
 persistés et appliqué à la commande.
-4. Si le service de paiement distant retourne un erreur, celle-ci doit être retourné au client
+4. Si le service de paiement distant retourne une erreur, celle-ci doit être retourné au client
 
 ```
 PUT /order/<int:order_id>
@@ -463,8 +463,8 @@ Content-Type: application/json
 
 ## Service de paiement distant
 
-Lorsque l'API `/order/<int:order_id>/pay` est appelé, il doit communiquer avec l'API distant de paiement. Cette
-API est disponible à l'adresse `https://caissy.dev/shops/pay`.
+Lorsque l'API `/order/<int:order_id>` est appelé avec une carte de crédit, il doit communiquer avec l'API distant de
+paiement. Cette API est disponible à l'adresse `https://caissy.dev/shops/pay`.
 
 ```
 POST /shops/pay
@@ -509,7 +509,7 @@ Les informations de la transaction doivent être stockées sur la commande.
 
 \newpage
 
-En cas d'erreur, l'API distant va retourner un erreur de type :
+En cas d'erreur, l'API distant va retourner une erreur de type :
 
 ```
 POST /shops/pay
@@ -659,37 +659,33 @@ Nom du champ | Définition
 
 ## Exigences techniques
 
-1. Le projet devra rouler sous Python 3.6+ et Flask 1.11+
-2. Seul les paquets `flask`, `pytest`, `pytest-flask`, et `peewee` sont permis. Vous avez droit
+1. **Un fichier nommé `CODES-PERMANENTS` doit être à la racine de votre projet et contenir le ou les codes permanents séparé par un saut de ligne**
+    * Donc pour un travail fait individuellement, le fichier doit simplement contenir votre code permanent
+    * Pour un équipe de deux, le fichier doit contenir les code permanent des deux étudiants, un par ligne.
+2. Le projet devra rouler sous Python 3.6+ et Flask 1.11+
+3. Seul les paquets `flask`, `pytest`, `pytest-flask`, et `peewee` sont permis. Vous avez droit
 d'utiliser tous les modules de la librairie standard de Python
-3. L'application Web doit avoir une couverture de test de 100%
 4. La base de données utilisée sera un fichier local `sqlite3`
-5. La base de données doit être initialisée avec
+5. Vous devez utiliser l'ORM `peewee`
+6. Toutes les données doivent être stockés dans la base de donnée
+7. La base de données doit être initialisée avec
     ```
     FLASK_DEBUG=True FLASK_APP=inf5190 flask init-db
     ```
-6. À partir de la racine de votre projet, l'application doit pouvoir rouler avec la commande suivante :
+8. À partir de la racine de votre projet, l'application doit pouvoir rouler avec la commande suivante :
     ```
     FLASK_DEBUG=True FLASK_APP=inf5190 flask run
     ```
 
 ## Critères d'évaluations
 
-Pointage | Description
----------|------------
-20% | Respect des [**exigences techniques**](#exigences-techniques)
-10% | Récupération des produits à partir du service REST distant
-15% | Utilisation de l'API de paiement distant
-10% | Gestion d'erreurs (commande inexistante, erreur de validation, etc)
+* 20% : Respect des [**exigences techniques**](#exigences-techniques)
+* 30% : Fonctionnalités de l'application Web
+* 10% : Tests (unitaire, fonctionnel et d'intégration) avec couverture à 100%
+* 20% : Qualité du code
+* 20% : Respect des exigences pour chacun des API
 
-Pointage | Route | Description
----------|-------|------------
-5% | `GET /` | Affichage de la page d'accueil
-10% | `POST /product/<int:product_id>/buy` | Création d'une commande
---|--|--
-10% | `GET /order/<int:order_id>` | Récupération d'une commande
-10% | `POST /order/<int:order_id>` | Rajout des informations à une commande
-10% | `POST /order/<int:order_id>/pay` | Finalisation d'une commande
+N.B. : Toutes les [*exigences techniques*](#exigences-techniques) mentionnées ci-haut doivent être respectés, sinon c'est 0/20.
 
 \newpage
 
