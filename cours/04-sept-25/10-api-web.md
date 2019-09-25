@@ -206,6 +206,12 @@ Utiliser les méthodes HTTP standards pour indiquer l'opération sur la ressourc
 `DELETE` | 200 (OK), 404 (Not Found)
 
 # API Web
+## Documentation
+
+* Une documentation précise, claire et avec des exemples est primordial
+* Malheureusement peu standardisé
+
+# API Web
 ## REST
 ### Exercice
 
@@ -218,3 +224,10 @@ Créer une API RESTful pour gérer l'inscription des étudiants à des cours
 * Cours
     * Sigle du cours (identifiant unique)
     * Session (Automne, Hiver, Été)
+
+# Liens
+
+* [Stripe : exemple d'API REST très bien documentée](https://stripe.com/docs/api)
+* What is REST?
+    * [Part 1](https://medium.com/extend/what-is-rest-a-simple-explanation-for-beginners-part-1-introduction-b4a072f8740f)
+    * [Part 2](https://medium.com/extend/what-is-rest-a-simple-explanation-for-beginners-part-2-rest-constraints-129a4b69a582)
