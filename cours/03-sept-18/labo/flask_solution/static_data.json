@@ -1,0 +1,20 @@
+[
+    {
+        "name": "Gaston Lagaffe",
+        "address": "201, avenue du Président-Kennedy",
+        "phone": ["(514) 987-3000"],
+        "email": "gaston@example.com"
+    },
+    {
+        "name": "Tintin",
+        "address": "1, avenue du Château de Moulinsart ",
+        "phone": ["(514) 555-5555", "(514) 123-4567"],
+        "email": "tintin@example.com"
+    },
+    {
+        "name": "Lucky Luke",
+        "address": "42, rue Principale",
+        "phone": [],
+        "email": "luke@example.com"
+    }
+]
