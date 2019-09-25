@@ -11,6 +11,7 @@ header-includes:
 Date | Description
 -----|-----------:
 25 septembre | Version initiale
+25 septembre | Précisions sur les remises
 
 ## Informations générale
 
@@ -64,9 +65,15 @@ technologies.
 Le projet consiste à développer une application Web responsable de prendre des commandes Internet. Cette application
 devra répondre à une API REST, mais devra également être utilisée à travers des pages HTMLs.
 
+Le projet est séparé en deux. Les informations pour la première remise sont disponibles ci-bas. La section pour
+la deuxième remise sera disponible plus tard.
+
+Il s'agit de remises incrémentiels sur le même projet. Pour la deuxième remise, vous continuerez à utiliser le projet
+décrit ci-dessous.
+
 \newpage
 
-## Première remise
+# Première remise
 
 La première partie se concentre sur le développement et l'utilisation d'une API REST.
 
@@ -690,3 +697,7 @@ N.B. : Toutes les [*exigences techniques*](#exigences-techniques) mentionnées c
 \newpage
 
 ![Diagramme de séquence](sequence-diagrame.pdf){width=170%}
+
+# Deuxième remise
+
+À venir.
