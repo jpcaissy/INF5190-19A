@@ -1,0 +1,33 @@
+sequenceDiagram
+    participant Client
+    participant Application Web
+    participant Service de paiement
+    participant Service des produits
+
+    Note left of Application Web: Lancement de<br />l'application
+    Application Web->>Service des produits: GET /shops/products
+    Note right of Application Web: Récupération initiale<br />des produits
+    Service des produits->>Application Web: 200 OK
+
+    Client->>Application Web: GET /
+    Note left of Application Web: Liste des produits
+    Application Web->>Client: 200 OK
+
+    Client->>Application Web: POST /product/12/buy
+    Application Web->>Client: 302 Found
+    Note left of Application Web: Nouvelle commande <br />créée
+
+    Client->>Application Web: GET /order/1
+    Application Web->>Client: 200 OK
+    Note left of Application Web: Retourne la<br />commande
+
+    Client->>Application Web: POST /order/1
+    Note right of Client: Met à jour les<br />informations du <br />client
+    Application Web->>Client: 200 OK
+
+    Client->>Application Web: POST /order/1/pay
+    Application Web->>Service de paiement: POST /shops/pay
+    Service de paiement->>Application Web: 200 OK
+    Note left of Application Web: La commande contient<br />les infos de paiement
+    Application Web->>Client: 200 OK
+
