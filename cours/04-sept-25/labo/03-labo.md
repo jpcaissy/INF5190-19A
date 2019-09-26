@@ -71,4 +71,59 @@ Voici les routes à définir, avec deux exemples.
 
 ## API Rest
 
-Compléter l'application Flask
+Dans le dossier [**flask**](./flask), il y a une application Flask représentant des comptes bancaires.
+
+* Initialiser la base de donnée avec 
+    ```
+    FLASK_DEBUG=1 python -m flask init-db
+    ```
+* Rouler l'application avec
+    ```
+    FLASK_DEBUG=1 python -m flask run
+    ```
+
+L'objectif de cet exercice est de créer des requêtes manuelles pour interagir avec un API REST.
+
+Il existe plusieurs outils, tel que les lignes de commandes `cURL`, HTTPie`. Pour cet exercice, je vais utiliser
+`Postman`.
+
+### Postman
+
+1. Installer `Postman` localement à partir de l'adresse suivante : [https://www.getpostman.com/downloads/](https://www.getpostman.com/downloads/)
+2. Ouvrer le logiciel. Il va vous demander de vous créer un compte. Vous pouvez aussi utiliser l'option de vous connecter
+avec votre compte Google si vous en avez un.
+3. À partir de Postman, tappez l'adresse de l'application flask du labo `http://127.0.0.1:5000` et appuyez sur Send
+![](./postman-1.png)
+4. Vous remarquerez que ça retourne un 404. C'est normal, il n'y a aucune route d'index de définit!
+![](./postman-2.png)
+5. Faites la même chose, mais pour l'adresse `http://127.0.0.1:5000/accounts`. Ça devrait vous retourner une liste JSON vide car il n'y a aucun compte encre.
+![](./postman-4.png)
+6. Pour créer un compte, on va faire un POST de type JSON à `http://127.0.0.1:5000/accounts`. Le contenu du JSON sera :
+```json
+{
+    "account": {
+        "owner": "Toto Foobar",
+        "current_balance": 1000
+    }
+}
+```
+![](./postman-5.png)
+7. Appuyer sur `Send`, et la requête va être envoyé à l'application Web. La réponse vous sera affiché.
+![](./postman-6.png)
+
+### Exercice
+
+1. Avec l'outils de votre choix, créer un autre compte appartenant à `John Smith` et avec une balance de 500
+2. Créer une transaction à partir du premier compte vers le deuxième compte pour un montant de 100:
+    ```json
+    {
+        "transaction": {
+            "from_account": 1,
+            "to_account": 2,
+            "amount": 500
+        }
+    }
+    ```
+3. Récupérer toutes les transactions avec `GET /transactions`
+4. Récupérer une seule transaction avec `GET /transactions/<int:id>` où `id` représente la dernière transaction (c'est surement `1`)
+5. Récupérer toutes les transactions d'un compte avec `GET /accounts/<int:account_id>/transactions` (account_id est surement `1`)
