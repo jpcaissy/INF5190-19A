@@ -92,3 +92,16 @@ Les solutions sont en ligne et disponible à la racine : [cours/03-sept-18/labo]
 * [08 MVC - Modèle (suite)](cours/04-sept-25/08-mvc-model-suite.pdf)
 * [09 MVC - Vue et Contrôleur](cours/04-sept-25/09-mvc-vue-controleur.pdf)
 * [10 API Web](cours/04-sept-25/10-api-web.pdf)
+#### Labo
+
+**IMPORTANT**: Le laboratoire aura lieu au **PK-S1560**
+
+L'UQAM a décidé de libérer tous les étudiants ce vendredi de 12h à 16h. Il se peut que le transport au centre-ville
+soit très difficile en fin de journée également. Le laboratoire de cette semaine est donc plus léger que d'habitude
+et peut facilement se faire chez vous.
+
+Ismaïl sera disponible pour vous aider comme à l'habitude et offrira du support pour le TP au besoin.
+
+L'énoncé du labo est disponible ici : [cours/04-sept-25/labo/03-labo.md](cours/04-sept-25/labo/03-labo.md)
+
+Et la solution du premier exercice est disponible ici : [cours/04-sept-25/labo/03-labo-solution.md](cours/04-sept-25/labo/03-labo-solution.md)
