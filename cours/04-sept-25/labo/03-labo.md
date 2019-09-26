@@ -130,4 +130,4 @@ avec votre compte Google si vous en avez un.
 3. Récupérer toutes les transactions avec `GET /transactions`
 4. Récupérer une seule transaction avec `GET /transactions/<int:id>` où `id` représente la dernière transaction (c'est surement `1`)
 5. Récupérer toutes les transactions d'un compte avec `GET /accounts/<int:account_id>/transactions` (account_id est surement `1`)
-6. Allez voir les autres routes disponible dans [flask/app.py](.flask/app.py) et testez les!
+6. Allez voir les autres routes disponible dans [flask/app.py](./flask/app.py) et testez les!
