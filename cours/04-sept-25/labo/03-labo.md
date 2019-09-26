@@ -115,6 +115,9 @@ avec votre compte Google si vous en avez un.
 
 1. Avec l'outils de votre choix, créer un autre compte appartenant à `John Smith` et avec une balance de 500
 2. Créer une transaction à partir du premier compte vers le deuxième compte pour un montant de 100:
+
+    `POST /transactions`
+
     ```json
     {
         "transaction": {
