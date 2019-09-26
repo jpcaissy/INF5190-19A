@@ -17,13 +17,13 @@ Assurez-vous de rejoindre le projet de session sur Github Classroom.
 ## REST
 
 Modéliser les routes, méthodes HTTP et un exemple de données JSON d'une API REST qui représente
-l'emprûnt de livres à un bibliothèque.
+l'emprunt de livres à un bibliothèque.
 
 Les ressources sont :
 
 * Un livre
-* Un membre de la bilbiothèque
-* Les emprûnts
+* Un membre de la bibliothèque
+* Les emprunts
 
 Voici les routes à définir, avec deux exemples.
 
@@ -46,7 +46,7 @@ Voici les routes à définir, avec deux exemples.
 
 2. Récupérer les emprunts d'un livre
 
-    `GET htts://api.example.com/bibliotheque/livre/10/emprunts`
+    `GET https://api.example.com/bibliotheque/livre/10/emprunts`
 
     ```json
     {
@@ -61,7 +61,7 @@ Voici les routes à définir, avec deux exemples.
     }
     ```
 
-3. Créer un nouveau membre de la bibliothèque (avec nom, prenom, courriel)
+3. Créer un nouveau membre de la bibliothèque (avec nom, prénom, courriel)
 4. Récupérer la liste des emprunts d'un livre
 5. Récupérer la liste des livres actuellement empruntés par un membre
 6. Étendre la date de retour prévu d'un livre emprunté par un membre
