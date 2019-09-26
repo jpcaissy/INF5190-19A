@@ -13,6 +13,7 @@ header-includes:
 1 | 25 septembre | Version initiale
 2 | 25 septembre | Précisions sur les remises
 3 | 25 septembre | Correction au diagramme de séquence
+4 | 26 septembre | Instructions de remise sur Github
 
 ## Informations générale
 
@@ -46,10 +47,24 @@ Le projet de session représente 30% de la note globale du cours.
 
 L'évaluation se fera à distance sans la présence du ou des membres de l'équipe.
 
-Le code de l'application doit être hébergé sur Github. Les informations sur l'utilisation de Github seront
-fournies ultérieurement.
+Le code de l'application doit être hébergé sur Github.
 
-Aux deux dates de la remise, à 21h, le repo sera cloné et c'est ce qui sera utilisé pour l'évaluation.
+Aux deux dates de la remise, à 21h, le dépôt sera cloné et c'est ce qui sera utilisé pour l'évaluation.
+
+## Remise
+
+La création du projet sur Github est automatisé grâce à Github Classroom.
+
+Pour créer un projet, vous devez suivre les instruction suivantes :
+
+1. Créer un compte [Github](https://github.com) si ce n'est déjà pas le cas.
+2. Rendez-vous sur la page du projet de session :
+    
+    [**https://classroom.github.com/g/oH9-4nj2**](https://classroom.github.com/g/oH9-4nj2)
+3. Acceptez le travail, et identifier vous dans la liste en choisissant votre code permanent
+    **Assurez-vous de ne pas prendre le code de quelqu'un d'autre!**
+4. Créer une équipe individuelle, ou rejoignez l'équipe de votre collègue si vous faites la remise à 2.
+5. Votre dépôt Github privé sera créé, vous pouvez commencer à l'utiliser.
 
 ## Langage de programmation
 
@@ -670,6 +685,7 @@ Nom du champ | Définition
 1. **Un fichier nommé `CODES-PERMANENTS` doit être à la racine de votre projet et contenir le ou les codes permanents séparé par un saut de ligne**
     * Donc pour un travail fait individuellement, le fichier doit simplement contenir votre code permanent
     * Pour un équipe de deux, le fichier doit contenir les code permanent des deux étudiants, un par ligne.
+2. Votre dépôt Github doit avoir été créé avec Github Classroom (les instructions sont dans la section [**Remise**](#remise)
 2. Le projet devra rouler sous Python 3.6+ et Flask 1.11+
 3. Seul les paquets `flask`, `pytest`, `pytest-flask`, et `peewee` sont permis. Vous avez droit
 d'utiliser tous les modules de la librairie standard de Python
