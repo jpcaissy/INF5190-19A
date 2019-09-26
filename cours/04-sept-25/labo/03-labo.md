@@ -93,11 +93,11 @@ Il existe plusieurs outils, tel que les lignes de commandes `cURL`, HTTPie`. Pou
 2. Ouvrer le logiciel. Il va vous demander de vous créer un compte. Vous pouvez aussi utiliser l'option de vous connecter
 avec votre compte Google si vous en avez un.
 3. À partir de Postman, tappez l'adresse de l'application flask du labo `http://127.0.0.1:5000` et appuyez sur Send
-![](./postman-1.png)
+![](./img/postman-1.png)
 4. Vous remarquerez que ça retourne un 404. C'est normal, il n'y a aucune route d'index de définit!
-![](./postman-2.png)
+![](./img/postman-2.png)
 5. Faites la même chose, mais pour l'adresse `http://127.0.0.1:5000/accounts`. Ça devrait vous retourner une liste JSON vide car il n'y a aucun compte encre.
-![](./postman-4.png)
+![](./img/postman-4.png)
 6. Pour créer un compte, on va faire un POST de type JSON à `http://127.0.0.1:5000/accounts`. Le contenu du JSON sera :
 ```json
 {
@@ -107,9 +107,9 @@ avec votre compte Google si vous en avez un.
     }
 }
 ```
-![](./postman-5.png)
+![](./img/postman-5.png)
 7. Appuyer sur `Send`, et la requête va être envoyé à l'application Web. La réponse vous sera affiché.
-![](./postman-6.png)
+![](./img/postman-6.png)
 
 ### Exercice
 
