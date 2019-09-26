@@ -8,10 +8,11 @@ header-includes:
 
 ## Historique
 
-Date | Description
------|-----------:
-25 septembre | Version initiale
-25 septembre | Précisions sur les remises
+\# | Date | Description
+-----|--------|-------------
+1 | 25 septembre | Version initiale
+2 | 25 septembre | Précisions sur les remises
+3 | 25 septembre | Correction au diagramme de séquence
 
 ## Informations générale
 

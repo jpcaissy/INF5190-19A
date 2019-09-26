@@ -9,23 +9,24 @@ sequenceDiagram
     Note right of Application Web: Récupération initiale<br />des produits
     Service des produits->>Application Web: 200 OK
 
-    Client->>Application Web: GET /
     Note left of Application Web: Liste des produits
+    Client->>Application Web: GET /
     Application Web->>Client: 200 OK
 
-    Client->>Application Web: POST /product/12/buy
+    Note left of Application Web: Nouvelle commande
+    Client->>Application Web: POST /orders
     Application Web->>Client: 302 Found
-    Note left of Application Web: Nouvelle commande <br />créée
 
+    Note left of Application Web: Afficher commande
     Client->>Application Web: GET /order/1
     Application Web->>Client: 200 OK
-    Note left of Application Web: Retourne la<br />commande
 
-    Client->>Application Web: POST /order/1
-    Note right of Client: Met à jour les<br />informations du <br />client
+    Note left of Application Web: Mettre infos<br />clients
+    Client->>Application Web: PUT /order/1
     Application Web->>Client: 200 OK
 
-    Client->>Application Web: POST /order/1/pay
+    Note left of Application Web: Faire le paiement
+    Client->>Application Web: PUT /order/1
     Application Web->>Service de paiement: POST /shops/pay
     Service de paiement->>Application Web: 200 OK
     Note left of Application Web: La commande contient<br />les infos de paiement
