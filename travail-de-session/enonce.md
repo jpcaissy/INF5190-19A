@@ -685,18 +685,18 @@ Nom du champ | Définition
 1. **Un fichier nommé `CODES-PERMANENTS` doit être à la racine de votre projet et contenir le ou les codes permanents séparé par un saut de ligne**
     * Donc pour un travail fait individuellement, le fichier doit simplement contenir votre code permanent
     * Pour un équipe de deux, le fichier doit contenir les code permanent des deux étudiants, un par ligne.
-2. Votre dépôt Github doit avoir été créé avec Github Classroom (les instructions sont dans la section [**Remise**](#remise)
-2. Le projet devra rouler sous Python 3.6+ et Flask 1.11+
-3. Seul les paquets `flask`, `pytest`, `pytest-flask`, et `peewee` sont permis. Vous avez droit
+3. Votre dépôt Github doit avoir été créé avec Github Classroom (les instructions sont dans la section [**Remise**](#remise)
+4. Le projet devra rouler sous Python 3.6+ et Flask 1.11+
+5. Seul les paquets `flask`, `pytest`, `pytest-flask`, et `peewee` sont permis. Vous avez droit
 d'utiliser tous les modules de la librairie standard de Python
-4. La base de données utilisée sera un fichier local `sqlite3`
-5. Vous devez utiliser l'ORM `peewee`
-6. Toutes les données doivent être stockés dans la base de donnée
-7. La base de données doit être initialisée avec
+6. La base de données utilisée sera un fichier local `sqlite3`
+7. Vous devez utiliser l'ORM `peewee`
+8. Toutes les données doivent être stockés dans la base de donnée
+9. La base de données doit être initialisée avec
     ```
     FLASK_DEBUG=True FLASK_APP=inf5190 flask init-db
     ```
-8. À partir de la racine de votre projet, l'application doit pouvoir rouler avec la commande suivante :
+10. À partir de la racine de votre projet, l'application doit pouvoir rouler avec la commande suivante :
     ```
     FLASK_DEBUG=True FLASK_APP=inf5190 flask run
     ```
