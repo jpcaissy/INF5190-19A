@@ -73,6 +73,11 @@ Voici les routes à définir, avec deux exemples.
 
 Dans le dossier [**flask**](./flask), il y a une application Flask représentant des comptes bancaires.
 
+Si vous ne l'avez pas déjà d'installer, il  faut installer [**peewee**](https://pypi.org/project/peewee/) avec 
+      
+    pip install peewee
+    
+    
 * Initialiser la base de donnée avec 
     ```
     FLASK_DEBUG=1 python -m flask init-db
