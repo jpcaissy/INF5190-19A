@@ -105,3 +105,10 @@ Ismaïl sera disponible pour vous aider comme à l'habitude et offrira du suppor
 L'énoncé du labo est disponible ici : [cours/04-sept-25/labo/03-labo.md](cours/04-sept-25/labo/03-labo.md)
 
 Et la solution du premier exercice est disponible ici : [cours/04-sept-25/labo/03-labo-solution.md](cours/04-sept-25/labo/03-labo-solution.md)
+
+##### Liens utiles:
+
+- [Quickstart peewee](http://docs.peewee-orm.com/en/latest/peewee/quickstart.html#quickstart)
+- [Dan Taylor - Get Productive with Python in Visual Studio Code](https://www.youtube.com/watch?v=6YLMWU-5H9o)
+- [What is API Documentation, and Why It Matters?](https://swagger.io/blog/api-documentation/what-is-api-documentation-and-why-it-matters/)
+- [Appropriate Uses For SQLite](https://www.sqlite.org/whentouse.html)
