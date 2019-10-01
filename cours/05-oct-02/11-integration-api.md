@@ -1,4 +1,4 @@
-% INF5190 - API Web (suite)
+% INF5190 - Intégration d'API Web
 % Jean-Philippe Caissy
 % 2 octobre 2019
 
