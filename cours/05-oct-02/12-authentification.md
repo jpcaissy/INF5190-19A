@@ -151,5 +151,249 @@ pour s'authentifier en tant que n'importe quel utilisateur
 
 # Authentification
 ## Mot de passe
-### Hashing
+### Hachage
 
+Fonction de hachage : à partir d'une donnée fournie en entrée, retourner une empreinte numérique afin d'identifier
+rapidement la donnée initiale.
+
+Les fonctions de hachages sont utilisés pour reconnaitre rapidement des fichiers ou des mots de passes.
+
+Exemple :
+
+```
+hash("Renard") => "62b61bc0"
+
+hash("renard") => "ad0b225c"
+
+hash("Le renard") => "b8e9d4c7"
+```
+
+# Authentification
+## Mot de passe
+### Hachage
+
+* Fonction à sens unique
+* Le calcul doit être rapide et facile
+* L'inverse de la fonction de hachage est infaisable par calcul
+
+Exemples de fonctions de hachage :
+
+* md5
+* sha-1
+* whirlpool
+* blowfish
+
+# Authentification
+## Mot de passe
+### Hachage
+
+Contraintes d'une fonction de hachage :
+
+* Collisions : deux entrées de données différents donnant le même résultat avec la fonction de hachage
+
+[Exemple de collision : https://shattered.it/](https://shattered.it/)
+
+```
+$ md5sum extra/*
+5bd9d8cabc46041579a311230539b8d1  extra/sah1-doc2.pdf
+ee4aa52b139d925f8d8884402b0a750c  extra/sha1-doc1.pdf
+$ sha1sum extra/*
+38762cf7f55934b34d179ae6a4c80cadccbb7f0a  extra/sah1-doc2.pdf
+38762cf7f55934b34d179ae6a4c80cadccbb7f0a  extra/sha1-doc1.pdf
+```
+
+# Authentification
+## Mot de passe
+### Hachage
+
+L'objectif d'utiliser une fonction de hachage sur un mot de passe est de limiter les dégâts en cas de fuite
+d'une base de donnée
+
+* Un utilisateur malveillant peut pré-construire des tables de hachage à partir de dictionnaires, ou de
+mots de passes déjà disponible
+* Cela permet de rapidement connaître les mots de passes qui ont déjà été utilisé
+
+Attaque par dictionnaire : bâtir tous les `hash` possible à partir d'un dictionnaire de mots
+
+# Authentification
+## Mot de passe
+### Hachage
+
+Le salage est une méthode qui permet de renforcer a sécurité des informations hachés.
+
+* Empêche que deux informations identiques produisent la même emprunte
+* Mitige les risques pour les attaques par dictionnaire si le hash n'est pas connu de l'attaquant et chance pour
+chaque enregistrement
+
+# Authentification
+## Mot de passe
+### Hachage
+
+```
+hash(mot de passe + sel)
+```
+
+* Le sel représente un information supplémentaire statique et généré aléatoire
+* Bonne pratique : un seul sel par enregistrement (ne pas réutiliser)
+    * Le sel peut être stocké en clair
+    * Il est utilisé à chaque vérification d'authentification qui hash le mot de passe avec le sel
+
+
+# Authentification
+## Mot de passe
+### Hachage
+
+: Exemple du contenu d'une table utilisateur d'une BD
+
+| user | salt | hash_password |
+|------|------|---------------|
+| `toto` | `KSIzIjMeH4AhTG` | `84d9c4cdcf4c808c9c35...`
+| `tata` | `envNCgmZPHOXWQ` | `004eaff15cfba8c7922a2...`
+
+```
+hash("password") => 5f4dcc3b5aa765d61d8327deb882cf99
+
+hash("passwordKSIzIjMeH4AhTG") => 84d9c4cdcf4c808c9c35...
+```
+
+# Authentification
+## Mot de passe
+### Hachage
+
+Deuxième contrainte : complexité et temps nécessaire pour la méthode de hachage
+
+* Pour un fichier, on veut une méthode de hachage rapide.
+* Pour un mot de passe : on veut une méthode de hachage qui prends beaucoup de ressource
+    * Plus difficile pour un attaquant : nécessite plus de ressources (CPU, RAM, temps)
+
+# Authentification
+## Mot de passe
+### Hachage
+
+Il existe des méthodes de hachage spécifique aux mots de passe. Ils supportent :
+
+* L'ajout d'un sel
+* Notion de complexité
+
+La complexité est un chiffre. Plus il est élevé, plus la méthode de hachage va avoir besoin de ressources, donc de
+temps pour produire le hash final.
+
+Il s'agit souvent du nombre d'itération sur la fonction de hachage.
+
+# Authentification
+## Mot de passe
+### Hachage
+
+Fonctions de hachage spécifique à des mots de passe :
+
+* `bcrypt`
+* `PBKDF2`
+
+**Ces méthodes sont la norme et devraient TOUJOURS être utilisés pour des mots de passes**
+
+# Authentification
+## Mot de passe
+### Usage unique
+
+Un mot de passe à usage unique (*OTP* : *One Time Password*) est un mot de passe valide que pour une seule authentification.
+
+Permet d'empêcher les attaques par rejeu commun aux mots de passes statique :
+
+* Si un mot de passe est connu, celui-ci peut être utilisé n'importe quand par n'importe qui
+* Un mot de passe unique n'est valide qu'une seule fois, et souvent pour un temps limité
+
+Utilisations majeurs :
+
+* Authentification d'un API (OAuth, JWT)
+* Facteur d'authentification doubles avec des codes générés et valide pour un temps spécifique
+
+# Authentification
+## Mot de passe
+### Usage unique
+
+**TOTP** : Time-based One Time Password
+
+Mot de passe unique généré en fonction du temps actuel.
+
+Le serveur et le client s'échangent une information secrète. Une méthode de hachage est utilisé avec comme entrée
+la clé secrète et l'heure actuel pour généré un code que chaque partie peut valider.
+
+```
+hash(secret + 2019/02/01 20:05:11) => 544871
+hash(secret + 2019/02/01 20:05:25) => 544871
+
+
+hash(secret + 2019/02/01 20:05:31) => 150986
+hash(secret + 2019/02/01 20:05:55) => 150986
+```
+
+# Authentification
+## Mot de passe
+### Usage unique
+
+Puisque les deux parties (serveur et client) connaissent et se sont échangé le secret partagé,
+si le temps de chacun est synchronisé un code unique peut être généré et validé par l'autre partie
+
+# Authentification
+## Application Web
+
+Il existe plusieurs mécanismes pour un utilisateur de s'authentifier sur une application web :
+
+* Cookie
+* HTTP Header
+
+# Authentification
+## Application Web
+### Cookie
+
+* Après authentification, un cookie de session est généré
+    * Permet de lier les visites subséquentes à l'utilisateur déjà authentifié
+* Cookie peut posséder une date d'expiration, ou expirer à la fermeture de navigateur
+
+# Authentification
+## Application Web
+### HTTP Header
+
+Le protocole HTTP contient des mesures d'authentification de base avec l'entête `Authorization`
+
+![](./img/http-basic-auth.png)
+
+# Authentification
+## Application Web
+### HTTP Header
+
+Le client (navigateur) doit retourner un entête nommé `Authorization` qui contient les informations suivantes :
+
+```
+Basic base64("nom d'usager" + ":" + "mot de passe")
+```
+
+*Base6* : codage d'information binaire utilisant 64 caractères.
+
+Exemple :
+
+| Texte | Encodé base64 |
+|-------|---------------|
+| `INF5190` | `SU5G` |
+| `INF5190` | `SU5GNTE5MA==` |
+| `INF5190-030`| `SU5GNTE5MC0wMzA=` |
+
+# Authentification
+## Application Web
+### HTTP Header
+
+Avec le nom d'utilisateur **`Aladin`** et le mot de passe **`Sésame, ouvre-toi`** :
+
+```
+base64("Alading:Sésame, ouvre-toi") => 
+    QWxhZGluZzpTw6lzYW1lLCBvdXZyZS10b2k=
+```
+
+Et dans l'entête HTTP :
+
+```
+GET /protected HTTP/1.1
+Host: example.com
+Authorization: Basic QWxhZGluZzpTw6lzYW1lLCBvdXZyZS10b2k=
+[...]
+```
