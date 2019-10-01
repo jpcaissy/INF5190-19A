@@ -259,6 +259,16 @@ Voici l'aperçu global d'une requête client pour un API REST
 
 ### #TODO
 
+
+# Intégration d'API Web
+## Gestion d'erreur
+
+La gestion d'erreur se fait sur trois niveaux différents :
+
+* Données du clients (mauvais types, champs manquants, etc)
+* Canal de communication (fermeture du socket, timeout sur la lecture, etc)
+* Les erreurs retournés par le serveur
+
 # Liens
 
 * [HOWTO Fetch Internet Resources Using The urllib Package](https://docs.python.org/3/howto/urllib2.html)
