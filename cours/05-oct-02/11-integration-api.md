@@ -269,6 +269,120 @@ La gestion d'erreur se fait sur trois niveaux différents :
 * Canal de communication (fermeture du socket, timeout sur la lecture, etc)
 * Les erreurs retournés par le serveur
 
+# Intégration d'API Web
+## Gestion d'erreur
+
+Sert à identifier au client de l'API ce qui n'est pas valide.
+
+Exemple commun d'erreurs :
+
+* Champ manquant ou invalide
+* Contrainte applicative non respectée
+
+# Intégration d'API Web
+## Gestion d'erreur
+### Code HTTP
+
+Une bonne pratique est d'utiliser un code HTTP lors d'un erreur
+
+| Code HTTP | Description |
+|-----------|-------------|
+| `400 Bad Request` | Mauvaise requête (JSON invalide) |
+| `401 Unauthorized` | Permission invalide |
+| `404 Not Found` | Ressource non trouvée |
+| `422 Unprocessable Entity` | Erreur sémantique (champ manquant) |
+
+# Intégration d'API Web
+## Gestion d'erreur
+### Mauvais exemple
+
+```
+200 OK
+```
+```json
+{"errors": {
+    "prenom": {
+        "code": "missing",
+        "text": "Champ manquant"
+    },
+    "date_naissance": {
+        "code": "invalid",
+        "text": "La date de naissance est invalide"
+    }
+}
+```
+
+# Intégration d'API Web
+## Gestion d'erreur
+### Bon exemple
+
+```
+422 Unprocessable Entity
+```
+```json
+{"errors": {
+    "prenom": {
+        "code": "missing",
+        "text": "Champ manquant"
+    },
+    "date_naissance": {
+        "code": "invalid",
+        "text": "La date de naissance est invalide"
+    }
+}
+```
+
+# Intégration d'API Web
+## Gestion d'erreur
+### Mauvais exemple
+
+```
+200 OK
+```
+```json
+{"error": {
+    "base": {
+        "code": "does-not-exist",
+        "text": "La ressource n'existe pas"
+    }
+}
+```
+
+# Intégration d'API Web
+## Gestion d'erreur
+### Bon exemple
+
+```
+404 OK
+```
+```json
+{"error": {
+    "base": {
+        "code": "does-not-exist",
+        "text": "La ressource n'existe pas"
+    }
+}
+```
+
+# Intégration d'API Web
+## Gestion d'erreur
+### Bon exemple
+
+```
+404 OK
+```
+
+Pas besoin de corps de réponse, le code 404 est suffisant pour identifier une ressource non existante.
+
+# Intégration d'API Web
+## Gestion d'erreur
+
+* Utiliser les code de statut HTTP
+* Inclure un message d'erreur pour les développeurs (code)
+* Inclure un message d'erreur pour l'utilisateur (texte)
+* Différencier les erreurs de clients (400 Bad Request) des erreurs de serveurs (4xx)
+
+
 # Liens
 
 * [HOWTO Fetch Internet Resources Using The urllib Package](https://docs.python.org/3/howto/urllib2.html)
