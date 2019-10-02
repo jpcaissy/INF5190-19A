@@ -255,8 +255,6 @@ Voici l'aperçu global d'une requête client pour un API REST
 4. Gestion d'erreur
 5. Désérialisation de la réponse
 
-# Exercice
-
 # Intégration d'API Web
 ## Gestion d'erreur
 
