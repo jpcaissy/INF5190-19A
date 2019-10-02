@@ -112,3 +112,9 @@ Et la solution du premier exercice est disponible ici : [cours/04-sept-25/labo/0
 - [Dan Taylor - Get Productive with Python in Visual Studio Code](https://www.youtube.com/watch?v=6YLMWU-5H9o)
 - [What is API Documentation, and Why It Matters?](https://swagger.io/blog/api-documentation/what-is-api-documentation-and-why-it-matters/)
 - [Appropriate Uses For SQLite](https://www.sqlite.org/whentouse.html)
+---
+
+### 05 - 2 octobre
+
+* [11 Intégration d'API](cours/05-oct-02/11-integration-api.pdf)
+* [12 Authentification](cours/05-oct-02/12-authentification.pdf)
