@@ -1,0 +1,17 @@
+sequenceDiagram
+    participant Navigateur
+    participant Serveur auth
+    participant Serveur Web
+
+    Navigateur ->> Serveur auth: POST /login
+    Note right of Navigateur: {"user": "caissy",<br />"password": "toto"}
+
+    Serveur auth ->> Navigateur: 200 OK
+    Note right of Navigateur: {"jwt_token":<br />{ JWT TOKEN } }
+
+    Navigateur ->> Serveur Web: GET /profile
+    Note right of Serveur auth: Authorization: Bearer<br /> { JWT TOKEN }
+
+    Serveur Web ->> Navigateur: 200 OK
+    Note right of Serveur auth: {"id": 123, [...]}
+
