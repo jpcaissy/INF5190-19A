@@ -388,3 +388,4 @@ Pas besoin de corps de réponse, le code 404 est suffisant pour identifier une r
 * [HOWTO Fetch Internet Resources Using The urllib Package](https://docs.python.org/3/howto/urllib2.html)
 * [Github REST API v3](https://developer.github.com/v3/)
 * [Exemple de client Python pour l'api REST de Github](https://github.com/PyGithub/PyGithub)
+* [REST API Error Codes 101](https://blog.restcase.com/rest-api-error-codes-101/)
