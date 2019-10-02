@@ -257,9 +257,6 @@ Voici l'aperçu global d'une requête client pour un API REST
 
 # Exercice
 
-### #TODO
-
-
 # Intégration d'API Web
 ## Gestion d'erreur
 
