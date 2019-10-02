@@ -397,3 +397,87 @@ Host: example.com
 Authorization: Basic QWxhZGluZzpTw6lzYW1lLCBvdXZyZS10b2k=
 [...]
 ```
+
+# Authentification
+## Validation de message
+
+Lorsqu'un message est transmis, il existe deux validations opur s'assurer que le message est authentique :
+
+* Intégrité d'un message : s'assurer que le message n'a pas été changé
+* Authenticité : s'assurer qu'un message provient de la bonne personne
+
+# Authentification
+## Validation de message
+
+* Un usager se connecte à un service distant
+* L'application web renvoie un cookie avec les données suivantes :
+
+```
+Set-Cookie: is_admin=true; user=caissy.jean-philippe
+```
+
+N'importe qui peut rajouter `is_admin=true` au cookie pour devenir administrateur!
+
+# Authentification
+## Validation de message
+### MAC
+
+Message Authentication code (MAC) : une information supplémentaire confirmant l'intégrité et l'authenticité d'un message.
+
+* Fonctionne avec le principe d'une clé secrète que seul l'expéditeur connait.
+* La clé secrète est utilisée pour valider l'authenticité et l'intégrité d'un message
+* Puisque le receveur ne connait pas la clé secrète, il ne peut pas regénéré un MAC valide
+
+# Authentification
+## Validation de message
+### MAC
+
+Exemple :
+
+```
+secret_key = "ma clé secrète"
+cookie = "is_admin=true; user=caissy.jean-philippe;"
+mac = hash(cookie + secret_key)
+```
+
+Le MAC va être transmis avec le cookie au client
+
+Lorsque le serveur reçoit le cookie, il va pouvoir valider que le hash du MAC correspond au cookie. Si le cookie a
+changé, le MAC ne correspondra pas et l'application peut ignorer le message.
+
+# Authentification
+## Application Web
+### JWT
+
+JWT : JSON Web Token
+
+* Standard qui définit un moyen compact d'encapsuler et transmettre de manière sécuritaire des données entre deux
+parties en tant qu'objet JSON
+* Les données sont signées (MAC)
+    * Donc impossible de fausser
+* Peut être chiffré
+* Transmis avec l'entête `Authorization`
+
+# Authentification
+## Application Web
+### JWT
+
+Les données contenus dans un JWT peuvent être n'importe quoi
+
+e.g. : 
+
+* Peut représenter l'état d'une session
+    * Nom d'usager
+    * Permissions
+
+# Authentification
+## Application Web
+### JWT
+
+![](./img/jwt-sequence.pdf){ height=100% }
+
+# Liens
+
+* [Introduction to JWT](https://jwt.io/introduction/)
+* [How and when to use HMAC](https://security.stackexchange.com/a/20301)
+* [What is weak authentication?](https://affinity-it-security.com/what-is-weak-authentication/)
