@@ -92,6 +92,7 @@ Les solutions sont en ligne et disponible à la racine : [cours/03-sept-18/labo]
 * [08 MVC - Modèle (suite)](cours/04-sept-25/08-mvc-model-suite.pdf)
 * [09 MVC - Vue et Contrôleur](cours/04-sept-25/09-mvc-vue-controleur.pdf)
 * [10 API Web](cours/04-sept-25/10-api-web.pdf)
+
 #### Labo
 
 **IMPORTANT**: Le laboratoire aura lieu au **PK-S1560**
@@ -118,3 +119,9 @@ Et la solution du premier exercice est disponible ici : [cours/04-sept-25/labo/0
 
 * [11 Intégration d'API](cours/05-oct-02/11-integration-api.pdf)
 * [12 Authentification](cours/05-oct-02/12-authentification.pdf)
+
+#### Labo
+
+L'énoncé du labo est disponible ici : [cours/05-oct-02/labo/04-labo.md](cours/05-oct-02/labo/04-labo.md )
+
+Solution : [cours/05-oct-02/labo/04-labo-solution.py](cours/05-oct-02/labo/04-labo-solution.py)
