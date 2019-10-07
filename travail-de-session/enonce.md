@@ -9,11 +9,12 @@ header-includes:
 ## Historique
 
 \# | Date | Description
------|--------|-------------
+-----|-------------------|---------------------------------------------------------------------------
 1 | 25 septembre | Version initiale
 2 | 25 septembre | Précisions sur les remises
 3 | 25 septembre | Correction au diagramme de séquence
 4 | 26 septembre | Instructions de remise sur Github
+5 | 7 octobre | Ajout d'une exigence lors du paiement d'une commande et ajout de précisions sur la récupération des produits
 
 ## Informations générale
 
@@ -408,6 +409,8 @@ doit retourner un message d'erreur.
 3. Les informations de transaction et de carte de crédit retournés par le service distant doivent être
 persistés et appliqué à la commande.
 4. Si le service de paiement distant retourne une erreur, celle-ci doit être retourné au client
+5. On ne peut pas payer une commande deux fois. Si une commande a déjà eu un paiement, un message d'erreur doit être
+retourné.
 
 ```
 PUT /order/<int:order_id>
@@ -444,6 +447,42 @@ Content-Type: application/json
 
 ```
 
+Exemple d'une commande qui a déjà été payée.
+
+```
+PUT /order/<int:order_id>
+Content-Type: application/json
+```
+
+```json
+{
+   "credit_card" : {
+      "name" : "John Doe",
+      "number" : "4242 4242 4242 4242",
+      "expiration_year" : 2024,
+      "cvv" : "123",
+      "expiration_month" : 9
+   }
+}
+
+```
+
+```
+422 Unprocessable Entity
+Content-Type: application/json
+```
+
+```json
+{
+   "errors" : {
+       "order": {
+           "code": "already-paid",
+           "name": "La commande a déjà été payée."
+       }
+   }
+}
+```
+
 \newpage
 
 Exemple d'une carte de crédit refusé par le service distant :
@@ -476,11 +515,9 @@ Content-Type: application/json
     "credit_card": {
         "code": "card-declined",
         "name": "La carte de crédit a été déclinée."
-        }
     }
 }
 ```
-
 
 \newpage
 
@@ -635,7 +672,7 @@ Content-Type: application/json
 Lors du lancement de l'application, celle-ci va devoir se connecter à ce service, et récupérer la liste complète
 des produits et des informations applicables. Les informations des produits devront être persistées localement,
 c'est-à-dire que l'application Web ne doit pas récupérer les informations à chaque requête. Seulement une
-fois par lancement.
+fois par lancement, i.e. : lorsque la commande `FLASK_DEBUG=True FLASK_APP=inf5190 flask run` est exécuté.
 
 Les produits sont accessibles à l'adresse suivante : `https://caissy.dev/shops/products`
 
