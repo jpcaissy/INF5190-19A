@@ -114,10 +114,18 @@ def new_address():
 
 @app.route('/new', methods=['POST'])
 def create_address():
-    name = request.values.get('name')
-    adress = request.values.get('address')
-    phone = request.values.get('telephone')
-    email = request.values.get('email')
+    entry = {
+        "name": request.values.get('name'),
+        "address": request.values.get('address'),
+        "phone": [request.values.get('telephone')],
+        "email": request.values.get('email')
+    }
     with open(FILENAME) as f:
         data = json.load(f)
+    
+    data.append(entry)
+
+    with open(FILENAME, 'w') as f:
+        json.dump(data, f, indent=4)
+    
     return redirect(url_for("index"))
