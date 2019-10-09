@@ -36,6 +36,17 @@ Ensemble de mécanismes techniques, organisationnels, juridiques et humains pour
     Accès permanent et sans faille aux ressources d'un système
 
 # Sécurité des systèmes d'information
+## Définitions
+
+* **Vulnérabilité** : une faille ou une faiblesse dans un système informatique
+* **Attaque** : Exploiter une vulnérabilité
+* **Risque** : Probabilité qu'une attaque est lieu
+* **Impact** : Les dommages, pertes et préjudices d'une attaque
+* **Utilisateur malveillant** : un individu ou un groupe qui attaque un système
+* **Vecteur d'attaque** : moyen ou direction qu'un attaquant utilise pour exploiter une vulnérabilité
+
+
+# Sécurité des systèmes d'information
 ## Systèmes à risques
 
 La prolifération des systèmes inter-connectés des deux dernières décennies rend la sécurité des systèmes d'information
@@ -167,6 +178,13 @@ Accès physique non autorisé à un système informatique.
 
 # Cybersécurité
 ## Types d'attaques et de vulnérabilité
+### Ingénierie sociale
+
+Une attaque où l'utilisateur malveillant tente de tromper l'utilisateur ou l'administrateur. L'objectif
+est d'obtenir des accès en trompant une personne.
+
+# Cybersécurité
+## Types d'attaques et de vulnérabilité
 ### Hameçonnage (phishing)
 
 Principes et méthodes permettant d'acquérir des informations sensibles (mots de passe, carte de crédit, etc)
@@ -185,13 +203,6 @@ Souvent fait à partir de SMS et de courriel.
 ### Hameçonnage (phishing)
 
 ![Exemple d'un site d'hameçonnage](./img/phishing-2.png)
-
-# Cybersécurité
-## Types d'attaques et de vulnérabilité
-### Ingénierie sociale
-
-@TODO
-
 
 # Cybersécurité
 ## Types d'attaques et de vulnérabilité
@@ -215,16 +226,6 @@ Il existe deux grandes catégories de patrons d'attaques :
 
 * Injection
 * Contournement d'authentification et de contrôles d'accès
-
-# Patrons d'attaques d'applications Web
-## Définitions
-
-* **Vulnérabilité** : une faille ou une faiblesse dans un système informatique
-* **Attaque** : Exploiter une vulnérabilité
-* **Risque** : Probabilité qu'une attaque est lieu
-* **Impact** : Les dommages, pertes et préjudices d'une attaque
-* **Utilisateur malveillant** : un individu ou un groupe qui attaque un système
-* **Vecteur d'attaque** : moyen ou direction qu'un attaquant utilise pour exploiter une vulnérabilité
 
 # Patrons d'attaques d'applications Web
 ## Injection
