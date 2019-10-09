@@ -3,6 +3,8 @@ from datetime import datetime
 
 from flask import Flask, request, redirect, url_for, abort
 
+from flask_wtf.csrf import CSRFProtect, generate_csrf
+
 from poll.models import init_app, Poll, Choice
 from poll.services import PollServices
 from poll import views
@@ -11,7 +13,11 @@ def create_app(initial_config=None):
     app = Flask("poll", instance_relative_config=True)
     app.config.from_mapping(
         DATABASE=os.path.join(app.instance_path, "db.sqlite"),
+        SECRET_KEY="my-secret-eey"
     )
+
+    #csrf = CSRFProtect()
+    #csrf.init_app(app)
 
     if initial_config != None:
          app.config.update(initial_config)
@@ -35,6 +41,7 @@ def create_app(initial_config=None):
         poll = Poll(None, '', None)
         return views.new_poll(poll)
 
+    #@csrf.exempt
     @app.route('/polls/new', methods=['POST'])
     def polls_create():
         poll = PollServices.create_new_poll_from_post_data(request.form, datetime.now())
@@ -49,8 +56,10 @@ def create_app(initial_config=None):
             return abort(404)
 
         choices = Choice.get_choices_for_poll(poll)
-        return views.view_poll(poll, choices)
+        #csrf_token = generate_csrf()
+        return views.view_poll(poll, choices, csrf_token=None)
 
+    #@csrf.exempt
     @app.route('/polls/<int:poll_id>/choices/new', methods=['POST'])
     def choice_create(poll_id):
         poll = Poll.get_poll_by_id(poll_id)

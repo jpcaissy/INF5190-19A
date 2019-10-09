@@ -562,7 +562,7 @@ La seule manière de se protéger de ce type d'attaque est de :
 * Utiliser un champ caché qui valide que l'utilisateur a visité la page
     * La plupart des frameworks offrent cette fonctionalité
 
-@TODO exemple
+Exemple : [./exemple/csrf.html](./exemple/csrf.html)
 
 # Sécurité d'applications web
 ## Protection

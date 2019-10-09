@@ -55,7 +55,7 @@ def new_poll(poll):
 
     return view
 
-def view_poll(poll, choices):
+def view_poll(poll, choices, csrf_token=None):
     view = """
 <html>
     <body>
@@ -66,6 +66,8 @@ def view_poll(poll, choices):
 
     if choices:
         view += """<form method="POST" action="/polls/{poll_id}/vote">""".format(poll_id=poll.id)
+        if csrf_token:
+            view += """<input type="hidden" name="csrf_token" value="{0}"/>""".format(csrf_token)
         for choice in choices:
             view += """
             <label for="choice-{id}">{choice} (<strong>{votes} vote(s)</strong>): </label>
