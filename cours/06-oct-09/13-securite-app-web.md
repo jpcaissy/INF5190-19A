@@ -441,14 +441,14 @@ def hello_world():
     return '<h1>Hello, {0}!</h1>'.format(request.args.get('name'))
 ```
 
-TODO : exemples et continuer sur XSS
+Exemple : [./exemple/xss.py](./exemple/xss.py)
 
 # Patrons d'attaques d'applications Web
 ## Contournement d'accès de contrôle
 ### XSS
 #### Persités
 
-@TODO : exemple
+Exemple avec la station de vote : [../03-sept-18/exemples/station-de-vote/](../03-sept-18/exemples/station-de-vote/)
 
 # Patrons d'attaques d'applications Web
 ## Contournement d'accès de contrôle
@@ -460,6 +460,21 @@ Pour se protéger d'attaques de type XSS :
 * Cookies : HttpOnly
 * Utiliser le Content Security Policy
 
+# Patrons d'attaques d'applications Web
+## Contournement d'accès de contrôle
+### XSS
+
+Échapper (escape) les entités HTML signifie afficher le code tel que prévu, et non pas les balises.
+
+```html
+<h1>Hello World</h1>
+```
+
+devient
+
+```html
+&lt;h1&gt;Hello World!&lt;/h1&gt;
+```
 
 # Patrons d'attaques d'applications Web
 ## Contournement d'accès de contrôle
@@ -582,7 +597,7 @@ Il s'agit d'un entête HTTP permettant de spécifier au navigateur d'autres orig
 
 # Sécurité d'applications web
 ## Protection
-### Content Control Policy
+### Content Security Policy
 
 Spécification donnant les instructions au navigateur sur quels types de ressources et la localisation de celle-ci.
 
@@ -600,7 +615,7 @@ Exemple de limitation :
 
 # Sécurité d'applications web
 ## Protection
-### Content Control Policy
+### Content Security Policy
 
 Le CSP est envoyé par le serveur Web dans un entête HTTP:
 
@@ -617,7 +632,7 @@ Ou dans une balise HTML `<meta>` :
 
 # Sécurité d'applications web
 ## Protection
-### Content Control Policy
+### Content Security Policy
 
 Démonstration !
 
@@ -629,6 +644,7 @@ Rappel concernant les cookies : toujours transmettre le paramètre `Secure` et `
 
 Avec le paramètre `HttpOnly`, le cookie ne sera pas disponible avec Javascript.
 
+Exemple avec [./exemples/cookie.py](./exemples/cookie.py)
 
 # Sécurité d'applications web
 ## OWASP Top 10
@@ -640,8 +656,11 @@ les applications web.
 
 # Sécurité d'applications web
 
-* Informations de connexion aux BD
+Curieux d'en apprendre plus ?
 
+* AGEEI : #securite et #secuqam sur le slack de l'AGEEI
+* Compétitions : CS Games, Hackfest, NorthSec
+    * L'AGEEI propose des défis de sécurité à résoudre : https://ctf.ageei.uqam.ca/
 
 # Liens
 
