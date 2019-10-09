@@ -629,6 +629,15 @@ Rappel concernant les cookies : toujours transmettre le paramètre `Secure` et `
 
 Avec le paramètre `HttpOnly`, le cookie ne sera pas disponible avec Javascript.
 
+
+# Sécurité d'applications web
+## OWASP Top 10
+
+*Open Web Application Security Project* (OWASP) publie et garde à jour une liste des top 10 vulnérabilités dans
+les applications web.
+
+* [OWASP Top 10 (PDF)](https://www.owasp.org/images/7/72/OWASP_Top_10-2017_%28en%29.pdf.pdf)
+
 # Sécurité d'applications web
 
 * Informations de connexion aux BD
