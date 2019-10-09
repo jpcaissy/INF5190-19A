@@ -553,6 +553,42 @@ La seule manière de se protéger de ce type d'attaque est de :
 ## Protection
 ### Content Control Policy
 
+Spécification donnant les instructions au navigateur sur quels types de ressources et la localisation de celle-ci.
+
+Supporté par la plupart des navigateurs aujourd'hui.
+
+Le principe est de limiter les ressources chargées (images, CSS, JS, etc).
+
+Exemple de limitation :
+
+* Limiter au domaine actuel
+* Limiter au domaine actuel et les sous domaines
+* Seulement les ressources HTTPS
+* Limiter les JS au domaine actuel, mais permettre les images sur tous les domaines
+* etc
+
+# Sécurité d'applications web
+## Protection
+### Content Control Policy
+
+Le CSP est envoyé par le serveur Web dans un entête HTTP:
+
+```
+Content-Security-Policy: default-src 'self'
+```
+
+Ou dans une balise HTML `<meta>` :
+
+```
+<meta http-equiv="Content-Security-Policy"
+    content="default-src 'self';" />
+```
+
+# Sécurité d'applications web
+## Protection
+### Content Control Policy
+
+Démonstration !
 
 # Sécurité d'applications web
 
