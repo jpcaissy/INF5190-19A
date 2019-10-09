@@ -551,6 +551,37 @@ La seule manière de se protéger de ce type d'attaque est de :
 
 # Sécurité d'applications web
 ## Protection
+### Same Origin Policy
+
+Mécanisme de sécurité critique limitant comment une page Web ou script peut interagir avec une autre origine.
+
+Deux URLs ont la même origine si le **protocole**, le **port**, et le **domaine** sont les mêmes.
+
+# Sécurité d'applications web
+## Protection
+### Same Origin Policy
+
+Exemple pour une page Web qui est sur `https://caissy.dev/dir/page.html` :
+
+| URL | Permis?
+|--------------|------|----------------|
+| `http://caissy.dev/dir2/autre.html` | Oui
+| `http://caissy.dev/dir/autre.html` | Oui
+| `https://caissy.dev/page.html` | Non
+| `http://caissy.dev:81/dir/page.html` | Non
+| `https://uqam.ca/page.html` | Non
+
+
+# Sécurité d'applications web
+## Protection
+### Same Origin Policy
+
+Pour permettre une requête sur une origine différente, on utilise le `Cross-Origin Resource Sharing` (CORS).
+
+Il s'agit d'un entête HTTP permettant de spécifier au navigateur d'autres origines permises.
+
+# Sécurité d'applications web
+## Protection
 ### Content Control Policy
 
 Spécification donnant les instructions au navigateur sur quels types de ressources et la localisation de celle-ci.
@@ -590,6 +621,7 @@ Ou dans une balise HTML `<meta>` :
 
 Démonstration !
 
+
 # Sécurité d'applications web
 
 * Informations de connexion aux BD
@@ -600,3 +632,4 @@ Démonstration !
 * [What is a DDoS Attack?](https://www.cloudflare.com/learning/ddos/what-is-a-ddos-attack/)
 * [OWASP Top 10](https://www.owasp.org/images/7/72/OWASP_Top_10-2017_%28en%29.pdf.pdf)
 * [SQL Injection in INSERT Query](https://amolnaik4.blogspot.com/2012/02/sql-injection-in-insert-query.html)
+* [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP)
