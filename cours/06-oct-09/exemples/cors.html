@@ -1,0 +1,25 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+</head>
+
+<body>
+    <h1>Hello World!</h1>
+    <script type="application/javascript">
+      $(document).ready(function() {
+          /*
+          $.get("https://caissy.dev/shops/cors/exemple", function(d) {
+              alert(JSON.stringify(d));
+          });
+          */
+
+          $.get("https://caissy.dev/shops/products", function(d) {
+              alert(JSON.stringify(d));
+          });
+      });
+    </script>
+</body>
+</html>
