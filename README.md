@@ -125,3 +125,7 @@ Et la solution du premier exercice est disponible ici : [cours/04-sept-25/labo/0
 L'énoncé du labo est disponible ici : [cours/05-oct-02/labo/04-labo.md](cours/05-oct-02/labo/04-labo.md )
 
 Solution : [cours/05-oct-02/labo/04-labo-solution.py](cours/05-oct-02/labo/04-labo-solution.py)
+
+### 06 - 9 octobre
+
+* [13 Sécurité d'applications Web](cours/06-oct-09/13-securite-app-web.pdf)
