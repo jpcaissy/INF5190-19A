@@ -448,7 +448,7 @@ Exemple : [./exemple/xss.py](./exemple/xss.py)
 ### XSS
 #### Persités
 
-Exemple avec la station de vote : [../03-sept-18/exemples/station-de-vote/](../03-sept-18/exemples/station-de-vote/)
+Exemple avec la station de vote : [./exemples/station-de-vote/](./exemples/station-de-vote/)
 
 # Patrons d'attaques d'applications Web
 ## Contournement d'accès de contrôle
