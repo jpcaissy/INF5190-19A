@@ -621,6 +621,13 @@ Ou dans une balise HTML `<meta>` :
 
 Démonstration !
 
+# Sécurité d'applications web
+## Protection
+### Cookie
+
+Rappel concernant les cookies : toujours transmettre le paramètre `Secure` et `HttpOnly`.
+
+Avec le paramètre `HttpOnly`, le cookie ne sera pas disponible avec Javascript.
 
 # Sécurité d'applications web
 
