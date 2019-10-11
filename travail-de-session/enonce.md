@@ -15,6 +15,7 @@ header-includes:
 3 | 25 septembre | Correction au diagramme de séquence
 4 | 26 septembre | Instructions de remise sur Github
 5 | 7 octobre | Ajout d'une exigence lors du paiement d'une commande et ajout de précisions sur la récupération des produits
+6 | 11 octobre | Rajout d'une exigence pour la création d'une commande et quelques précisions
 
 ## Informations générale
 
@@ -110,6 +111,7 @@ Content-Type: application/json
    "products" : [
       {
          "name" : "Hapiness Bottle",
+         "weight" : 450,
          "id" : 123,
          "in_stock" : true,
          "description" : "An incredible bottle filled with happiness and joy. One of a kind!",
@@ -122,14 +124,16 @@ Content-Type: application/json
          "in_stock" : false,
          "id" : 456,
          "name" : "Flying Squirrel Limited Edition",
+         "weight" : 220,
          "price" : 3149
       }
    ]
 }
 ```
 
-La page d'index doit afficher une liste des produits disponibles pour passer une commande. Ces produits sont
-récupérés selon les spécifications de la section [**Récupération des produits**](#récupération-des-produits).
+Cet URL doit retourner la liste complète des produits en format JSON disponibles pour passer une commande, incluant
+ceux qui ne sont pas en inventaire. Ces produits sont récupérés selon les spécifications de la
+section [**Récupération des produits**](#récupération-des-produits).
 
 \newpage
 
@@ -154,6 +158,7 @@ retour doit être `302` et inclure le lien vers la commande nouvellement créée
 
 * Pour cette première remise, une commande ne peut recevoir qu'un seul produit.
 * L'objet `product` est obligatoire et doit consister d'un identifiant (`id`) et d'une quantité.
+* La quantité doit être supérieur ou égale à 1. Si ce n'est pas le cas il faut retourner l'erreur `missing-fields`.
 
 S'il manque l'objet `product`, ou que l'objet `product` ne contient pas le champ `id` ou `quantity`, un message
 d'erreur doit être retourné.
@@ -673,6 +678,8 @@ Lors du lancement de l'application, celle-ci va devoir se connecter à ce servic
 des produits et des informations applicables. Les informations des produits devront être persistées localement,
 c'est-à-dire que l'application Web ne doit pas récupérer les informations à chaque requête. Seulement une
 fois par lancement, i.e. : lorsque la commande `FLASK_DEBUG=True FLASK_APP=inf5190 flask run` est exécuté.
+
+Le champ `id` des produits est unique et c'est l'identifiant qui sera utilisé pour créer une commande avec un produit.
 
 Les produits sont accessibles à l'adresse suivante : `https://caissy.dev/shops/products`
 
