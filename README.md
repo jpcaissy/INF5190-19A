@@ -138,3 +138,8 @@ Solution : [cours/05-oct-02/labo/04-labo-solution.py](cours/05-oct-02/labo/04-la
 Congé de laboratoire cette semaine! Profitez-en pour travailler sur le projet de session.
 
 Ismaïl va être présent pour répondre à vos questions.
+
+##### Liens utiles :
+
+- [Python Debugging With Pdb](https://realpython.com/python-debugging-pdb/)
+- [How to use the Python debugger](https://www.digitalocean.com/community/tutorials/how-to-use-the-python-debugger)
