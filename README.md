@@ -132,3 +132,9 @@ Solution : [cours/05-oct-02/labo/04-labo-solution.py](cours/05-oct-02/labo/04-la
 ### 06 - 9 octobre
 
 * [13 Sécurité d'applications Web](cours/06-oct-09/13-securite-app-web.pdf)
+
+#### Labo
+
+Congé de laboratoire cette semaine! Profitez-en pour travailler sur le projet de session.
+
+Ismaïl va être présent pour répondre à vos questions.

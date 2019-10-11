@@ -577,7 +577,7 @@ Deux URLs ont la même origine si le **protocole**, le **port**, et le **domaine
 ## Protection
 ### Same Origin Policy
 
-Exemple pour une page Web qui est sur `https://caissy.dev/dir/page.html` :
+Exemple pour une page Web qui est sur `http://caissy.dev/dir/page.html` :
 
 | URL | Permis?
 |--------------|------|----------------|
