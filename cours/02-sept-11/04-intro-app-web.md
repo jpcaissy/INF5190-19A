@@ -178,7 +178,7 @@ qui ne sont pas dans la table ASCII.
 
 #### Encodage pourcentage des URI
 
-Un Si un URI contient des caractères non-ASCII, ils doivent être encodés de la manière suivante :
+Si un URI contient des caractères non-ASCII, ils doivent être encodés de la manière suivante :
 
 `
 Pourcentage (%) + deux chiffres hexadécimales représentant l'identifiant
