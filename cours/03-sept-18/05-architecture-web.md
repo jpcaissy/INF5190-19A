@@ -27,7 +27,7 @@ Dans le cadre de ce cours, nous nous concentrons sur le développement _backend_
 ## Patrons de communications
 ### Synchrone et asynchrone
 
-* Le patron requête-réposne est un moyen de communication synchrone :
+* Le patron requête-réponse est un moyen de communication synchrone :
     * Une requête est envoyé et une réponse est attendue
 * À l'inverse les patrons à unidirectionnel (one-way) ne sont pas synchrone
     * Lorsqu'un paquet UDP est envoyé, il n'y a aucun accusé de réception
