@@ -361,7 +361,7 @@ Content-Type: text/html; charset=utf-8
 |-----------|-----------------------------|--------------------|
 | `400` | `Bad Requset` | Le client a envoyé une mauvaise requête |
 | `401` | `Unauthorized` | Le client doit s'authentifier en premier |
-| `403` | `Forbidded` | Le client n'a pas la bonne authentification |
+| `403` | `Forbidden` | Le client n'a pas la bonne authentification |
 | `404` | `Not Found` | La ressource n'existe pas |
 | `405` | `Method not allowed` | La méthode HTTP n'est pas supportée |
 
