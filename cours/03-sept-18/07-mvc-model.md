@@ -204,7 +204,7 @@ base de données non-relationnelles.
     * Ex: XML, JSON
 * Différence majeure entre une base de donnée relationnelle :
     * Dans une BD relationnelle les informations peuvent être stockés dans des tables différentes et les objets représentés
-    à travers plusieurs tablse 
+    à travers plusieurs tables 
     * Dans une base de donnée de documents, l'information est représenté au complet dans un seul objet.
         * Chaque objet peut être différent des autres objets
         * Élimine le besoin relationnel
