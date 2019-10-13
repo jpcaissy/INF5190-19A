@@ -143,7 +143,7 @@ Un test d'intégration va tester :
 Un test de navigateur est un navigateur Web contrôlé par une API. C'est le test ultime d'une application Web.
 
 * Utilisation d'outils qui automatise les actions d'un navigateur (aller à une adresse, cliquer sur un lien, etc)
-    * C'est un vrai navigateur, seulement sasn "fenêtre"
+    * C'est un vrai navigateur, seulement sans "fenêtre"
 * L'API fonctionne avec les éléments de la page. Par exemple :
     * Cliquer sur le lien dont le `id` est `admin`
     * Remplir les champs d'un formulaire et le soumettre
