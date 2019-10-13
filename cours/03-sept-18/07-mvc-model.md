@@ -121,7 +121,7 @@ Les objets peuvent être imbriqués et contenir n'importe quel type de valeurs
 
 * Popularisé dans les annéess 1990
 * Très utilisés par de vieux systèmes et protocoles
-* Plus lourd que XML, mais encore plus flexible
+* Plus lourd que JSON, mais encore plus flexible
 * Permet une validation basée sur un schéma existant
 
 # Sérialisation de données
