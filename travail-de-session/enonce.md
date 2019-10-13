@@ -299,8 +299,8 @@ Content-Type: application/json
 
 1. Une commande qui n'existe pas doit retourner un code d'erreur 404.
 2. Les champs `emails`, `shipping_information` et les informations de l'objet `shipping_information` (`country`, 
-    `address`, `postal_code`, `city`, `province`)
-3. Tous les auters champs ne peuvent pas être changés par cet API (`total_price`, `transaction`,
+    `address`, `postal_code`, `city`, `province`) sont tous obligatoires.
+3. Tous les autres champs ne peuvent pas être changés par cet API (`total_price`, `transaction`,
     `paid`, `product`, `shipping_price`, `id`).
 
 S'il manque un champ, l'API doit retourner une erreur en conséquence.
