@@ -1,4 +1,5 @@
 # INF5190
+
 Cours de programmation Web avancée
 
 [Plan de cours](plan-de-cours.pdf)
@@ -6,6 +7,12 @@ Cours de programmation Web avancée
 Chargé de cours : Jean-Philippe Caissy - caissy.jean-philippe@courrier.uqam.ca
 
 Démonstrateur : Ismail Ider - ider.ismail@courrier.uqam.ca
+
+## Examens
+
+### Intra
+
+Les informations sur l'examen intra sont disponibles ici : [./examen-intra.pdf](examen-intra.pdf).
 
 ## Travail de session
 
