@@ -649,3 +649,70 @@ Modélisez une API REST qui correspond aux requêtes suivantes :
 * Afficher les gens qui suivent un utilisateur
 * Suivre un utilisateur
 * Ne plus suivre un utilisateur
+
+
+# Révision intra
+## 11 - Intégration d'API REST
+
+Voici l'aperçu global d'une requête client pour un API REST
+
+1. Validation des données
+2. Sérialisation de la requête
+3. Envoie de la requête HTTP
+4. Gestion d'erreur
+5. Désérialisation de la réponse
+
+# Révision intra
+## 11 - Intégration d'API REST
+### Gestion d'erreur
+
+Il y a trois types d'erreurs possibles :
+
+* Données du clients (mauvais types, champs manquants, etc)
+* Canal de communication (fermeture du socket, timeout sur la lecture, etc)
+* Les erreurs retournés par le serveur
+
+# Révision intra
+## 11 - Intégration d'API REST
+### Code HTTP
+
+Une bonne pratique est d'utiliser un code HTTP lors d'un erreur
+
+| Code HTTP | Description |
+|-----------|-------------|
+| `400 Bad Request` | Mauvaise requête (JSON invalide) |
+| `401 Unauthorized` | Permission invalide |
+| `404 Not Found` | Ressource non trouvée |
+| `422 Unprocessable Entity` | Erreur sémantique (champ manquant) |
+
+* Est-ce une bonne pratique de retourner un erreur avec un code HTTP 200? Pourquoi?
+* Quelle est la différence entre un erreur 400 et 422?
+* Dans quelle situation est-ce qu'un erreur 401 serait retourné?
+
+# Révision intra
+## 12 - Authentification et identification
+
+* Quelle est la différence entre l'authentification, l'identification et l'authorisation?
+    * Quel serait un exemple dans la vie rééel des deux?
+* Il existe trois types d'authentification, donnez des exemples pour chacun des trois :
+    * Connaissance
+    * Possesssion
+    * Identitaire
+
+# Révision intra
+## 12 - Authentification et identification
+### Authentification
+
+* Qu'est-ce qu'un authentification multi-facteur? Pourquoi est-ce utile?
+* Donnez des exemples de scénarios d'une authentification faible et une authentification forte
+* Qu'est-ce qu'une fonction de hachage?
+* Pourquoi avons nous besoin de hasher un mot de passe lorsqu'il est persisté?
+* Quel est l'avantage d'utiliser un sel (*salt*) lorsqu'un mot de passe est hashé?
+
+# Révision intra
+## 12 - Authentification et identification
+### Authentification
+
+* Comment fonctionne l'authentification avec l'entête `Authorization`?
+* La validation d'un message se base sur l'intégrité et l'authenticité du message.
+    * Expliquez comment un serveur Web peut valider qu'une donné n'a pas été changé en cours de route.
