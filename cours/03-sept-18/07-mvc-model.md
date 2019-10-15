@@ -140,7 +140,7 @@ Les objets peuvent être imbriqués et contenir n'importe quel type de valeurs
 <note>
     <to>
         <name>John Smith</name>
-        <email>john.smith@example.com</emaail>
+        <email>john.smith@example.com</email>
     </to>
     <from>Toto</from>
     <subject>Rappel important!</subject>
