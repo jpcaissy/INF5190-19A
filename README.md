@@ -12,7 +12,7 @@ Démonstrateur : Ismail Ider - ider.ismail@courrier.uqam.ca
 
 ### Intra
 
-Les informations sur l'examen intra sont disponibles ici : [./examen-intra.pdf](examen-intra.pdf).
+Les informations sur l'examen intra sont disponibles ici : [examen-intra.pdf](./examen-intra.pdf).
 
 ## Travail de session
 
