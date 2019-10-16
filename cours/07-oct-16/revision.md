@@ -168,16 +168,6 @@ with open("file.data", "r") as f:
 ## 04 - Introduction aux applications Web
 ### Corps de requête
 
-* Un corps de la requête peut être envoyé lors des requêtes de type `POST`, `PATCH`/`PUT`
-
-![Exemple de formulaire](../02-sept-11/img/formulaire.png){width=30%}
-
-* Comment est représenté ce formulaire dans une requête POST?
-
-# Révision intra
-## 04 - Introduction aux applications Web
-### Corps de requête
-
 ![Exemple de formulaire](../02-sept-11/img/formulaire.png){width=20%}
 
 Grâce à l'annotation hexadécimale avec des pourcentages, cela donne :
@@ -623,7 +613,15 @@ Vrai ou faux (et pourquoi) :
 ## 10 - API Web
 ### REST
 
-@TODO : Exercice bon et mauvais API REST
+Quelles ressources ne sont RESTful, et pourquoi? Comment les corriger?
+
+1. `GET http://api.example.com/services/?operation=new_product`
+2. `GET http://api.example.com/products/123/update`
+3. `GET http://api.example.com/?id=123&ressource=product`
+4. `PUT http://api.example.com/products/123/update`
+5. `PATCH http://api.example.com/products/123/delete`
+6. `PATCH http://api.example.com/products/123`
+7. `PUT http://api.example.com/products/123`
 
 # Révision intra
 ## 10 - API Web
