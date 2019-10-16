@@ -84,7 +84,9 @@ http://user:pass@example.com:81/blog/?tag=net&sort=old#top
 # Révision intra
 ## 02 - Python
 
-@ TODO
+* Syntaxe de base : `if`, `else`, `elif`, `while`
+* Méthodes et classes
+* Types primitifs
 
 # Révision intra
 ## 03 - Python (suite)
@@ -228,12 +230,6 @@ Le format de réponse d'une requête par une application Web est similaire à la
 * Quelle est l'utilité d'un balanceur de charge?
 * Il existe 4 algorithmes de routage (Round-Robin, Nombre de connexion, Temps de réponse, Table de hashage)
     * Quelle est la différence entre un algorithme basé sur le nombre de connexion et celui sur le temps de réponse?
-
-# Révision intra
-## 04 - Introduction aux applications Web
-### Interface
-
-@TODO
 
 # Révision intra
 ## 05 - Architecture d'applications Web
@@ -716,3 +712,59 @@ Une bonne pratique est d'utiliser un code HTTP lors d'un erreur
 * Comment fonctionne l'authentification avec l'entête `Authorization`?
 * La validation d'un message se base sur l'intégrité et l'authenticité du message.
     * Expliquez comment un serveur Web peut valider qu'une donné n'a pas été changé en cours de route.
+
+# Révision intra
+## 13 - Sécurité des applications Web
+
+4 objectifs de la sécurité des systèmes d'informations :
+
+1. Confidentialité
+2. Authentification
+3. Intégrité
+4. Disponibilité
+
+* Quelle est la différence entre l'intégrité et la confidentialité?
+* Dans quel contexte est-ce que la disponibilité d'une application Web est un enjeu de sécurité?
+
+# Révision intra
+## 13 - Sécurité des applications Web
+### Types d'attaques
+
+* Qu'est-ce qu'une attaque par porte dérobée (backdoor)?
+    * Dans le cadre d'une application Web, comment est-ce que cela serait possible?
+* Quel est le lien entre les attaques d'ingénierie sociale et le hameçonnage (phishing)?
+
+# Révision intra
+## 13 - Sécurité des applications Web
+### Patrons d'attaques
+
+* Comment est-ce qu'une faille d'injection SQL peut être exploitée pour récupérer des informations non-authorisées?
+* Quelle est la différence entre un attaque *Cross Site Request Forging* (CSRF) et *Cross Site Scripting* (XSS)?
+* Quels sont les moyens de se protéger contre les attaques de type injection?
+* Comment fonctionne une exploitation basé sur le *Cross Site Request Forging* (CSRF)?
+* Quel paramètre de sécurité est disponible pour protéger les cookies d'une attaque de XSS (*Cross Site Scripting*)?
+
+# Révision intra
+## 13 - Sécurité des applications Web
+### Protection
+
+* Comment est-ce que le *Content Security Policy* peut protéger contre les attaques de type *Cross Site Scripting* (XSS)?
+* Quelles sont les trois éléments qui sont comparés pour valider le *Same Origin Policy*?
+
+# Révision intra
+## 13 - Sécurité des applications Web
+### Protection
+
+Quels URLs violent la contrainte de *Same Origin Policy* pour une page Web qui est sur 
+
+`http://caissy.dev/dir/page.html` ?
+
+| \# | URL
+|------|----------------|
+| 1 | `http://caissy.dev/dir2/autre.html`
+| 2 | `http://caissy.dev/dir/autre.html`
+| 3 | `http://api.caissy.dev/dir/autre.html`
+| 4 | `https://caissy.dev/page.html`
+| 5 | `https://caissy.dev/dir/page.html`
+| 6 | `http://caissy.dev:81/dir/page.html`
+| 7 | `https://uqam.ca/page.html`
