@@ -150,3 +150,14 @@ Ismaïl va être présent pour répondre à vos questions.
 
 - [Python Debugging With Pdb](https://realpython.com/python-debugging-pdb/)
 - [How to use the Python debugger](https://www.digitalocean.com/community/tutorials/how-to-use-the-python-debugger)
+
+---
+
+### 07 - 9 octobre
+
+* [Révision intra](cours/06-oct-16/revision.pdf)
+
+#### Labo
+
+Puisque c'est une semaine d'examen pour plusieurs, et de révision, le laboratoire de cette semaine sera du support
+pour le travail de session.
