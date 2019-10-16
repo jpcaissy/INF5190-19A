@@ -153,9 +153,9 @@ Ismaïl va être présent pour répondre à vos questions.
 
 ---
 
-### 07 - 9 octobre
+### 07 - 16 octobre
 
-* [Révision intra](cours/06-oct-16/revision.pdf)
+* [Révision intra](cours/07-oct-16/revision.pdf)
 
 #### Labo
 
