@@ -10,7 +10,7 @@ header-includes:
 
 # Types de base de données
 
-Un article qui décrit avec plus de profondeurs les différents typse de base de données :
+Un article qui décrit avec plus de profondeurs les différents types de base de données :
 
 [Comparing Database Types: How Database Types Evolved to Meet Different Needs : https://www.prisma.io/blog/comparison-of-database-models-1iz9u29nwn37](https://www.prisma.io/blog/comparison-of-database-models-1iz9u29nwn37)
 
@@ -33,7 +33,7 @@ Un article qui décrit avec plus de profondeurs les différents typse de base de
 * Chaque table correspond à une classe
 * Chaque colonne d'une table est représentée par des attributs de classe
     * Les attributs de classes sont explicitement liés aux colonnes de la classe
-    * Ils définissent le type (`INT`, `VARCHART`, etc) et assurent une validation
+    * Ils définissent le type (`INT`, `VARCHAR`, etc) et assurent une validation
 * La classe possède des méthodes de classes pour charger des objets
 
 # Patron de conception `Active Record`
