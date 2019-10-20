@@ -503,7 +503,7 @@ Par exemple : les informations d'authentification ne devraient pas être accessi
 Le paramètre `HttpOnly` permet d'empêcher à Javascript de lire un cookie spécifique.
 
 ```
-Set-Cookie: meilleurs_cookies=framboise; Secure;
+Set-Cookie: meilleurs_cookies=framboise; HttpOnly;
 ```
 
 # État d'une application web
@@ -516,7 +516,7 @@ Cela empêche un utilisateur malveillant d'espionner vos cookies.
 Dans ce cas-ci on va utiliser le paramètre `Secure`.
 
 ```
-Set-Cookie: meilleurs_cookies=framboise; HttpOnly;
+Set-Cookie: meilleurs_cookies=framboise; Secure;
 ```
 
 # État d'une application web
