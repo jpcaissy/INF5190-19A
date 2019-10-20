@@ -113,7 +113,7 @@ Patron architecturale utilisant les URI comme ressources et les méthodes HTTP c
 ### Cache
 
 * Des mises en cache intermédiaire sont possible (Proxy)
-* Les requêtes et réponses doivent explicitement indiquer les possibilités de caching de la éponse
+* Les requêtes et réponses doivent explicitement indiquer les possibilités de caching de la réponse
 * Une bonne solution de mise en cache permet d'éliminer des requêtes et d'améliorer la performance des clients
 
 # API Web
