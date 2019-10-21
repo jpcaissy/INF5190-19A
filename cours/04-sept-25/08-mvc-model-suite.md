@@ -10,7 +10,7 @@ header-includes:
 
 # Types de base de données
 
-Un article qui décrit avec plus de profondeurs les différents typse de base de données :
+Un article qui décrit avec plus de profondeurs les différents types de base de données :
 
 [Comparing Database Types: How Database Types Evolved to Meet Different Needs : https://www.prisma.io/blog/comparison-of-database-models-1iz9u29nwn37](https://www.prisma.io/blog/comparison-of-database-models-1iz9u29nwn37)
 
@@ -33,7 +33,7 @@ Un article qui décrit avec plus de profondeurs les différents typse de base de
 * Chaque table correspond à une classe
 * Chaque colonne d'une table est représentée par des attributs de classe
     * Les attributs de classes sont explicitement liés aux colonnes de la classe
-    * Ils définissent le type (`INT`, `VARCHART`, etc) et assurent une validation
+    * Ils définissent le type (`INT`, `VARCHAR`, etc) et assurent une validation
 * La classe possède des méthodes de classes pour charger des objets
 
 # Patron de conception `Active Record`
@@ -89,7 +89,7 @@ class Poll(object):
     @classmethod
     def get_poll_by_id(cls, id):
         db = get_db()
-        raw_poll = get_db().execute("SELECT id, name, date FROM polls WHERE id = ?", [id]).fetchone()
+        raw_poll = db.execute("SELECT id, name, date FROM polls WHERE id = ?", [id]).fetchone()
         if raw_poll:
             return cls(id=raw_poll[0], name=raw_poll[1], date=raw_poll[2])
         return None
