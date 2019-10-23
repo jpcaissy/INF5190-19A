@@ -375,7 +375,7 @@ Pas besoin de corps de réponse, le code 404 est suffisant pour identifier une r
 * Utiliser les code de statut HTTP
 * Inclure un message d'erreur pour les développeurs (code)
 * Inclure un message d'erreur pour l'utilisateur (texte)
-* Différencier les erreurs de clients (400 Bad Request) des erreurs de serveurs (4xx)
+* Différencier les erreurs de clients (400 Bad Request) des erreurs de serveurs (5xx)
 
 
 # Liens
