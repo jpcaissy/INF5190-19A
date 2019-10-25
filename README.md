@@ -161,3 +161,13 @@ Ismaïl va être présent pour répondre à vos questions.
 
 Puisque c'est une semaine d'examen pour plusieurs, et de révision, le laboratoire de cette semaine sera du support
 pour le travail de session.
+
+---
+
+### 08 - 25 octobre
+
+Examen
+
+##### Labo
+
+Aucun labo cette semaine. Aide pour le travail de session seulement.
