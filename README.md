@@ -12,7 +12,9 @@ Démonstrateur : Ismail Ider - ider.ismail@courrier.uqam.ca
 
 ### Intra
 
-Les informations sur l'examen intra sont disponibles ici : [examen-intra.pdf](./examen-intra.pdf).
+Les informations sur l'examen intra sont disponibles ici : [examen-intra-info.pdf](./examen-intra-info.pdf).
+
+L'examen est disponible ici : [examen-intra.pdf](./examen-intra.pdf).
 
 ## Travail de session
 
@@ -171,3 +173,9 @@ Examen
 ##### Labo
 
 Aucun labo cette semaine. Aide pour le travail de session seulement.
+
+---
+
+### 09 - 30 octobre
+
+* [14 Virtualisation et conteneurs](cours/09-oct-28/14-virtualisation-conteneurs.pdf)
