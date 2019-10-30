@@ -181,3 +181,80 @@ Docker version 19.03.4, build 9013bf583
     * Répertoire d'images
     * Publique ou privé
     * Exemple : Docker Hub
+* Volumes
+    * Permet de persister les données d'un conteneur
+
+# Conteneurs
+## Docker
+### Image
+
+* Disponible à partir de régistre distant (e.g. : Docker Hub) ou localement
+* Contient les librairies ou applications de base d'un OS
+    * e.g. : Ubuntu, Apache, MySQL
+
+# Conteneurs
+## Docker
+### Image
+
+* Les images représente une entité qui peut être instancié dans un conteneur
+    * Les couches intermédiaires sont en mode lecture seule et représente la différence entre la couche du dessous
+
+![Système de couche des images Docker](./img/docker-image-layer.pdf){width=50%}
+
+# Conteneurs
+## Docker
+### Registre
+
+* Héberge un ou plusieurs images Docker
+* Régistre publique : https://hub.docker.com/
+* Régistre privé propre à une entreprise
+
+# Conteneurs
+## Docker
+### Conteneur
+
+* Un conteneur est lancé à partir d'une image
+* L'instantiation de l'image peut être configuré avec des options
+* Ne contient qu'une seule application (pid 1 = application)
+
+* Attention : **un conteneur est éphémère**
+    * Toutes les données sont perdues lorsque le conteneur est terminé
+    * Peut être remplacé par un autre conteneur de la même image
+    * Peut être déplacé sur un autre hôte
+
+# Conteneurs
+## Docker
+### Volumes
+
+* Persistance de données entre les conteneurs
+* Un volume Docker est analogue à une clé USB.
+* Peut être partagé entre plusieurs conteneurs en même temps
+* Exemple :
+    * Données d'une application
+    * Logs d'une application
+    * Fichiers d'une base de donnée
+
+# Conteneurs
+## Docker
+### Réseau
+
+* Par défaut, les conteneurs utilisent un réseau docker interne
+* Communication entre les conteneurs permises grâce au *bridge* réseau
+* L'image définit explicitement les ports qui peuvent être exposés
+* Docker permet de transférer un port de l'hôte vers un port d'un conteneur
+    * Exemple :
+        * 8080 -> conteneur nginx 80
+        * 54321 -> conteneur postgres 5432
+
+# Conteneurs
+## Docker
+### Construire une image
+
+Une image est construite avec un `Dockerfile`
+
+```
+FROM ubuntu:18.04
+COPY . /app
+RUN make /app
+CMD python /app/app.py
+```
