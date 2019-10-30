@@ -252,9 +252,92 @@ Docker version 19.03.4, build 9013bf583
 
 Une image est construite avec un `Dockerfile`
 
-```
+```dockerfile
 FROM ubuntu:18.04
 COPY . /app
 RUN make /app
 CMD python /app/app.py
 ```
+
+* **Chaque commande va générer une image intermédiaire!**
+
+# Conteneurs
+## Docker
+### Construire une image
+
+```dockerfile
+FROM ubuntu:18.04
+COPY . /app
+RUN make /app
+CMD python /app/app.py
+```
+
+* `FROM` : créé une couche de base à partir de celle indiquée
+* `COPY` : copie les fichiers locaux vers l'image
+* `RUN` : exécute la commande `make /app` sur l'image
+* `CMD` : commande à rouler lorsqu'un conteneur est instancié à partir de l'image
+
+# Conteneurs
+## Docker
+### Construire une image
+
+Exemple dans [`exemple/station-de-vote-docker/Dockerfile`](exemple/station-de-vote-docker/Dockerfile)
+
+```dockerfile
+FROM python:3.7-alpine
+
+COPY poll /poll
+RUN pip install peewee flask
+
+VOLUME /data
+EXPOSE 5000
+ENV DATABASE /data/db.sqlite
+CMD FLASK_DEBUG=1 FLASK_APP=poll flask run --host=0.0.0.0
+```
+
+# Conteneurs
+## Docker
+### Construire une image
+
+À partir du dossier où le `Dockerfile` est présent, on roule la commande
+
+```
+docker build -t <tag> .
+```
+
+**`<tag>`** représente un tag pour nommer l'image
+
+# Conteneurs
+## Docker
+### Commandes utiles
+
+* `docker build`
+* `docker run`
+* `docker exec`
+* `docker start`
+* `docker stop`
+
+# Conteneurs
+## Docker Compose
+
+* Utilitaire qui permet de définir et rouler plusieurs conteneurs Docker
+* Pratique lorsqu'une application a besoin de plusieurs services
+* Les conteneurs sont définis par un fichier YAML nommé `docker-compose.yml`
+
+```yaml
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+  redis:
+    image: "redis:alpine"
+```
+
+# Liens utiles
+
+* [Best practices for writing Dockeriles](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
+* [Docker overview](https://docs.docker.com/engine/docker-overview/)
+* [Get started with Docker Compose](https://docs.docker.com/compose/gettingstarted/)
+* [What’s the Diff: VMs vs Containers](https://www.backblaze.com/blog/vm-vs-containers/)
