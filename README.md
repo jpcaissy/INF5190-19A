@@ -179,3 +179,7 @@ Aucun labo cette semaine. Aide pour le travail de session seulement.
 ### 09 - 30 octobre
 
 * [14 Virtualisation et conteneurs](cours/09-oct-28/14-virtualisation-conteneurs.pdf)
+
+##### Labo
+
+* [Docker](./cours/09-oct-28/labo/05-labo.md)
