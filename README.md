@@ -183,3 +183,13 @@ Aucun labo cette semaine. Aide pour le travail de session seulement.
 ##### Labo
 
 * [Docker](./cours/09-oct-28/labo/05-labo.md)
+
+---
+
+### 10 - 6 novembre
+
+* [15 Déploiement](cours/10-nov-06/15-deploiement.pdf)
+
+##### Labo
+
+* Docker Compose et déploiement sur Heroku (à venir)
