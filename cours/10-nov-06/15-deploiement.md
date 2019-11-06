@@ -244,25 +244,13 @@ applications Web?
     * Monitoring des hôtes et conteneurs (*healthcheck*)
     * Configuration d'une application
 
-# Déploiement
-## Orchestration
-
-Illustration au tableau
-
-# Déploiement
-## Orchestration
-
 Pour le moment, la solution standard d'orchestration est **Kubernetes**. Docker offre un système similaire avec
 **Docker Swarm**.
 
 # Déploiement
 ## Orchestration
 
-### Docker Swarm
-@ TODO
-
-### Kubernetes
-@ TODO
+Illustration au tableau
 
 # Déploiement
 ## Progressif
