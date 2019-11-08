@@ -63,13 +63,20 @@ Installez Docker EE avec les instructions suivantes :
 6. Mettez à jour apt
 
 ```
-    $ apt-get update
+    $ sudo apt-get update
 ```
 
 7. Installez Docker CE
 
 ```
     $ sudo apt-get install docker-ce
+```
+
+8. Ajouter l'usager courant dans le groupe docker
+
+```
+    $ sudo usermod -aG docker $USER
+    $ su - $USER
 ```
 
 #### Autre Linux
