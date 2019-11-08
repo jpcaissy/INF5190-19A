@@ -205,3 +205,33 @@ CONTAINER ID        IMAGE                  COMMAND                  CREATED     
 dbd7d6ac9fb9        memcached:1.5-alpine   "docker-entrypoint.s…"   42 seconds ago      Up 41 seconds       0.0.0.0:11211->11211/tcp   labo_cache_1
 67cdfe2b58b5        postgres:12-alpine     "docker-entrypoint.s…"   42 seconds ago      Up 41 seconds       0.0.0.0:5432->5432/tcp     labo_db_1
 ```
+
+#### Python
+
+Une fois que nous avons les conteneurs Docker pour postgres et Redis en place, on peut lancer l'application Flask sans problème.
+
+Il nous faut installer `flask`,  `redis` et `pg8000` (client postgres).
+
+```
+$ pip install flask redis pg8000
+```
+
+On peut instancier la base de donnée :
+
+```
+$ flask init-db
+```
+
+et rouler l'application qui va utiliser Redis et PostgreSQL :
+
+```
+$ FLASK_DEBUG=1 flask run
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 137-450-813
+```
