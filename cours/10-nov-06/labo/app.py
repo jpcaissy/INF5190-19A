@@ -18,9 +18,16 @@ def init_db():
 @app.route('/')
 def hello_world():
     cursor = db_conn.cursor()
+
+    cursor.execute("SELECT datetime FROM visite ORDER BY id DESC LIMIT 1")
+    derniere_visite = cursor.fetchone()[0]
+
     cursor.execute("INSERT INTO visite (datetime) VALUES (now())")
+    db_conn.commit()
+
     nombre_visites = redis_conn.incr("nombre_visites")
 
-    return f"""Hello, World!
-    Ceci est la {nombre_visites} visite(s)
+    return f"""Hello, World!<br />
+    Ceci est la {nombre_visites}e visite(s).<br />
+    La dernière visite était le {derniere_visite}
     """
