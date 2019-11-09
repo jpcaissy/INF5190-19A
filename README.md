@@ -193,3 +193,17 @@ Aucun labo cette semaine. Aide pour le travail de session seulement.
 ##### Labo
 
 * [Docker Compose](cours/10-nov-06/labo/06-deploiement.md)
+
+##### Liens utiles :
+
+- [Worried About Application Performance? Cache It! (Cloud Next '19)](https://www.youtube.com/watch?v=BNDTgMG3cLk)
+- [Distributed Systems in One Lesson by Tim Berglund](https://www.youtube.com/watch?v=Y6Ev8GIlbxc)
+- [Lessons Learned at Niantic: How to Move Live Systems to a New Database Platform (Cloud Next '18)](https://www.youtube.com/watch?v=TaO-GbvBonc)
+- [What is Virtualization?](https://www.vmware.com/solutions/virtualization.html)
+- [Evolving beyond virtualization to open hybrid cloud](https://www.redhat.com/en/resources/resources-evolving-beyond-virtualization-open-hybrid-cloud-html?dynamic404=en)
+- [Amazon Web Services Caching](https://aws.amazon.com/caching/)
+- [Kubernetes concepts](https://kubernetes.io/docs/concepts/architecture/)
+- [Microservices, M. Fowler](https://martinfowler.com/articles/microservices.html)
+- [Microservices Pattern](https://microservices.io/patterns/microservices.html)
+- [Amazon Web Services Training](https://aws.amazon.com/fr/training/intro-to-aws-labs-sm/?nc1=h_ls)
+- [Google Cloud Platform Training](https://cloud.google.com/training/free-labs/?hl=fr)
