@@ -208,12 +208,12 @@ dbd7d6ac9fb9        memcached:1.5-alpine   "docker-entrypoint.s…"   42 seconds
 
 #### Python
 
-Une fois que nous avons les conteneurs Docker pour postgres et Redis en place, on peut lancer l'application Flask sans problème.
+Une fois que nous avons les conteneurs Docker pour postgres et Memcached en place, on peut lancer l'application Flask sans problème.
 
-Il nous faut installer `flask`,  `redis` et `pg8000` (client postgres).
+Il nous faut installer `flask`,  `python-memcached` et `pg8000` (client postgres).
 
 ```
-$ pip install flask redis pg8000
+$ pip install flask python-memcached pg8000
 ```
 
 On peut instancier la base de donnée :
@@ -222,7 +222,7 @@ On peut instancier la base de donnée :
 $ flask init-db
 ```
 
-et rouler l'application qui va utiliser Redis et PostgreSQL :
+et rouler l'application qui va utiliser Memcached et PostgreSQL :
 
 ```
 $ FLASK_DEBUG=1 flask run
