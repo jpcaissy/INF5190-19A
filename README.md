@@ -207,3 +207,13 @@ Aucun labo cette semaine. Aide pour le travail de session seulement.
 - [Microservices Pattern](https://microservices.io/patterns/microservices.html)
 - [Amazon Web Services Training](https://aws.amazon.com/fr/training/intro-to-aws-labs-sm/?nc1=h_ls)
 - [Google Cloud Platform Training](https://cloud.google.com/training/free-labs/?hl=fr)
+
+---
+
+### 11 - 11 novembre
+
+* [16 Maintenance](cours/11-nov-13/16-maintenance.pdf)
+
+##### Labo
+
+* Déploiement sur Heroku - à venir
