@@ -18,6 +18,16 @@ durs pour le 3e trimestre de 2019 :
 
 * À ce jour ils ont une défaillance de 1.73% de leurs disques durs pour l'année!
 
+# Annonces
+
+* Évaluation des enseignants : 19 novembre au 2 décembre (sans limites)
+* INF600C - Sécurité des logiciels et exploitation des vulnérabilités
+
+     Comprendre le processus d’exploitation logicielle et être en mesure d’accomplir le cheminement complet d’une attaque logicielle (audit de codes, rétro-ingénierie, reconnaissance et exploitation de vulnérabilités).
+* Conférenciers invités :
+    * 20 novembre - Une Introduction a GraphQL sans bullshit - Github
+    * 27 novembre - Migration de millions de site web d'un datacenter à un autre - OVH
+
 # Maintenance
 
 La maintenance logiciel sont les changements apportés à un logiciel après qu'il ait été déployé/livré.
@@ -274,7 +284,7 @@ Comment corréler une requête (ce qu'un client voit) avec les logs d'une applic
 # Maintenance
 ## Surveillance
 
-Cas d'utilisation : les slow query logs de MySQL 
+Cas d'utilisation : les slow query logs de MySQL
 
 ```
 # Time: 2017-08-04T19:24:50.630232Z
@@ -285,11 +295,6 @@ Cas d'utilisation : les slow query logs de MySQL
 SET timestamp=1501874690;
 SELECT SLEEP(11);
 ```
-
-# Maintenance
-## Métriques d'acceptabilitéso
-
-@TODO SLO
 
 # Maintenance
 ## SRE
@@ -338,5 +343,91 @@ Les principes de bases de SRE sont :
 * Accepter le risque
 * SLO
 * Éliminer les tâches lourdes
+* Surveiller les systèmes
+* Automatiser les tâches
+* Ingénierie de déploiement
+* Simplicité
 
-@TODO
+# Maintenance
+## Métriques d'acceptabilités
+## Accepter le risque
+
+Il est impossible de garantir et de bâtir un système qui va être opérationnel 100% du temps.
+
+* Une fiabilité extrême vient avec un coût sur les usagers : maximiser la stabilité limite la rapidité de développement
+et le lancement de nouvelles fonctionnalités.
+* Un usager normal ne voit pas de différence entre une fiabilité extrême et une haute fiabilité
+
+Accepter le risque signifie balancer les risques de rendre un système non disponible avec un besoin d'innovation et
+de changements rapides.
+
+# Maintenance
+## Métriques d'acceptabilités
+## SLO
+
+*SLO* : Service Level Objective (objective des niveaux de service)
+
+Il est impossible de gérer un système correctement sans comprendre les fonctionnements qui sont important pour le service.
+
+* Définir et livrer un certain **niveau de service** aux utilisateurs
+* Mesures de bases qui sont important pour un utilisateur
+    * Ces mesures indiquent les correctifs à prendre si le niveau de service est en dessous d'un seuil
+* Ce sont des indicateurs cibles
+* Exemples : 
+    * le ratio de réponses 500 vs 200 d'une application web
+    * le temps de réponse moyen
+    * etc
+
+# Maintenance
+## Métriques d'acceptabilités
+## Éliminer les tâches lourdes
+
+Si une intervention humaine est requise durant les opération normales d'une application, ceci est un bug.
+
+Dans un modèle d'opération SRE, on veut mettre du temps sur les projets à long terme, et non pas travailler sur des
+problèmes opérationnelles.
+
+Éliminer les tâches lourdes qui sont :
+
+* manuelles
+* répétitives
+* automatisable
+* O(n) : qui augmente linéairement avec la taille (trafique, équipe, nombre d'utilisateur, etc)
+
+# Maintenance
+## Métriques d'acceptabilités
+## Surveiller les systèmes
+
+Utiliser des outils pour surveiller et alerter sur l'état de santé des systèmes
+
+## Automatiser les tâches
+
+L'automatisation grâce à des logiciels sera toujours supérieur à l'opération manuelle d'un humain
+
+* Consistent
+* Réparations et actions plus rapide
+*
+Exemple d'automatisation : les déploiements!
+
+# Maintenance
+## Métriques d'acceptabilités
+## Ingénierie du déploiement
+
+Discipline en évolution du génie logiciel : construire et déployer un logiciel
+
+* Gestion de code source
+* Compilateurs
+* Configuration automatisés
+* Compilation automatisé
+* Installation et packaging applicatif
+
+Principes :
+
+* Modèle sans service
+* Grande vélocité
+* *Build* applicatifs hermétiques
+
+# Liens
+
+* [Site Reliability Engineering at Google](https://landing.google.com/sre/sre-book/toc/index.html)
+* [Monitoring Flask apps with Datadog](https://www.datadoghq.com/blog/monitoring-flask-apps-with-datadog/)
