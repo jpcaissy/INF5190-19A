@@ -98,7 +98,133 @@ Les métriques opérationnelles permettent de donner un aperçu instantané d'un
 ### Surveillance
 #### Métriques opérationnelles
 
-@TODO : exemples de graphes avec Datadog
+Il existe plusieurs logiciel/compagnie pour visualier des métriques opérationnelles.
+
+* Solutions payante et/ou géré: Datadog, Dynatrace, New Relic
+* Solution open source: Graphite, Grafana, Prometheus
+
+L'idée est simple : émettre une métrique, agréger sur une période de temps et persister le tout.
+
+# Maintenance
+### Surveillance
+#### Métriques opérationnelles
+
+![Exemple de graphiques Datadog pour Nginx](./img/datadog-nginx.png)
+
+# Maintenance
+### Surveillance
+#### Métriques opérationnelles
+
+**StatsD** est un agrégateur de métriques.
+
+* Protocole texte (simple!) avec UDP
+
+```bash
+echo "foo:1|c" | nc -u 127.0.0.1 8125
+```
+
+* Une application envoie les métriques à `StatsD`, qui les agrège et les envoient à un service distant pour persister.
+
+# Maintenance
+### Surveillance
+#### Métriques opérationnelles
+
+Types de métriques :
+
+* Compteur
+* Mesure de temps
+* Jauge (valeur arbitraire)
+
+Le tout peut être échantillonné (e.g.: utiliser une valeur sur 10)
+
+Une métrique va contenir :
+
+* Un nom
+* Une valeur
+* Zéro, un ou plusieurs *tag*
+
+# Maintenance
+### Surveillance
+#### Métriques opérationnelles
+
+Avec python :
+
+```bash
+$ pip install statsd-telegraf
+```
+
+`statsd-telegraf` permet d'ajouter des tags
+
+# Maintenance
+### Surveillance
+#### Métriques opérationnelles
+
+Exemple de compteur :
+
+* Le nombre de requête HTTP, avec comme tag la valeur du statut HTTP retourné :
+
+```python
+statsd.increment(
+    'http_request',
+    tags=[
+        'http_status:400',
+        'controller:home',
+        'production'
+    ]
+)
+```
+# Maintenance
+### Surveillance
+#### Métriques opérationnelles
+
+Exemple de mesure de temps :
+
+* Le temps pour retourner une réponse
+
+```python
+import time
+
+@app.route("/")
+def home():
+    debut = int(time.time() * 1000) #milliseconds
+    # faire quelque chose
+    fin = int(time.time() * 1000)
+
+    statsd.timing(
+        'http_request.response_time',
+        tags=['controller:home']
+    )
+```
+
+# Maintenance
+### Surveillance
+#### Métriques opérationnelles
+
+Le client Python de `StatsD` va automatiquement généré les métriques suivantes lorsqu'on mesure le temps :
+
+* valeur minimale
+* valeur maximale
+* moyenne
+* 90e percentile
+* le nombre d'événement (compteur)
+
+
+# Maintenance
+### Surveillance
+#### Métriques opérationnelles
+
+Datadog possède une librairie Python qui intègre StatsD et des métriques pour Flask automatiquement!
+
+```bash
+$ pip install ddtrace
+```
+
+Avant l'instation de l'application Flask, il suffit d'ajouter
+
+```python
+from ddtrace import patch_all
+patch_all()
+```
 
 # Maintenance
 ### Surveillance
