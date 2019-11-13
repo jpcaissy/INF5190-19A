@@ -267,14 +267,24 @@ En fonction de l'importance du système et de la métrique, le plan d'alerte peu
 
 Comment corréler une requête (ce qu'un client voit) avec les logs d'une application Web (ce que le serveur voit) ?
 
-@TODO Request ID
+* Générer un identifiant aléatoire par requête
+* Utiliser cet identifiant dans les logs
+* Passer l'identifiant dans toutes les requêtes externes (e.g.: API)
 
 # Maintenance
 ## Surveillance
 
-Cas d'utilisation : les slow request 
+Cas d'utilisation : les slow query logs de MySQL 
 
-@TODO
+```
+# Time: 2017-08-04T19:24:50.630232Z
+# User@Host: root[root] @ localhost []  Id:   236
+# Schema:   Last_errno: 0  Killed: 0
+# Query_time: 11.003017  Lock_time: 0.000000  Rows_sent: 1  Rows_examined: 0  Rows_affected: 0
+# Bytes_sent: 57
+SET timestamp=1501874690;
+SELECT SLEEP(11);
+```
 
 # Maintenance
 ## Métriques d'acceptabilitéso
