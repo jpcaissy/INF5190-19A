@@ -216,4 +216,6 @@ Aucun labo cette semaine. Aide pour le travail de session seulement.
 
 ##### Labo
 
-* Déploiement sur Heroku - à venir
+* [Déploiement sur Heroku](cours/11-nov-13/labo/07-deploiement-suite.md)
+
+Il n'y a pas vraiment de solution, mais la branche `solution` contient les fichiers `requirements.txt` et `Procfile`: https://github.com/jpcaissy/poll-station/tree/solution 
