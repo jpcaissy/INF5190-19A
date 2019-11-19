@@ -149,6 +149,10 @@ aurez 0% pour cette exigence.
 
 Les instructions pour rajouter un collaborateur sont disponible ici : https://devcenter.heroku.com/articles/collaborating#add-collaborators
 
+## Nouvelles fonctionnalités
+
+Vous devez extraire le calcul des frais d'expéditions dans un service externe. Ce service externe doit répondre à une API Rest`
+
 # Première remise
 
 Les informations sur la première remise sont disponibles sur Github : [https://github.com/jpcaissy/INF5190/blob/b55de3f413234b3217d6df2f0cf9f5f52880f2dd/travail-de-session/enonce.md#premi%C3%A8re-remise](https://github.com/jpcaissy/INF5190/blob/b55de3f413234b3217d6df2f0cf9f5f52880f2dd/travail-de-session/enonce.md#premi%C3%A8re-remise).
