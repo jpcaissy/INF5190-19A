@@ -82,7 +82,7 @@ technologies.
 # Le projet
 
 Le projet consiste à développer une application Web responsable de prendre des commandes Internet. Cette application
-devra répondre à une API REST, mais devra également être utilisée à travers des pages HTMLs.
+devra répondre à une API REST.
 
 Le projet est séparé en deux. Les informations pour la première remise sont archivés et disponible sur Github.. La section pour
 la deuxième remise est disponible ci-bas.
@@ -119,10 +119,12 @@ $ FLASK_DEBUG=True FLASK_APP=inf5190 DB_HOST=localhost DB_USER=user DB_PASSWORD=
 
 Les informations de la base de donnée (hôte, utilisateur, etc) sont données à titre d'exemple seulement.
 
-## Dockerfile
+## Docker
+
+### Dockerfile
 
 Vous devez produire un fichier `Dockerfile` valide à la racine du projet. Ce fichier doit produire une image Docker de votre
-application avec toutes les dépendances requises (Python, Flask).
+application avec toutes les dépendances requises pour rouler l'application (Python, Flask, Peewee, etc).
 
 Ce fichier doit pouvoir bâtir l'image Docker avec la commande suivante :
 
@@ -136,6 +138,214 @@ Et l'application doit pouvoir être lancée avec la commande suivante :
 $ docker run -e DB_HOST=localhost -e DB_USER=user -e DB_PASSWORD=pass -e DB_PORT=5432 -e DB_NAME=inf519 inf5190
 ```
 
+### Docker Compose
+
+Vous devez également ajouter un fichier `docker-compose.yml` qui sera responsable de lancer les deux dépendances suivantes :
+
+* PostgreSQL version 12.0
+* Redis version 5
+
+PostgreSQL doit utilisé un volume afin de persister les données entre chaque instanciation de l'image Docker.
+
+Redis n'a pas besoin de volume.
+
+Chacun des deux services doit exposer leurs ports respectifs :
+
+* `5432` pour Postgres
+* `6379` pour Redis
+
+### Commande
+
+L'API de créaction d'une commande doit être modifiée pour permettre de créer une commande avec plus d'un produit.
+
+```
+POST /order
+Content-Type: application/json
+```
+
+```json
+{ "products": [
+        { "id": 123, "quantity": 2 },
+        { "id": 321, "quantity": 1 },
+    ]
+}
+```
+
+Afin de garder une rétrocompatibilité, la création d'une commande avec un seul produit doit également être supporté.
+
+Les exigences restent les mêmes qu'à la première remise.
+
+Le format de réponse de l'affichage d'une commande **doit** être changé pour supporter cette nouvelle fonctionalités.
+
+```
+GET /order/<int:order_id>
+Content-Type: application/json
+
+200 OK
+```
+
+```json
+{
+   "order" : {
+      "id" : 6543,
+      "total_price" : 9148,
+      "email" : null,
+      "credit_card": {},
+      "shipping_information" : {},
+      "paid": false,
+      "transaction": {},
+      "products" : [
+          {
+             "id" : 123,
+             "quantity" : 2
+          },
+          {
+             "id" : 321,
+             "quantity" : 1
+          }
+      ],
+      "shipping_price" : 1000
+   }
+}
+```
+
+Les champs `total_price` et `shipping_price` doivent être adaptés également et respecter cette nouvelle
+fonctionnalité.
+
+## Résilience
+
+Une fois qu'une commande a été payée, celle-ci ne peut pas être modifié. Afin de répondre à un besoin de résilience
+vous devez implémenter un système de mise à la cache.
+
+Lorsqu'une commande est payée, celle-ci doit être persistée dans la base de donnée, et elle doit être mise
+en cache dans `Redis`.
+
+Lors de l'affichage d'une commande avec `GET /order/<int:order_id>` vous devez vérifier en premier si
+la commande a été mise en cache dans `Redis`. Si c'est le cas, vous devez utiliser les informations de la commande à
+partir de Redis, et non pas Postgres.
+
+Si la commande a été mise en cache, la route `GET /order/<int:order_id>` doit fonctionner même si Postgres ne répond pas.
+
+## Extraction du système de paiement
+
+Vous devez extraire le système de paiement dans un gestionnaire de tâche en arrière plan.
+
+Pour ce faire vous devez utiliser la librairie de gestion de tâches `RQ` (RedisQueue): https://github.com/rq/rq
+
+L'exécution des paiements doit se faire en arrière plan.
+
+La commande suivante sera utilisée pour lancer le gestionnaire de tâches :
+
+```bash
+$ FLASK_DEBUG=True FLASK_APP=inf5190 DB_HOST=localhost DB_USER=user DB_PASSWORD=pass DB_PORT=5432 DB_NAME=inf519 flask worker
+```
+
+Lorsqu'une commande est entrain d'être payée, le code HTTP 202 doit être retourné avec aucun corps de réponse.
+
+```
+PUT /order/<int:order_id>
+Content-Type: application/json
+```
+
+```json
+{
+   "credit_card" : {
+      "name" : "John Doe",
+      "number" : "4242 4242 4242 4242",
+      "expiration_year" : 2024,
+      "cvv" : "123",
+      "expiration_month" : 9
+   }
+}
+```
+
+```
+202 Accepted
+```
+
+---
+
+Lorsqu'une commande est entrain d'être payée, l'affichage de celle-ci doit retourner un code HTTP 202 avec
+aucun corps de réponse.
+
+```
+GET /order/<int:order_id>
+Content-Type: application/json
+```
+
+```
+202 Accepted
+```
+---
+
+Un erreur doit être retourné lorsqu'on essaie de modifier une commande qui est entrain d'être payée. L'erreur
+est le code HTTP 409.
+
+```
+PUT /order/<int:order_id>
+Content-Type: application/json
+```
+
+```
+409 Conflict
+```
+
+
+---
+
+Et une fois que la commande est payée, celle-ci est retourné avec un code HTTP 200.
+
+```
+GET /order/<int:order_id>
+Content-Type: application/json
+```
+
+```
+200 OK
+Content-Type: application/json
+```
+
+```json
+{
+   "order" : {
+      "shipping_information" : {
+         "country" : "Canada",
+         "address" : "201, rue Président-Kennedy",
+         "postal_code" : "H2X 3Y7",
+         "city" : "Montréal",
+         "province" : "QC"
+      },
+      "email" : "caissy.jean-philippe@uqam.ca",
+      "total_price" : 9148,
+      "paid": true,
+      "product" : [
+         {
+           "id" : 123,
+           "quantity" : 1
+         },
+         {
+           "id" : 321,
+           "quantity" : 2
+         }
+      ],
+      "credit_card" : {
+         "name" : "John Doe",
+         "first_digits" : "4242",
+         "last_digits": "4242",
+         "expiration_year" : 2024,
+         "expiration_month" : 9
+      },
+      "transaction": {
+          "id": "wgEQ4zAUdYqpr21rt8A10dDrKbfcLmqi",
+          "success": true,
+          "amount_charged": 10148
+      },
+      "shipping_price" : 1000,
+      "id" : 6543
+   }
+}
+```
+
 ## Déploiement
 
 Votre application doit être déployée sur Heroku. L'URL complet de l'application (i.e.: `https://<application>.herokuapp.com`) doit être fournie dans un fichier `HEROKU` à la racine de votre projet.
@@ -145,13 +355,49 @@ L'application déployée doit utiliser PostgreSQL (i.e.: `Heroku Postgres`)
 Vous n'êtes pas obligé de payer pour Heroku, les forfaits de base pour l'application, ainsi que pour PostgreSQL et Redis sont suffisant pour cette remise.
 
 Vous devez obligatoirement rajouter mon compte (`jean-philippe.caissy@uqam.ca`) en tant que collaborateur à votre application Heroku. Sinon je ne pourrai pas corriger l'objectif de déploiement et vous
-aurez 0% pour cette exigence. 
+aurez 0% pour cette exigence.
 
 Les instructions pour rajouter un collaborateur sont disponible ici : https://devcenter.heroku.com/articles/collaborating#add-collaborators
 
-## Nouvelles fonctionnalités
+Le système de paiement en arrière plan doit également être fonctionnel sur Heroku.
 
-Vous devez extraire le calcul des frais d'expéditions dans un service externe. Ce service externe doit répondre à une API Rest`
+
+## Exigences techniques
+
+1. **Un fichier nommé `CODES-PERMANENTS` doit être à la racine de votre projet et contenir le ou les codes permanents séparé par un saut de ligne**
+    * Donc pour un travail fait individuellement, le fichier doit simplement contenir votre code permanent
+    * Pour un équipe de deux, le fichier doit contenir les code permanent des deux étudiants, un par ligne.
+3. Votre dépôt Github doit avoir été créé avec Github Classroom (les instructions sont dans la section [**Remise**](#remise)
+4. Le projet devra rouler sous Python 3.6+ et Flask 1.11+
+5. Seul les paquets `flask`, `pytest`, `pytest-flask`, `peewee`, `psycopg2` et `rq`, sont permis. Vous avez droit
+d'utiliser tous les modules de la librairie standard de Python
+6. La base de données utilisée est PostgreSQL
+7. Vous devez utiliser l'ORM `peewee`
+8. Toutes les données doivent être stockés dans la base de donnée
+9. La base de données doit être initialisée avec
+    ```bash
+    FLASK_DEBUG=True FLASK_APP=inf5190 DB_HOST=localhost DB_USER=user DB_PASSWORD=pass DB_PORT=5432 DB_NAME=inf519 flask init-db
+    ```
+10. À partir de la racine de votre projet, l'application doit pouvoir rouler avec la commande suivante :
+    ```bash
+    FLASK_DEBUG=True FLASK_APP=inf5190 DB_HOST=localhost DB_USER=user DB_PASSWORD=pass DB_PORT=5432 DB_NAME=inf519 flask run
+    ```
+    et le gestionnaire de tâche avec
+    ```bash
+    FLASK_DEBUG=True FLASK_APP=inf5190 DB_HOST=localhost DB_USER=user DB_PASSWORD=pass DB_PORT=5432 DB_NAME=inf519 flask worker
+    ```
+
+## Critères d'évaluations
+
+* 20% : Respect des [**exigences techniques**](#exigences-techniques)
+* 10% : `Dockerfile` et `docker-compose.yml` fonctionnels
+* 10% : Modification de l'API pour permettre la création d'une commande avec plus d'un produit
+* 10% : Résilience
+* 20% : Extraction du système de paiement
+* 10% : Déploiement sur Heroku
+* 20% : Qualité du code
+
+N.B. : Toutes les [*exigences techniques*](#exigences-techniques) mentionnées ci-haut doivent être respectés, sinon c'est 0/20.
 
 # Première remise
 
