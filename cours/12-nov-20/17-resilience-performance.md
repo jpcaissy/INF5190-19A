@@ -85,3 +85,127 @@ $$ D = 1 - (1 - Ax)^n $$
     * Mot clé : automatique, et non pas manuellement
 
 Exemple : Diminuer le nombre de serveur applicatifs la nuit lorsque le trafique est très bas
+
+# Résilience
+## Défaillances en cascade
+
+* Lorsqu'une défaillance survient, il est très rare que ça soit causé par un seul élément précis.
+* Les défaillances en cascade sont très courantes dans les systèmes distribués (application Web)
+* Effet papillon : ce qui semble être une petite coquille opérationnelle se termine par une défaillance
+complète du système
+Exemple de défaillance en cascade : surcharge applicative (trop de trafique)
+
+# Résilience
+## Défaillances en cascade
+### Algorithmes de recul exponentiels
+
+* Dans un système distribuée, une manière simple de traiter les erreurs est de réessayer.
+* Par exemple : un appel à un API distant qui ne répond pas. En cas d'échec, on refais la requête.
+    * Peut facilement causé un problème de saturation sur le réseau (trop d'essais simultanés)
+
+Pour empêcher une situation où un système surchargerait un autre en tentant de réessayer une requête, il est
+préférable d'utiliser un algorithme de recul exponentiel (*backoff algorithms*).
+
+# Résilience
+## Défaillances en cascade
+### Algorithmes de recul exponentiels
+
+Objectif :
+
+* Limiter le nombre de tentatives
+* Plus le nombre de tentatives augmente, plus on attend entre chaque essais
+
+Exemple :
+
+1. Après une tentative infructueuse, attendre 2 seconde
+2. À la 2e tentative, attendre 4 secondes
+3. À la 3e tentative attendre 8 secondes
+4. Retourner un erreur si la 4e tentative échoue
+
+# Résilience
+## Défaillances en cascade
+### Algorithmes de recul exponentiels
+
+```python
+retries = 0
+while:
+    sleep( (2 ** retries) * 100 milliseconds )
+    success = do_request()
+    if status == True:
+        break
+    else:
+        retries += 1
+
+    if retries >= 10:
+        raise Exception("Trop d'essais")
+```
+
+# Résilience
+## Défaillances en cascade
+### Algorithmes de recul exponentiels
+
+```python
+    sleep((2 ** retries) * 100 milliseconds)
+```
+
+Il est important d'ajouter certain niveau d'aléatoire dans l'attente.
+
+```python
+    sleep((2 ** retries) * 100 milliseconds * rand())
+    # -------------------------------------------^
+```
+
+# Résilience
+## Défaillances en cascade
+### Délais maximum
+
+Lorsqu'une application communique avec un autre système, il est important d'avoir des délais maximum (*timeout*).
+
+Par exemple:
+
+* Un appel à la BD ne devrait pas prendre plus de 1 seconde
+* Communiquer avec une API REST devrait se faire en moins de 4 secondes
+
+Chaque situation est différente. Il n'existe pas de délais maximum magique.
+
+# Résilience
+## Défaillances en cascade
+### Disjoncteur
+
+L'utilisation d'un disjoncteur (*circuit breaker*) permet de faire échouer des appels distants rapidement lors de défaillance.
+
+Exemple : 
+
+* Un API distant ne répond plus depuis 30 secondes.
+* Chaque appel d'API *timeout* après 10 secondes
+
+Avec l'utilisation d'un disjoncteur, on peut faire échouer les appels subséquents sans attendre 10 secondes
+
+# Résilience
+## Graceful failing
+
+Une fois qu'une défaillance est détecté, la dernière étape est d'adapter l'application pour avoir une défaillance partielle, ou *graceful failure* en anglais.
+
+Lorsqu'une application est en défaillance partielle, seulement une partie des fonctionnalités est indisponible, mais le reste
+de l'application fonctionne.
+
+Exemples:
+
+* L'API distant qui récupère l'usager connecté est non disponible
+    * Temporairement affiché un profil en mode invité
+* La recherche d'un site ne fonctionne pas
+    * Retirer la fonctionnalité de recherche
+* Le système de paiement d'une boutique en ligne ne fonctionne pas
+    * Désactiver l'achat, mais permettre de naviguer sur la boutique
+
+# Résilience
+## Graceful failing
+
+```python
+class User(object):
+    def get_connected_user(self):
+        try:
+            return User.get(id=request.user_id)
+        except ConnectionError:
+            return nil
+```
