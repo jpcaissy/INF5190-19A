@@ -210,8 +210,42 @@ class User(object):
             return nil
 ```
 
+# Performance
+## Requêtes n+1
+
+* Une requête n+1 survient lorsqu'on doit charger N objets associés
+
+```python
+order = Order.get(Order.id == request.id)
+images = []
+for image in order.images:
+    images.append(image)
+```
+
+Combien de requêtes SQL vont être effectuées?
+
+# Performance
+## Requêtes n+1
+
+Afin d'éviter les requêtes n+1, on peut tenter de charger les associations étrangères sur le champ.
+
+Avec `Peewee`, on peut facilement faire un `JOIN` sql:
+
+```python
+order = Order.select().Join(Images).get(Order.id == request.id)
+images = []
+for image in order.images:
+    images.append(image)
+```
+
+# Performance
+## Tâches en arrière plan
+
+@TODO
+
 # Liens
 
 * [Patterns for Resilient Architecture](https://medium.com/@adhorn/patterns-for-resilient-architecture-part-1-d3b60cd8d2b6)
 * [Semian - Resiliency toolkit for Ruby for failing fast](https://github.com/Shopify/semian#how-does-semian-work)
 * [Building and testing resilient applications (Vidéo Youtube)](https://www.youtube.com/watch?v=ev0KpoACieo)
+* [Task queue](https://www.fullstackpython.com/task-queues.html)
