@@ -54,6 +54,8 @@ Le code de l'application doit être hébergé sur Github.
 
 Aux deux dates de la remise, à 21h, le dépôt sera cloné et c'est ce qui sera utilisé pour l'évaluation.
 
+Vous devez garder le projet fonctionnel sur Heroku jusqu'au 6 janvier 2020.
+
 ## Remise
 
 La création du projet sur Github est automatisé grâce à Github Classroom.
@@ -94,7 +96,7 @@ Il s'agit de remises incrémentiels sur le même projet. Pour la deuxième remis
 # Deuxième remise
 
 La deuxième partie du projet de session se concentre sur la maintenance de l'application : déploiement,
-ajout de fonctionalités, performance et observabilité.
+ajout de fonctionalités, performance et résilience.
 
 ## Base de donnée
 
@@ -102,7 +104,7 @@ Vous devez changer la base de donnée `sqlite` vers PostgreSQL. Les informations
 par les variables d'environnements suivantes :
 
 * `DB_HOST` : l'hôte pour se connecter à la base de donnée
-* `DB _USER` : le nom d'usager de la base de donnée
+* `DB_USER` : le nom d'usager de la base de donnée
 * `DB_PASSWORD` : le mot de passe de la base de donnée
 * `DB_PORT` : le port de connexion de la base de donnée
 * `DB_NAME` : le nom de la base de donnée
@@ -124,7 +126,8 @@ Les informations de la base de donnée (hôte, utilisateur, etc) sont données �
 ### Dockerfile
 
 Vous devez produire un fichier `Dockerfile` valide à la racine du projet. Ce fichier doit produire une image Docker de votre
-application avec toutes les dépendances requises pour rouler l'application (Python, Flask, Peewee, etc).
+application avec toutes les dépendances requises pour rouler l'application (Python, Flask, Peewee, etc). Cette image
+ne doit pas contenir les services externes tel que Postgres, Redis.
 
 Ce fichier doit pouvoir bâtir l'image Docker avec la commande suivante :
 
@@ -145,7 +148,7 @@ Vous devez également ajouter un fichier `docker-compose.yml` qui sera responsab
 * PostgreSQL version 12.0
 * Redis version 5
 
-PostgreSQL doit utilisé un volume afin de persister les données entre chaque instanciation de l'image Docker.
+PostgreSQL doit utiliser un volume afin de persister les données entre chaque instanciation de l'image Docker.
 
 Redis n'a pas besoin de volume.
 
@@ -367,12 +370,13 @@ Le système de paiement en arrière plan doit également être fonctionnel sur H
 1. **Un fichier nommé `CODES-PERMANENTS` doit être à la racine de votre projet et contenir le ou les codes permanents séparé par un saut de ligne**
     * Donc pour un travail fait individuellement, le fichier doit simplement contenir votre code permanent
     * Pour un équipe de deux, le fichier doit contenir les code permanent des deux étudiants, un par ligne.
+2. **Un fichier nommé `HEROKU` contenant l'adresse de votre application sur Heroku**
 3. Votre dépôt Github doit avoir été créé avec Github Classroom (les instructions sont dans la section [**Remise**](#remise)
 4. Le projet devra rouler sous Python 3.6+ et Flask 1.11+
-5. Seul les paquets `flask`, `pytest`, `pytest-flask`, `peewee`, `psycopg2` et `rq`, sont permis. Vous avez droit
-d'utiliser tous les modules de la librairie standard de Python
+5. À l'exception de Flask, peewee et RQ, il n'y a aucune restriction sur les paquets à utiliser. Toutes les dépendances nécessaires doivent être dans le fichier `requirements.txt`.
+    * Lors de la correction, la commande `pip install -r requirements.txt` sera utilisée pour installer les dépendances Python.
 6. La base de données utilisée est PostgreSQL
-7. Vous devez utiliser l'ORM `peewee`
+7. Vous devez utiliser l'ORM `peewee` et le gestionnaire de tâches `RQ` (https://python-rq.org/)
 8. Toutes les données doivent être stockés dans la base de donnée
 9. La base de données doit être initialisée avec
     ```bash
