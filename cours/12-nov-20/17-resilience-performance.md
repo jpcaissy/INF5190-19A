@@ -209,3 +209,9 @@ class User(object):
         except ConnectionError:
             return nil
 ```
+
+# Liens
+
+* [Patterns for Resilient Architecture](https://medium.com/@adhorn/patterns-for-resilient-architecture-part-1-d3b60cd8d2b6)
+* [Semian - Resiliency toolkit for Ruby for failing fast](https://github.com/Shopify/semian#how-does-semian-work)
+* [Building and testing resilient applications (Vidéo Youtube)](https://www.youtube.com/watch?v=ev0KpoACieo)
