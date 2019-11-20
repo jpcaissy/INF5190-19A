@@ -265,6 +265,15 @@ def get_user(user_id):
 ```
 
 # Performance
+## Caching
+### Mise en cache
+
+Il faut faire attention à l'utilisation de la cache :
+
+* Les données doivent resté à jour
+* Il est souvent préférable d'avoir une expiration des données
+
+# Performance
 ## Tâches en arrière plan
 
 Un système de gestion de tâches en arrière plan (*task queue*) permet d'exécuter des méthodes à l'extérieur 
@@ -272,6 +281,11 @@ du cycle d'une requête HTTP
 
 * Lorsqu'on ne veut pas bloquer une requête
 * Une requête qui demande plus de temps à traiter (ex: appel API distant, requête SQL lourde, etc)
+
+#
+## Fin
+
+C'est la fin de la matière pour le cours. Bravo.
 
 # Liens
 
