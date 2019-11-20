@@ -241,12 +241,37 @@ for image in order.images:
 # Performance
 ## Caching
 
-@TODO
+* L'objectif de mettre des données en cache est de désengorger des systèmes plus lourds.
+
+* Par exemple : récupérer des données d'une base de donnée qui ne changent pas souvent pour les mettre en cache.
+
+* On va surtout utiliser une base de donnée de type clé-valeur comme système de cache : Redis et Memcached
+
+# Performance
+## Caching
+### Mise en cache
+
+```python
+def get_user(user_id):
+    cache_key = f"user-{user_id}"
+    cached_user = redis.get(cache_key)
+    if cached_user:
+        user = dict_to_model(User, cached_user)
+    else:
+        user = User.get(user_id)
+        redis.set(cache_key, model_to_dict(user))
+
+    return user
+```
 
 # Performance
 ## Tâches en arrière plan
 
-@TODO
+Un système de gestion de tâches en arrière plan (*task queue*) permet d'exécuter des méthodes à l'extérieur 
+du cycle d'une requête HTTP
+
+* Lorsqu'on ne veut pas bloquer une requête
+* Une requête qui demande plus de temps à traiter (ex: appel API distant, requête SQL lourde, etc)
 
 # Liens
 
@@ -254,3 +279,4 @@ for image in order.images:
 * [Semian - Resiliency toolkit for Ruby for failing fast](https://github.com/Shopify/semian#how-does-semian-work)
 * [Building and testing resilient applications (Vidéo Youtube)](https://www.youtube.com/watch?v=ev0KpoACieo)
 * [Task queue](https://www.fullstackpython.com/task-queues.html)
+* [Caching at Reddit](https://redditblog.com/2017/01/17/caching-at-reddit/)
