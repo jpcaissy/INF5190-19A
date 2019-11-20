@@ -239,6 +239,11 @@ for image in order.images:
 ```
 
 # Performance
+## Caching
+
+@TODO
+
+# Performance
 ## Tâches en arrière plan
 
 @TODO
