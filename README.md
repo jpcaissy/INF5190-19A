@@ -225,6 +225,7 @@ Il n'y a pas vraiment de solution, mais la branche `solution` contient les fichi
 ### 12 - 20 novembre
 
 * [17 Résilience et performance](cours/12-nov-20/17-resilience-performance.md)
+* [Introduction à GraphQL](cours/12-nov-20/introduction-graphql.pdf)
 
 ##### Labo
 
