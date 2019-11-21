@@ -96,11 +96,11 @@ Il s'agit de remises incrémentiels sur le même projet. Pour la deuxième remis
 # Deuxième remise
 
 La deuxième partie du projet de session se concentre sur la maintenance de l'application : déploiement,
-ajout de fonctionalités, performance et résilience.
+ajout de fonctionnalités, performance et résilience.
 
 ## Base de donnée
 
-Vous devez changer la base de donnée `sqlite` vers PostgreSQL. Les informations de connexion à PostgreSQL sont transmises
+Vous devez changer la base de donnée `sqlite` pour PostgreSQL. Les informations de connexion à PostgreSQL sont transmises
 par les variables d'environnements suivantes :
 
 * `DB_HOST` : l'hôte pour se connecter à la base de donnée
@@ -109,6 +109,8 @@ par les variables d'environnements suivantes :
 * `DB_PORT` : le port de connexion de la base de donnée
 * `DB_NAME` : le nom de la base de donnée
 
+Vous n'avez pas à migrer les données existantes.
+
 **N.B.: Vous n'avez pas à gérer la création de la base de donnée pour cette remise. Seulement la création des tables.**
 
 ### Initialisations des tables
@@ -116,10 +118,19 @@ par les variables d'environnements suivantes :
 Lors de la correction de cette remise, les tables de la base de donnée seront créées avec la commande suivante : 
 
 ```bash
-$ FLASK_DEBUG=True FLASK_APP=inf5190 DB_HOST=localhost DB_USER=user DB_PASSWORD=pass DB_PORT=5432 DB_NAME=inf519 flask init-db
+$ FLASK_DEBUG=True FLASK_APP=inf5190 REDIS_URL=redis://localhost DB_HOST=localhost DB_USER=user DB_PASSWORD=pass DB_PORT=5432 DB_NAME=inf519 flask init-db
 ```
 
 Les informations de la base de donnée (hôte, utilisateur, etc) sont données à titre d'exemple seulement.
+
+### Redis
+
+L'application doit se connecter à une base de donnée Redis. À la différence de Postgres, une seule variable
+d'environnement va être exposé contenant l'URL de connexion.
+
+e.g.: `redis://h:5326b83532892b4c@ec2-34-199-32-13.compute-1.amazonaws.com:6889` ou tout simplement `redis://localhost`
+
+* `REDIS_URL` : l'url de connexion à Redis
 
 ## Docker
 
@@ -135,10 +146,10 @@ Ce fichier doit pouvoir bâtir l'image Docker avec la commande suivante :
 $ docker build -t inf5190 .
 ```
 
-Et l'application doit pouvoir être lancée avec la commande suivante :
+Et l'application Web doit pouvoir être lancée avec la commande suivante :
 
 ```bash
-$ docker run -e DB_HOST=localhost -e DB_USER=user -e DB_PASSWORD=pass -e DB_PORT=5432 -e DB_NAME=inf519 inf5190
+$ docker run -e REDIS_URL=redis://localhost -e DB_HOST=localhost -e DB_USER=user -e DB_PASSWORD=pass -e DB_PORT=5432 -e DB_NAME=inf519 inf5190
 ```
 
 ### Docker Compose
@@ -159,7 +170,7 @@ Chacun des deux services doit exposer leurs ports respectifs :
 
 ### Commande
 
-L'API de créaction d'une commande doit être modifiée pour permettre de créer une commande avec plus d'un produit.
+L'API de création d'une commande doit être modifiée pour permettre de créer une commande avec plus d'un produit.
 
 ```
 POST /order
@@ -174,11 +185,11 @@ Content-Type: application/json
 }
 ```
 
-Afin de garder une rétrocompatibilité, la création d'une commande avec un seul produit doit également être supporté.
+**Afin de garder une rétrocompatibilité, la création d'une commande avec un seul produit doit également être supporté.**
 
 Les exigences restent les mêmes qu'à la première remise.
 
-Le format de réponse de l'affichage d'une commande **doit** être changé pour supporter cette nouvelle fonctionalités.
+Le format de réponse de l'affichage d'une commande **doit** être changé pour supporter cette nouvelle fonctionnalités.
 
 ```
 GET /order/<int:order_id>
@@ -220,14 +231,14 @@ fonctionnalité.
 Une fois qu'une commande a été payée, celle-ci ne peut pas être modifié. Afin de répondre à un besoin de résilience
 vous devez implémenter un système de mise à la cache.
 
-Lorsqu'une commande est payée, celle-ci doit être persistée dans la base de donnée, et elle doit être mise
+Lorsqu'une commande est payée, celle-ci doit être persistée dans la base de donnée `Postgres` et elle doit être mise
 en cache dans `Redis`.
 
 Lors de l'affichage d'une commande avec `GET /order/<int:order_id>` vous devez vérifier en premier si
 la commande a été mise en cache dans `Redis`. Si c'est le cas, vous devez utiliser les informations de la commande à
-partir de Redis, et non pas Postgres.
+partir de `Redis`, et non pas `Postgres`.
 
-Si la commande a été mise en cache, la route `GET /order/<int:order_id>` doit fonctionner même si Postgres ne répond pas.
+Si la commande a été mise en cache, la route `GET /order/<int:order_id>` doit fonctionner sans `Postgres`.
 
 ## Extraction du système de paiement
 
@@ -240,7 +251,7 @@ L'exécution des paiements doit se faire en arrière plan.
 La commande suivante sera utilisée pour lancer le gestionnaire de tâches :
 
 ```bash
-$ FLASK_DEBUG=True FLASK_APP=inf5190 DB_HOST=localhost DB_USER=user DB_PASSWORD=pass DB_PORT=5432 DB_NAME=inf519 flask worker
+$ FLASK_DEBUG=True FLASK_APP=inf5190 REDIS_URL=redis://localhost DB_HOST=localhost DB_USER=user DB_PASSWORD=pass DB_PORT=5432 DB_NAME=inf519 flask worker
 ```
 
 Lorsqu'une commande est entrain d'être payée, le code HTTP 202 doit être retourné avec aucun corps de réponse.
@@ -296,7 +307,7 @@ Content-Type: application/json
 
 ---
 
-Et une fois que la commande est payée, celle-ci est retourné avec un code HTTP 200.
+Et une fois que la commande est payée, celle-ci est retourné en format JSON avec un code HTTP 200.
 
 ```
 GET /order/<int:order_id>
@@ -353,9 +364,9 @@ Content-Type: application/json
 
 Votre application doit être déployée sur Heroku. L'URL complet de l'application (i.e.: `https://<application>.herokuapp.com`) doit être fournie dans un fichier `HEROKU` à la racine de votre projet.
 
-L'application déployée doit utiliser PostgreSQL (i.e.: `Heroku Postgres`)
+L'application déployée doit utiliser PostgreSQL (i.e.: `Heroku Postgres`) et Redis (i.e.: `Heroku Redis`).
 
-Vous n'êtes pas obligé de payer pour Heroku, les forfaits de base pour l'application, ainsi que pour PostgreSQL et Redis sont suffisant pour cette remise.
+Vous n'êtes pas obligé de payer pour Heroku, les forfaits de base gratuit pour l'application, ainsi que pour PostgreSQL et Redis sont suffisant pour cette remise.
 
 Vous devez obligatoirement rajouter mon compte (`jean-philippe.caissy@uqam.ca`) en tant que collaborateur à votre application Heroku. Sinon je ne pourrai pas corriger l'objectif de déploiement et vous
 aurez 0% pour cette exigence.
@@ -363,7 +374,6 @@ aurez 0% pour cette exigence.
 Les instructions pour rajouter un collaborateur sont disponible ici : https://devcenter.heroku.com/articles/collaborating#add-collaborators
 
 Le système de paiement en arrière plan doit également être fonctionnel sur Heroku.
-
 
 ## Exigences techniques
 
@@ -380,15 +390,15 @@ Le système de paiement en arrière plan doit également être fonctionnel sur H
 8. Toutes les données doivent être stockés dans la base de donnée
 9. La base de données doit être initialisée avec
     ```bash
-    FLASK_DEBUG=True FLASK_APP=inf5190 DB_HOST=localhost DB_USER=user DB_PASSWORD=pass DB_PORT=5432 DB_NAME=inf519 flask init-db
+    FLASK_DEBUG=True FLASK_APP=inf5190 REDIS_URL=redis://localhost DB_HOST=localhost DB_USER=user DB_PASSWORD=pass DB_PORT=5432 DB_NAME=inf519 flask init-db
     ```
 10. À partir de la racine de votre projet, l'application doit pouvoir rouler avec la commande suivante :
     ```bash
-    FLASK_DEBUG=True FLASK_APP=inf5190 DB_HOST=localhost DB_USER=user DB_PASSWORD=pass DB_PORT=5432 DB_NAME=inf519 flask run
+    FLASK_DEBUG=True FLASK_APP=inf5190 REDIS_URL=redis://localhost DB_HOST=localhost DB_USER=user DB_PASSWORD=pass DB_PORT=5432 DB_NAME=inf519 flask run
     ```
     et le gestionnaire de tâche avec
     ```bash
-    FLASK_DEBUG=True FLASK_APP=inf5190 DB_HOST=localhost DB_USER=user DB_PASSWORD=pass DB_PORT=5432 DB_NAME=inf519 flask worker
+    FLASK_DEBUG=True FLASK_APP=inf5190 REDIS_URL=redis://localhost DB_HOST=localhost DB_USER=user DB_PASSWORD=pass DB_PORT=5432 DB_NAME=inf519 flask worker
     ```
 
 ## Critères d'évaluations
