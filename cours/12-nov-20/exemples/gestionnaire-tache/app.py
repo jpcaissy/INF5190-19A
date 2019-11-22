@@ -32,7 +32,7 @@ def view_url(job_id):
         return "Page non récupérée"
 
 def fetch_url(url):
-    with urllib.request.urlopen('http://www.python.org/') as f:
+    with urllib.request.urlopen(url) as f:
         return f.read().decode('utf-8')
 
 @app.cli.command("worker")
