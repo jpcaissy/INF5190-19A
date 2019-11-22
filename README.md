@@ -233,5 +233,8 @@ Il n'y a pas vraiment de solution, mais la branche `solution` contient les fichi
 
 ##### Labo
 
-* Utilisation d'un système de cache
-* Tâche en arrière plan (*background jobs()
+J'ai inclus deux gros exercices dans le laboratoire de ce soir en préparation au travail de session. Si vous n'avez
+pas le temps de compléter la 2e partie, ce n'est pas grave car la semaine prochaine sera consacré à celui-ci.
+
+* [Utilisation d'un système de cache](./cours/12-nov-20/labo/08-redis.md#redis)
+* [Tâche en arrière plan (*background jobs*)](./cours/12-nov-20/labo/08-redis.md#tâche-en-arrière-plan)
