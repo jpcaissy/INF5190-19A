@@ -275,7 +275,7 @@ def show_page():
     url = request.form['url']
 
     job = queue.enqueue(fetch_page, url)
-    return redirect(url_for('fetch_page', job_id=job.id))
+    return redirect(url_for('verify_job', job_id=job.id))
 
 @app.route("/job/<string:job_id>")
 def verify_job(job_id):
