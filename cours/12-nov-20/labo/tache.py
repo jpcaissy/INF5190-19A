@@ -27,7 +27,7 @@ def show_page():
     else:
         return page
 
-@app.route("/<string:job_id>")
+@app.route("/job/<string:job_id>")
 def verify_job(job_id):
     job = queue.fetch_job(job_id)
     if not job.is_finished:

@@ -275,9 +275,9 @@ def show_page():
     url = request.form['url']
 
     job = queue.enqueue(fetch_page, url)
-    return redirect(url_for('fetch_page', job_id=job.id))
+    return redirect(url_for('verify_job', job_id=job.id))
 
-@app.route("/<string:job_id>")
+@app.route("/job/<string:job_id>")
 def verify_job(job_id):
     return
 ```
@@ -285,7 +285,7 @@ def verify_job(job_id):
 5. Dans le contrôleur `verify_job`, on peut vérifier si job est terminée avec `Job.is_finished`
 
 ```python
-@app.route("/<string:job_id>")
+@app.route("/job/<string:job_id>")
 def verify_job(job_id):
     job = queue.fetch_job(job_id)
     if not job.is_finished:
@@ -295,7 +295,7 @@ def verify_job(job_id):
 6. Une fois que la job est terminée, on peut récupérer le résultat de celle-ci (la page web!)
 
 ```python
-@app.route("/<string:job_id>")
+@app.route("/job/<string:job_id>")
 def verify_job(job_id):
     job = queue.fetch_job(job_id)
     if not job.is_finished:
