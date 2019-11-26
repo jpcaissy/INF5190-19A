@@ -238,3 +238,11 @@ pas le temps de compléter la 2e partie, ce n'est pas grave car la semaine proch
 
 * [Utilisation d'un système de cache](./cours/12-nov-20/labo/08-redis.md#redis)
 * [Tâche en arrière plan (*background jobs*)](./cours/12-nov-20/labo/08-redis.md#tâche-en-arrière-plan)
+
+### 13 - 27 novembre
+
+* [Révision finale](./cours/13-nov-27/revision-finale.md)
+
+##### Labo
+
+Suite des laboratoires de la semaine 12.
