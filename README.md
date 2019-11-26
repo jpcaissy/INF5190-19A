@@ -241,7 +241,7 @@ pas le temps de compléter la 2e partie, ce n'est pas grave car la semaine proch
 
 ### 13 - 27 novembre
 
-* [Révision finale](./cours/13-nov-27/revision-finale.md)
+* [Révision finale](./cours/13-nov-27/revision-finale.pdf)
 
 ##### Labo
 
