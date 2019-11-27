@@ -45,6 +45,12 @@ L’évaluation de l’enseignement contribue à la qualité de la formation off
 * Une application Web utilise Redis, Postgres et un serveur HTTP. Quelle est la différence entre l'utilisation de
 conteneurs et la virtualisation complète?
 
+# 14 - Conteneurs
+
+* Comment fonctionne Docker?
+    * Qu'est-ce qu'une image? Un conteneur?
+* Comment sont géré les données et les connexions réseaux si les conteneurs sont isolés et éphémère?
+
 # 15 - Déploiement
 
 * Le modèle à 4 couches (*4-tiers*) : qu'est-ce que c'est?
