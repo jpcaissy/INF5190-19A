@@ -28,6 +28,35 @@ L’évaluation de l’enseignement contribue à la qualité de la formation off
 * L'objectif de l'examen final est de démontrer la compréhension de la matière
     * Établir des liens entre les différents concepts vu en classe
 
+# Questions
+
+**Expliquez la différence entre la neige et la pluie**
+
+## Bonne réponse
+
+* La neige est de couleur blanche et sous forme solide. Puisqu'il s'agit d'eau sous forme solide, elle tombe *généralement*
+en dessous de 0°C, alors que la pluie est de l'eau liquide va tomber généralement en haut de 0°C. 0°C était le point de
+congélation.
+
+*Tisser des liens entre les éléments, expliquer lse subtilités, etc*
+
+## Mauvaise réponse
+
+* La neige est solide et la pluie est liquide
+
+*Réciter mot pour mot des définitions, ne pas mettre en place de contexte, etc*
+
+# Questions
+
+**Pourquoi faut-il utiliser un sel avec une fonction de hachage sur les mots de passes?**
+
+## Bonne réponse
+
+1. Expliquer ce qu'est une fonctoin de hachage
+2. Expliquer pourquoi on doit hacher les mot de passes
+3. Démontrer un exemple d'ajout de sel à une fonction de hachage
+4. Identifier les risques qui sont mitigés par l'ajout d'un sel
+
 # 14 - Virtualisation
 
 * Qu'est-ce que la virtualisation?
@@ -126,6 +155,14 @@ La méthode `retrieve_with` fait un appel distant à un API. Cet appel d'API pre
 
 * Qu'est-ce que la redondance, et pourquoi est-ce que cela permet de rendre une application Web resiliente?
 * À quoi sert l'utilisation d'un algorithme de recul exponentiel?
+    * Pourquoi rajouter un élément de temps aléatoire dans l'algorithme?
+* Expliquez ce qu'est une requête n+1 et dans quel scénario cela peut être problématique
 * Qu'est-ce que le patron disjoncteur (*circuit breaker*) dans le contexte d'une API Rest? Comment est-ce utile?
-    * Comment est-ce que vous intégreriez les délais maximums (*timeout*) avec ce patron?
+
+# 17 - Résilience
+
+* Pourquoi est-ce important de mettre des délais maximal sur les appels d'API distant?
+    * Comment est-ce que vous intégreriez les délais maximums (*timeout*) avec le patron disjoncteur?
 * Quel est l'un des désavantages majeur de l'utilisation de tâches en arrière plan?
+* À quoi sert le *graceful failing*? Donnez un exemple quand ça pourrait être utile
+* Qu'est-ce que la mise en cache et quand est-ce utile d'utiliser une mise à la cache?
