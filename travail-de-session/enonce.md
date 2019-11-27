@@ -16,7 +16,8 @@ header-includes:
 4 | 26 septembre | Instructions de remise sur Github
 5 | 7 octobre | Ajout d'une exigence lors du paiement d'une commande et ajout de précisions sur la récupération des produits
 6 | 11 octobre | Rajout d'une exigence pour la création d'une commande et quelques précisions
-7 | 18 novembre |  Deuxième remise
+7 | 18 novembre | Deuxième remise
+8 | 27 novembre | Précisions sur les erreurs de paiement
 
 ## Informations générale
 
@@ -352,6 +353,7 @@ Content-Type: application/json
       "transaction": {
           "id": "wgEQ4zAUdYqpr21rt8A10dDrKbfcLmqi",
           "success": true,
+          "error": {},
           "amount_charged": 10148
       },
       "shipping_price" : 1000,
@@ -359,6 +361,65 @@ Content-Type: application/json
    }
 }
 ```
+
+---
+
+### Erreur de paiement
+
+Lorsque le service de paiement distant retourne un erreur de paiement, l'erreur doit être persisté dans la base de donnée, et être retourné sur l'objet
+`transaction`. Lors de l'appel `GET` sur la commande, on retourne quand même un statut HTTP 200.
+
+**N.B.: Seul les erreurs retournés par le service distant sont persistés. Le comportement pour les erreurs de validation
+côté client (commande déjà payée, champs manquant) ne changent pas.**
+
+```
+GET /order/<int:order_id>
+Content-Type: application/json
+```
+
+```
+200 OK
+Content-Type: application/json
+```
+
+```json
+{
+   "order" : {
+      "credit_card" : {},
+      "transaction": {
+          "success": false,
+          "error": {
+            "code": "card-declined",
+            "name": "La carte de crédit a été déclinée."
+          },
+          "amount_charged": 10148
+      },
+      "paid": false,
+      "shipping_information" : {
+         "country" : "Canada",
+         "address" : "201, rue Président-Kennedy",
+         "postal_code" : "H2X 3Y7",
+         "city" : "Montréal",
+         "province" : "QC"
+      },
+      "email" : "caissy.jean-philippe@uqam.ca",
+      "total_price" : 9148,
+      "product" : [
+         {
+           "id" : 123,
+           "quantity" : 1
+         },
+         {
+           "id" : 321,
+           "quantity" : 2
+         }
+      ],
+      "shipping_price" : 1000,
+      "id" : 6543
+   }
+}
+```
+
 
 ## Déploiement
 
