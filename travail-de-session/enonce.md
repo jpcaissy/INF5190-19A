@@ -181,7 +181,7 @@ Content-Type: application/json
 ```json
 { "products": [
         { "id": 123, "quantity": 2 },
-        { "id": 321, "quantity": 1 },
+        { "id": 321, "quantity": 1 }
     ]
 }
 ```
