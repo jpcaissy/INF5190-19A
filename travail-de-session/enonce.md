@@ -333,7 +333,7 @@ Content-Type: application/json
       "email" : "caissy.jean-philippe@uqam.ca",
       "total_price" : 9148,
       "paid": true,
-      "product" : [
+      "products" : [
          {
            "id" : 123,
            "quantity" : 1
@@ -404,7 +404,7 @@ Content-Type: application/json
       },
       "email" : "caissy.jean-philippe@uqam.ca",
       "total_price" : 9148,
-      "product" : [
+      "products" : [
          {
            "id" : 123,
            "quantity" : 1
