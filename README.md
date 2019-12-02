@@ -246,3 +246,12 @@ pas le temps de compléter la 2e partie, ce n'est pas grave car la semaine proch
 ##### Labo
 
 Suite des laboratoires de la semaine 12.
+
+### 14 - 4 décembre
+
+Il n'y a pas de cours cette semaine. Par contre, je suis disponible de 18h à 20h pour du support sur la matière,
+le travail de session et les laboratoires dans le local du cours.
+
+##### Labo
+
+Support pour le travail de session
