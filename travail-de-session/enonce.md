@@ -18,6 +18,7 @@ header-includes:
 6 | 11 octobre | Rajout d'une exigence pour la création d'une commande et quelques précisions
 7 | 18 novembre | Deuxième remise
 8 | 27 novembre | Précisions sur les erreurs de paiement
+9 | 4 décembre | Correction de coquille sur le schéma JSON et la version de Postgres
 
 ## Informations générale
 
@@ -157,7 +158,7 @@ $ docker run -e REDIS_URL=redis://localhost -e DB_HOST=localhost -e DB_USER=user
 
 Vous devez également ajouter un fichier `docker-compose.yml` qui sera responsable de lancer les deux dépendances suivantes :
 
-* PostgreSQL version 12.0
+* PostgreSQL version 12
 * Redis version 5
 
 PostgreSQL doit utiliser un volume afin de persister les données entre chaque instanciation de l'image Docker.
@@ -333,7 +334,7 @@ Content-Type: application/json
       "email" : "caissy.jean-philippe@uqam.ca",
       "total_price" : 9148,
       "paid": true,
-      "product" : [
+      "products" : [
          {
            "id" : 123,
            "quantity" : 1
@@ -404,7 +405,7 @@ Content-Type: application/json
       },
       "email" : "caissy.jean-philippe@uqam.ca",
       "total_price" : 9148,
-      "product" : [
+      "products" : [
          {
            "id" : 123,
            "quantity" : 1
