@@ -18,6 +18,7 @@ header-includes:
 6 | 11 octobre | Rajout d'une exigence pour la création d'une commande et quelques précisions
 7 | 18 novembre | Deuxième remise
 8 | 27 novembre | Précisions sur les erreurs de paiement
+9 | 4 décembre | Changement de la date de remise et correction de coquille sur le schéma JSON et la version de Postgres
 
 ## Informations générale
 
@@ -43,7 +44,9 @@ Le travail se fait individuellement ou en équipe de 2.
 Date | Description | Pondération
 -----|-------------|------------
 4 novembre 21h | Première remise | 15%
-16 décembre 21h | Remise finale | 15%
+18 décembre 21h (nouvelle date) | Remise finale | 15%
+
+**N.B.: La remise finale du travail de session est reportée au 18 décembre**
 
 Le projet de session représente 30% de la note globale du cours.
 
@@ -157,7 +160,7 @@ $ docker run -e REDIS_URL=redis://localhost -e DB_HOST=localhost -e DB_USER=user
 
 Vous devez également ajouter un fichier `docker-compose.yml` qui sera responsable de lancer les deux dépendances suivantes :
 
-* PostgreSQL version 12.0
+* PostgreSQL version 12
 * Redis version 5
 
 PostgreSQL doit utiliser un volume afin de persister les données entre chaque instanciation de l'image Docker.
@@ -333,7 +336,7 @@ Content-Type: application/json
       "email" : "caissy.jean-philippe@uqam.ca",
       "total_price" : 9148,
       "paid": true,
-      "product" : [
+      "products" : [
          {
            "id" : 123,
            "quantity" : 1
@@ -404,7 +407,7 @@ Content-Type: application/json
       },
       "email" : "caissy.jean-philippe@uqam.ca",
       "total_price" : 9148,
-      "product" : [
+      "products" : [
          {
            "id" : 123,
            "quantity" : 1
