@@ -18,7 +18,7 @@ header-includes:
 6 | 11 octobre | Rajout d'une exigence pour la création d'une commande et quelques précisions
 7 | 18 novembre | Deuxième remise
 8 | 27 novembre | Précisions sur les erreurs de paiement
-9 | 4 décembre | Correction de coquille sur le schéma JSON et la version de Postgres
+9 | 4 décembre | Changement de la date de remise et correction de coquille sur le schéma JSON et la version de Postgres
 
 ## Informations générale
 
@@ -44,7 +44,9 @@ Le travail se fait individuellement ou en équipe de 2.
 Date | Description | Pondération
 -----|-------------|------------
 4 novembre 21h | Première remise | 15%
-16 décembre 21h | Remise finale | 15%
+18 décembre 21h (nouvelle date) | Remise finale | 15%
+
+**N.B.: La remise finale du travail de session est reportée au 18 décembre**
 
 Le projet de session représente 30% de la note globale du cours.
 
