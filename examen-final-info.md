@@ -28,7 +28,8 @@ Toute la matière vue en cours est couverte par l'examen, incluant le contenu de
 faites par les conférenciers invités du cours 12 et 13 ne sont pas couverts par l'examen.
 
 Vous n'aurez pas à écrire du code Python, ni des fichiers `Dockerfile` ou `docker-compose.yml`, mais il peut y avoir
-des questions de compréhension sur ces sujets, ainsi que les librairies vues en laboratoire (e.g.: `Flask`, `Peewee`).
+des questions de compréhension sur ces sujets, ainsi que les librairies vues en laboratoire (e.g.: `Flask`, `Peewee`),
+les exemples de codes et des laboratoires.
 
 ## Types de questions
 
