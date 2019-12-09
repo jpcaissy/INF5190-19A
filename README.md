@@ -20,6 +20,8 @@ L'examen est disponible ici : [examen-intra.pdf](./examen-intra.pdf).
 
 L'examen final a lieu le mercredi 11 décembre 2019 à 18h.
 
+Les informations sur l'examen intra sont disponibles ici : [examen-final-info.pdf](./examen-final-info.pdf).
+
 ## Travail de session
 
 L'énoncé pour le travail de session est en ligne : [travail-de-session/enonce.pdf](travail-de-session/enonce.pdf)
