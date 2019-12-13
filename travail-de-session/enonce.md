@@ -258,29 +258,6 @@ La commande suivante sera utilisée pour lancer le gestionnaire de tâches :
 $ FLASK_DEBUG=True FLASK_APP=inf5190 REDIS_URL=redis://localhost DB_HOST=localhost DB_USER=user DB_PASSWORD=pass DB_PORT=5432 DB_NAME=inf519 flask worker
 ```
 
-Lorsqu'une commande est entrain d'être payée, le code HTTP 202 doit être retourné avec aucun corps de réponse.
-
-```
-PUT /order/<int:order_id>
-Content-Type: application/json
-```
-
-```json
-{
-   "credit_card" : {
-      "name" : "John Doe",
-      "number" : "4242 4242 4242 4242",
-      "expiration_year" : 2024,
-      "cvv" : "123",
-      "expiration_month" : 9
-   }
-}
-```
-
-```
-202 Accepted
-```
-
 ---
 
 Lorsqu'une commande est entrain d'être payée, l'affichage de celle-ci doit retourner un code HTTP 202 avec
